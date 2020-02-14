@@ -38,10 +38,8 @@ class signUp: UIViewController {
             let alert = UIAlertController(title: "Added", message: "Account has been created!", preferredStyle: UIAlertController.Style.alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
                 
-                self.performSegue(withIdentifier: "unwindSegue", sender: self)//NOT SEGUE HERE
-                
-                
-                print("success")
+                self.performSegue(withIdentifier: "unwindSegue", sender: self)
+
               }))
             present(alert, animated: true, completion: nil)
             

@@ -10,6 +10,7 @@ import Foundation
 
 class Account {
     
+      
     let userData = User() // the model class
     var userInstance = User.AccountStruct(username: "", homeLanguage: "")
     
@@ -33,4 +34,10 @@ class Account {
     func whoIsLoggedIn() {
         print(userInstance.username + " <> " + userInstance.homeLanguage)
     }
+    
+    func logout() {
+        userInstance.username = ""
+        userInstance.homeLanguage = ""
+    }
+    
 }

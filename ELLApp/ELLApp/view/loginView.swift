@@ -18,11 +18,15 @@ class login: UIViewController {
         if(!accountController.login(username: username)) {
             let alert = UIAlertController(title: "No user found", message: "This user was not found", preferredStyle: UIAlertController.Style.alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: { (action: UIAlertAction!) in
-            print("User cancels")
             }))
             present(alert, animated: true, completion: nil)
         } else {
-            accountController.whoIsLoggedIn()
+            
+            
+            self.performSegue(withIdentifier: "loginSegue", sender: self)
+            
+            
+            
         }
     }
     

@@ -187,14 +187,27 @@
             </objects>
             <point key="canvasLocation" x="275" y="816"/>
         </scene>
-        <!--View Controller-->
+        <!--Main Menu-->
         <scene sceneID="LmS-TR-ysM">
             <objects>
-                <viewController id="3Z7-kW-DCV" sceneMemberID="viewController">
+                <viewController id="3Z7-kW-DCV" customClass="mainMenu" customModule="ELLApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZlZ-Di-ZMi">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Km-eR-n4p">
+                                <rect key="frame" x="486" y="369" width="52" height="30"/>
+                                <state key="normal" title="Log out"/>
+                                <connections>
+                                    <action selector="logout:" destination="3Z7-kW-DCV" eventType="touchUpInside" id="yKP-KA-5ND"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="9Km-eR-n4p" firstAttribute="centerY" secondItem="ZlZ-Di-ZMi" secondAttribute="centerY" id="Hgr-pP-DGo"/>
+                            <constraint firstItem="9Km-eR-n4p" firstAttribute="centerX" secondItem="ZlZ-Di-ZMi" secondAttribute="centerX" id="WhW-JM-Azv"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="fde-y3-1Ju"/>
                     </view>
                     <navigationItem key="navigationItem" id="hkW-va-bwy"/>
