@@ -22,7 +22,5 @@ class login: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-    @IBAction func unwindToLogin(segue: UIStoryboardSegue)
-    {
-    }
+
 }

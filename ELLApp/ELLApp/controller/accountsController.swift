@@ -10,7 +10,7 @@ import Foundation
 
 class Account {
     
-    var userData = User() // the model class
+    let userData = User() // the model class
     
     func signUp(username: String, lang: String){
         

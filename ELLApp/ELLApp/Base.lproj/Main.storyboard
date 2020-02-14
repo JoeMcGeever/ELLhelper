@@ -155,7 +155,7 @@
                                         <rect key="frame" x="98" y="172" width="55" height="30"/>
                                         <state key="normal" title="Confirm"/>
                                         <connections>
-                                            <segue destination="JPN-rO-E7m" kind="unwind" unwindAction="unwindToLoginWithSegue:" id="CdA-ut-a1x"/>
+                                            <action selector="confirm:" destination="3So-In-NYa" eventType="touchUpInside" id="JCZ-o6-NAP"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -169,6 +169,11 @@
                         <viewLayoutGuide key="safeArea" id="sIk-HR-RNg"/>
                     </view>
                     <navigationItem key="navigationItem" id="2ju-8T-KNN"/>
+                    <connections>
+                        <outlet property="languageText" destination="JlL-DW-JGc" id="q84-lw-MXc"/>
+                        <outlet property="usernameText" destination="cYX-sF-nqu" id="EHL-7i-6vO"/>
+                        <segue destination="JPN-rO-E7m" kind="unwind" identifier="unwindSegue" unwindAction="unwindToLoginWithSegue:" id="E7f-3J-W7g"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dVS-GL-hpE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="JPN-rO-E7m" userLabel="Exit" sceneMemberID="exit"/>
