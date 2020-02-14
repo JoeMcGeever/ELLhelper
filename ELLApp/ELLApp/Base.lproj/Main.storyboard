@@ -97,7 +97,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="bbi-g7-NO7">
-                                <rect key="frame" x="386.5" y="283" width="251" height="202"/>
+                                <rect key="frame" x="386.5" y="255.5" width="251" height="257"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New user" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sf8-2b-MNb">
                                         <rect key="frame" x="51.5" y="0.0" width="148" height="41"/>
@@ -156,6 +156,13 @@
                                         <state key="normal" title="Confirm"/>
                                         <connections>
                                             <action selector="confirm:" destination="3So-In-NYa" eventType="touchUpInside" id="JCZ-o6-NAP"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zrK-4O-UD9">
+                                        <rect key="frame" x="101.5" y="227" width="48" height="30"/>
+                                        <state key="normal" title="Cancel"/>
+                                        <connections>
+                                            <segue destination="JPN-rO-E7m" kind="unwind" unwindAction="unwindToLoginWithSegue:" id="fXk-Z1-BMK"/>
                                         </connections>
                                     </button>
                                 </subviews>

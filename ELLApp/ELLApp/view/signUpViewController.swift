@@ -34,7 +34,6 @@ class signUp: UIViewController {
     }
     
     func display(success: Bool){
-        
         if(success == true){
             let alert = UIAlertController(title: "Added", message: "Account has been created!", preferredStyle: UIAlertController.Style.alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in

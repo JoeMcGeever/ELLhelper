@@ -12,6 +12,10 @@ import UIKit
 
 class User {
     
+    struct AccountStruct { //the structure of accounts, more can be added to accounts now, like progress trackers
+        var username : String
+        var homeLanguage : String
+    }
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
@@ -29,8 +33,26 @@ class User {
         } catch {
             return false
         }
-        
-        
+    }
+    
+    func login(username : String) -> AccountStruct{
+        var name = ""
+        var lang = ""
+        let context = appDelegate.persistentContainer.viewContext
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Accounts")
+        request.returnsObjectsAsFaults = false
+        request.predicate = NSPredicate(format: "username = %@", username) //filter search with this predicate
+        do {
+            let result = try context.fetch(request)
+            for data in result as! [NSManagedObject] {
+                name = (data.value(forKey: "username") as! String)
+                lang = (data.value(forKey: "homeLanguage") as! String)
+          }
+        } catch {
+            print("Failed")
+        }
+        let userInstance = AccountStruct(username: name, homeLanguage: lang)
+        return userInstance
     }
     
     
