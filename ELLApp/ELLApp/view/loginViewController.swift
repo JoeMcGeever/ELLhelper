@@ -14,8 +14,11 @@ class login: UIViewController {
     let userCoreData = Account()
     
     @IBAction func confirmButton(_ sender: Any) {
-        let username = usernameText.text
+        //let username = usernameText.text
     }
+    
+    @IBAction func unwindToLogin(segue: UIStoryboardSegue) {}
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
