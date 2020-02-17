@@ -31,13 +31,13 @@ class Account {
         return true
     }
     
-    func whoIsLoggedIn() {
-        print(userInstance.username + " <> " + userInstance.homeLanguage)
-    }
+//    func whoIsLoggedIn() {
+//        print(userInstance.username + " <> " + userInstance.homeLanguage)
+//    }
     
     func logout() {
-        userInstance.username = ""
-        userInstance.homeLanguage = ""
+        //in this function, save all details
+        print(userInstance.username + " is now logged out")
     }
     
 }

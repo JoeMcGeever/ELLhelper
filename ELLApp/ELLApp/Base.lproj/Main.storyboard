@@ -211,8 +211,12 @@
                         <viewLayoutGuide key="safeArea" id="fde-y3-1Ju"/>
                     </view>
                     <navigationItem key="navigationItem" id="hkW-va-bwy"/>
+                    <connections>
+                        <segue destination="MhJ-xg-w2k" kind="unwind" identifier="logOutSegue" unwindAction="unwindToLoginWithSegue:" id="AXf-qM-cDr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mco-Z3-Rdx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="MhJ-xg-w2k" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="980" y="-37"/>
         </scene>
@@ -221,7 +225,8 @@
             <objects>
                 <navigationController navigationBarHidden="YES" id="A1a-QB-ddJ" sceneMemberID="viewController">
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Acd-ER-er6">
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="Acd-ER-er6">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>

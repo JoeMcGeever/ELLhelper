@@ -10,21 +10,17 @@ import Foundation
 
 class mainMenu : UIViewController {
     
-    let accountController = Account() //HERE IS THE PROBLEM
-    // THE ACCOUNT NEEDS TO BE A SINGELTON
-    // OR GLOBAL ACCOUNTCONTROLLER :YIKES:
-    // OR PASS THE OBJECT (but every time
-    //acc maybe it wont be, most pages wont need the info
-    //main will, settings will --> they can pass data
-    //back to main to be updated fore thew account
+    var accountInstance = Account() //this gets populated with an account instance from the login page
+    
     
     
     @IBAction func logout(_ sender: Any) {
-        accountController.whoIsLoggedIn()
-        accountController.logout()
-        //self.performSegue(withIdentifier: "unwindSegue", sender: self)
+        //accountInstance.whoIsLoggedIn()
+        accountInstance.logout() //maybe delete the obj instead and segue back to login
+        self.performSegue(withIdentifier: "logOutSegue", sender: self)
         
     }
     
     
 }
+

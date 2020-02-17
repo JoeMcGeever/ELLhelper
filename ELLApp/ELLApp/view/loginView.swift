@@ -37,6 +37,17 @@ class login: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //sens the account instance to the main menu page
+        if segue.identifier == "loginSegue" {
+            let mainMenu = segue.destination as! mainMenu
+            mainMenu.accountInstance = accountController
+        }
+        
+    }
+    
+    
 
 
 }
