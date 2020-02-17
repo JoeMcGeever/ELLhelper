@@ -10,6 +10,8 @@ import UIKit
 
 class PageView: UIPageViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
     
+    var book = story.AccountStruct() //to be populated with relevant book from the title page (sent through the segue)
+    
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         
@@ -36,6 +38,12 @@ class PageView: UIPageViewController, UIPageViewControllerDelegate, UIPageViewCo
         return orderedViewControllers[previousIndex]
     }
     
+    
+    
+    
+    
+    
+    
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         
         //VIEW CONTOLER AFTER
@@ -57,14 +65,29 @@ class PageView: UIPageViewController, UIPageViewControllerDelegate, UIPageViewCo
     }
     
     
+    
+    
+    
+    
     lazy var orderedViewControllers: [UIViewController] = {
         //lazy means it isnt initialised until it is first used
         //here they store the page view controllers
-        return [self.newView(view : "sbRed"),
-                self.newView(view: "sbBlue")]
+        return [self.newView(view : "storyPage"), //maybe just keep sending the same view but with different parameters
+                self.newView(view: "storyPage")]
     }()
     
+    
+    
+    
+    
+    
+    
+    
     var pageControl = UIPageControl() //programatically adding a page controller
+    
+    
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,11 +99,11 @@ class PageView: UIPageViewController, UIPageViewControllerDelegate, UIPageViewCo
                                completion :nil) // here it is nil, but if you wanted to do code every time the user swipes, here it is
             //so maybe for example (repeating this page over and over) ->  populate text and image with the next page stuff
         }
-
         self.delegate = self
-        configurePageControl()
-        
+        configurePageControl() //to configure the page controller
     }
+    
+    
     
     func configurePageControl() { //this configures where the page controller will be on the screen
         pageControl = UIPageControl(frame: CGRect(x: 0, y: UIScreen.main.bounds.maxY - 50, width: UIScreen.main.bounds.width, height: 50))
@@ -92,15 +115,18 @@ class PageView: UIPageViewController, UIPageViewControllerDelegate, UIPageViewCo
         self.view.addSubview(pageControl)
     }
     
+    
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted: Bool) {
         let pageContentViewController = pageViewController.viewControllers![0]
         self.pageControl.currentPage = orderedViewControllers.firstIndex(of: pageContentViewController)!
     }
     
+    
+    
+    
     func newView(view : String) -> UIViewController {
         return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: view)
         //maybe change the lazy var to be one, and this function refreshes current view but with changed param
-        
     }
     
 
