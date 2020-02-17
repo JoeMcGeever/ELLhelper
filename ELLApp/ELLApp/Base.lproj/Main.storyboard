@@ -292,10 +292,10 @@
             </objects>
             <point key="canvasLocation" x="1525" y="1618"/>
         </scene>
-        <!--View Controller-->
+        <!--Story Page View-->
         <scene sceneID="XaI-Ae-c6y">
             <objects>
-                <viewController storyboardIdentifier="storyPage" id="glD-Su-dFD" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="storyPage" id="glD-Su-dFD" customClass="StoryPageView" customModule="ELLApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="A08-Pk-aqH">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

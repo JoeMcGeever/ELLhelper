@@ -72,7 +72,22 @@ class PageView: UIPageViewController, UIPageViewControllerDelegate, UIPageViewCo
     lazy var orderedViewControllers: [UIViewController] = {
         //lazy means it isnt initialised until it is first used
         //here they store the page view controllers
-        return [self.newView(view : "storyPage"), //maybe just keep sending the same view but with different parameters
+        //so maybe populate the objects into an array the number of times there is something
+        
+        //loop over size of text array
+        //append relevant text to each one, and return
+        
+        for i in book.text.count{
+            
+        }
+        
+        let storyPage = self.newView(view: "storyPage") as! StoryPageView
+        storyPage.text = "SENT FROM PAGE SCROLLER"
+        
+        
+        
+        return [storyPage,
+                self.newView(view : "storyPage"), //maybe just keep sending the same view but with different parameters
                 self.newView(view: "storyPage")]
     }()
     
@@ -126,7 +141,6 @@ class PageView: UIPageViewController, UIPageViewControllerDelegate, UIPageViewCo
     
     func newView(view : String) -> UIViewController {
         return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: view)
-        //maybe change the lazy var to be one, and this function refreshes current view but with changed param
     }
     
 
