@@ -300,38 +300,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="233" translatesAutoresizingMaskIntoConstraints="NO" id="PyH-Wz-0Rj">
-                                <rect key="frame" x="20" y="20" width="984" height="728"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Am3-al-HGO">
-                                        <rect key="frame" x="0.0" y="0.0" width="984" height="128"/>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3c8-eY-YIq">
-                                        <rect key="frame" x="0.0" y="361" width="984" height="367"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="3c8-eY-YIq" firstAttribute="leading" secondItem="PyH-Wz-0Rj" secondAttribute="leading" id="0nF-dx-AP7"/>
-                                    <constraint firstAttribute="trailing" secondItem="3c8-eY-YIq" secondAttribute="trailing" id="2Pz-9T-F8d"/>
-                                    <constraint firstAttribute="trailing" secondItem="Am3-al-HGO" secondAttribute="trailing" id="fjX-fc-tUZ"/>
-                                    <constraint firstItem="Am3-al-HGO" firstAttribute="leading" secondItem="PyH-Wz-0Rj" secondAttribute="leading" id="uJT-Sf-fZ3"/>
-                                </constraints>
-                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jhy-Ti-DYV">
+                                <rect key="frame" x="476.5" y="366" width="71" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="PyH-Wz-0Rj" firstAttribute="centerX" secondItem="A08-Pk-aqH" secondAttribute="centerX" id="3zv-qP-jXa"/>
-                            <constraint firstItem="zFu-Fu-MeK" firstAttribute="trailing" secondItem="PyH-Wz-0Rj" secondAttribute="trailing" constant="20" id="Cgp-HP-O8M"/>
-                            <constraint firstItem="zFu-Fu-MeK" firstAttribute="bottom" secondItem="PyH-Wz-0Rj" secondAttribute="bottom" constant="20" id="F8F-6F-4gX"/>
-                            <constraint firstItem="PyH-Wz-0Rj" firstAttribute="centerY" secondItem="A08-Pk-aqH" secondAttribute="centerY" id="Ku1-D2-bAD"/>
-                            <constraint firstItem="PyH-Wz-0Rj" firstAttribute="leading" secondItem="zFu-Fu-MeK" secondAttribute="leading" constant="20" id="ang-Wm-3eX"/>
-                            <constraint firstItem="PyH-Wz-0Rj" firstAttribute="top" secondItem="zFu-Fu-MeK" secondAttribute="top" constant="20" id="f8Q-xl-NBg"/>
+                            <constraint firstItem="Jhy-Ti-DYV" firstAttribute="centerY" secondItem="A08-Pk-aqH" secondAttribute="centerY" id="2an-Tn-MH1"/>
+                            <constraint firstItem="Jhy-Ti-DYV" firstAttribute="centerX" secondItem="A08-Pk-aqH" secondAttribute="centerX" id="Ubt-AZ-yIC"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zFu-Fu-MeK"/>
                     </view>
+                    <connections>
+                        <outlet property="labelForText" destination="Jhy-Ti-DYV" id="Np6-Bz-uGK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="91n-73-hso" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

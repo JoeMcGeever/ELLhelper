@@ -70,25 +70,20 @@ class PageView: UIPageViewController, UIPageViewControllerDelegate, UIPageViewCo
     
     
     lazy var orderedViewControllers: [UIViewController] = {
-        //lazy means it isnt initialised until it is first used
-        //here they store the page view controllers
-        //so maybe populate the objects into an array the number of times there is something
+
+        //here, the text array is looped over
+        //appending the text to each of the same page instance
+        //in order
+
+        var pagesUI = [UIViewController]()
         
-        //loop over size of text array
-        //append relevant text to each one, and return
-        
-        for i in book.text.count{
-            
+        for i in book.text{
+            let storyPage = self.newView(view: "storyPage") as! StoryPageView
+            storyPage.text = i
+            pagesUI.append(storyPage)
         }
         
-        let storyPage = self.newView(view: "storyPage") as! StoryPageView
-        storyPage.text = "SENT FROM PAGE SCROLLER"
-        
-        
-        
-        return [storyPage,
-                self.newView(view : "storyPage"), //maybe just keep sending the same view but with different parameters
-                self.newView(view: "storyPage")]
+        return pagesUI
     }()
     
     

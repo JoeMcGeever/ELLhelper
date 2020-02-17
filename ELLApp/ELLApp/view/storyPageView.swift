@@ -13,11 +13,12 @@ import UIKit
 class  StoryPageView : UIViewController {
     
     var text : String = ""
+    @IBOutlet weak var labelForText: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        print(text + " <- print")
+        labelForText.text = text
     }
     
 }
