@@ -4,7 +4,11 @@
         <attribute name="homeLanguage" optional="YES" attributeType="String"/>
         <attribute name="username" optional="YES" attributeType="String"/>
     </entity>
+    <entity name="Story1" representedClassName="Story1" syncable="YES" codeGenerationType="class">
+        <attribute name="text" optional="YES" attributeType="String"/>
+    </entity>
     <elements>
         <element name="Accounts" positionX="-63" positionY="-18" width="128" height="73"/>
+        <element name="Story1" positionX="-63" positionY="0" width="128" height="58"/>
     </elements>
 </model>
