@@ -12,6 +12,8 @@ import UIKit
 
 class matchUp : UIViewController {
     
+    
+    
     @IBAction func playButton(_ sender: Any) {
         //here it should play the relevant sound
     }
@@ -22,5 +24,29 @@ class matchUp : UIViewController {
     }
     
     
+    @IBAction func upperCentralImage(_ sender: Any) {
+        //if incorrect, do nothing (or play an error sound)
+        //if correct, display image larger with "well done", and reload view with next answers etc
+    }
+    
+    @IBAction func upperRightImage(_ sender: Any) {
+        
+    }
+    
+    @IBAction func lowerRightImage(_ sender: Any) {
+        
+    }
+    
+    @IBAction func lowerCentralImage(_ sender: Any) {
+        
+    }
+    
+    @IBAction func lowerLeftImage(_ sender: Any) {
+        
+    }
+    
+    @IBAction func upperLeftImage(_ sender: Any) {
+        
+    }
     
 }
