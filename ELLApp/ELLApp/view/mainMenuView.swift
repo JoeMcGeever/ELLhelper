@@ -12,6 +12,7 @@ class mainMenu : UIViewController {
     
     var accountInstance = Account() //this gets populated with an account instance from the login page
     
+    @IBAction func unwindToMainMenu(segue: UIStoryboardSegue) {} 
     
     
     @IBAction func logout(_ sender: Any) {
