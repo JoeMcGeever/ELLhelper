@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="no4-sG-rna">
     <device id="ipad9_7" orientation="landscape" layout="fullscreen" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
@@ -355,10 +355,10 @@
         <!--Navigation Controller-->
         <scene sceneID="nyY-1B-9AW">
             <objects>
-                <navigationController modalPresentationStyle="overFullScreen" navigationBarHidden="YES" id="7wk-6A-N6i" sceneMemberID="viewController">
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                <navigationController modalPresentationStyle="overFullScreen" id="7wk-6A-N6i" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="buB-SL-A5f">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="50"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -369,7 +369,7 @@
             </objects>
             <point key="canvasLocation" x="-690" y="-73"/>
         </scene>
-        <!--Match Up-->
+        <!--Title-->
         <scene sceneID="PXU-KM-YlG">
             <objects>
                 <viewController id="no4-sG-rna" customClass="matchUp" sceneMemberID="viewController">
@@ -391,7 +391,7 @@
                                     <outletCollection property="gestureRecognizers" destination="Udo-TU-gdG" appends="YES" id="NsQ-T2-0yS"/>
                                 </connections>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="y7I-tH-EdU">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Green" translatesAutoresizingMaskIntoConstraints="NO" id="y7I-tH-EdU">
                                 <rect key="frame" x="392" y="45" width="240" height="128"/>
                                 <gestureRecognizers/>
                                 <constraints>
@@ -401,7 +401,7 @@
                                     <outletCollection property="gestureRecognizers" destination="ZKA-oj-bgg" appends="YES" id="VTA-mQ-gsn"/>
                                 </connections>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="94c-JC-9Xz">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Orange" translatesAutoresizingMaskIntoConstraints="NO" id="94c-JC-9Xz">
                                 <rect key="frame" x="764" y="180" width="240" height="128"/>
                                 <gestureRecognizers/>
                                 <constraints>
@@ -411,7 +411,7 @@
                                     <outletCollection property="gestureRecognizers" destination="a2e-yY-F01" appends="YES" id="Szt-26-ity"/>
                                 </connections>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1n0-6k-tsA">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Red" translatesAutoresizingMaskIntoConstraints="NO" id="1n0-6k-tsA">
                                 <rect key="frame" x="764" y="460" width="240" height="128"/>
                                 <gestureRecognizers/>
                                 <constraints>
@@ -421,7 +421,7 @@
                                     <outletCollection property="gestureRecognizers" destination="w2m-zk-OmU" appends="YES" id="w8I-G8-g8N"/>
                                 </connections>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uHD-CJ-3Ac">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Yellow" translatesAutoresizingMaskIntoConstraints="NO" id="uHD-CJ-3Ac">
                                 <rect key="frame" x="392" y="620" width="240" height="128"/>
                                 <gestureRecognizers/>
                                 <constraints>
@@ -431,14 +431,7 @@
                                     <outletCollection property="gestureRecognizers" destination="UiW-wL-lpJ" appends="YES" id="3gS-mW-oSI"/>
                                 </connections>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Avx-73-hS2">
-                                <rect key="frame" x="20" y="180" width="240" height="128"/>
-                                <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="gdA-hC-bxl" appends="YES" id="6pj-or-jgo"/>
-                                </connections>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="s4C-uD-MYT">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Purple" translatesAutoresizingMaskIntoConstraints="NO" id="s4C-uD-MYT">
                                 <rect key="frame" x="20" y="460" width="240" height="128"/>
                                 <gestureRecognizers/>
                                 <constraints>
@@ -447,6 +440,13 @@
                                 </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="EdR-ls-8cE" appends="YES" id="9kX-sj-UGC"/>
+                                </connections>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Blue" translatesAutoresizingMaskIntoConstraints="NO" id="Avx-73-hS2">
+                                <rect key="frame" x="20" y="180" width="240" height="128"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="gdA-hC-bxl" appends="YES" id="6pj-or-jgo"/>
                                 </connections>
                             </imageView>
                         </subviews>
@@ -475,8 +475,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="L2K-S6-3vY"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="aht-nk-9hA">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="Y7F-fr-Gbj"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="playButton" destination="dXO-Ar-dTI" id="GF2-J9-QvQ"/>
+                        <segue destination="RxS-dq-VJV" kind="presentation" identifier="correctSegue" id="jcF-u6-aN1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zgO-JV-UMc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -516,10 +520,55 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1036.5234375" y="-1073.4375"/>
+            <point key="canvasLocation" x="1685" y="-1073"/>
+        </scene>
+        <!--Correct Match-->
+        <scene sceneID="eCq-Mq-VM8">
+            <objects>
+                <viewController id="RxS-dq-VJV" customClass="correctMatch" customModule="ELLApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cav-fH-hJc">
+                        <rect key="frame" x="0.0" y="0.0" width="712" height="728"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qoh-hy-NCE">
+                                <rect key="frame" x="236" y="300" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Well done!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3rY-WT-MuW">
+                                <rect key="frame" x="256" y="109" width="201" height="54"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SET TO BE SENT COLOUR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pBo-36-1px">
+                                <rect key="frame" x="254" y="519" width="203" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="CSH-hc-JZP"/>
+                    </view>
+                    <connections>
+                        <outlet property="image" destination="Qoh-hy-NCE" id="dzR-9R-txV"/>
+                        <outlet property="label" destination="pBo-36-1px" id="OnV-ZC-9cV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yCz-vM-ukP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2521" y="-1069"/>
         </scene>
     </scenes>
     <resources>
+        <image name="Blue" width="600" height="568"/>
+        <image name="Green" width="600" height="568"/>
+        <image name="Orange" width="298" height="255"/>
+        <image name="Purple" width="543" height="407"/>
+        <image name="Red" width="300" height="219"/>
+        <image name="Yellow" width="298" height="282"/>
         <image name="play.circle" catalog="system" width="64" height="60"/>
     </resources>
 </document>

@@ -8,44 +8,95 @@
 
 import Foundation
 import UIKit
+import AVFoundation //to work with audio
 
 
 class matchUp : UIViewController {
     
     
+    var questionIndex = 0
+    var questions  = ["Red", "Yellow", "Blue", "Purple", "Orange", "Green"].shuffled() //randomizes this order
+    
     
     @IBAction func playButton(_ sender: Any) {
         //here it should play the relevant sound
+        let currentWord = questions[questionIndex]
+        let utterance = AVSpeechUtterance(string: currentWord)
+            utterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
+            utterance.rate = 0.1
+        
+            let synthesizer = AVSpeechSynthesizer()
+            synthesizer.speak(utterance)
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
     
     
-    @IBAction func upperCentralImage(_ sender: Any) {
+    func nextQuestion() {
+    questionIndex += 1
+        if questionIndex >= questions.count { //if there are no more questions
+            performSegue(withIdentifier: "correctSegue", sender: nil) //programatically segue
+        }
+    }
+    
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    func correct(colour : String) {
+        //segue to correct screeen (present over the top of page)
+        //send the colour also to affect display
+        nextQuestion()
+    }
+    
+    
+    
+    @IBAction func green(_ sender: Any) {
         //if incorrect, do nothing (or play an error sound)
         //if correct, display image larger with "well done", and reload view with next answers etc
+        if(questions[questionIndex] == "Green"){
+            correct(colour: "Green")
+        }
     }
     
-    @IBAction func upperRightImage(_ sender: Any) {
+    @IBAction func orange(_ sender: Any) {
+        if(questions[questionIndex] == "Orange"){
+            correct(colour: "Orange")
+        }    }
+    
+    @IBAction func red(_ sender: Any) {
+        if(questions[questionIndex] == "Red"){
+            correct(colour: "Red")
+        }
         
     }
     
-    @IBAction func lowerRightImage(_ sender: Any) {
+    @IBAction func yellow(_ sender: Any) {
+        if(questions[questionIndex] == "Yellow"){
+            correct(colour: "Yellow")
+        }
         
     }
     
-    @IBAction func lowerCentralImage(_ sender: Any) {
+    @IBAction func purple(_ sender: Any) {
+        if(questions[questionIndex] == "Purple"){
+            correct(colour: "Purple")
+        }
         
     }
     
-    @IBAction func lowerLeftImage(_ sender: Any) {
-        
-    }
-    
-    @IBAction func upperLeftImage(_ sender: Any) {
+    @IBAction func blue(_ sender: Any) {
+        if(questions[questionIndex] == "Blue"){
+            correct(colour: "Blue")
+        }
         
     }
     
