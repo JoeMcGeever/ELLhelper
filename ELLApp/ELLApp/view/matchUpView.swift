@@ -16,14 +16,16 @@ class matchUp : UIViewController {
     
     var questionIndex = 0
     var questions  = ["Red", "Yellow", "Blue", "Purple", "Orange", "Green"].shuffled() //randomizes this order
+    var utteranceRate : Float = 0.1
     
+    @IBAction func unwindToMatchUp(segue: UIStoryboardSegue) {} //so the gesture on the correct page will return it to this page
     
     @IBAction func playButton(_ sender: Any) {
         //here it should play the relevant sound
         let currentWord = questions[questionIndex]
         let utterance = AVSpeechUtterance(string: currentWord)
             utterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
-            utterance.rate = 0.1
+            utterance.rate = utteranceRate
         
             let synthesizer = AVSpeechSynthesizer()
             synthesizer.speak(utterance)
@@ -38,7 +40,13 @@ class matchUp : UIViewController {
     func nextQuestion() {
     questionIndex += 1
         if questionIndex >= questions.count { //if there are no more questions
-            performSegue(withIdentifier: "correctSegue", sender: nil) //programatically segue
+            performSegue(withIdentifier: "unwindToMainMenu", sender: nil) //programatically segue which should work once set up with the rest of the program
+            
+            
+            
+            print("ALL done")
+            
+            
         }
     }
     
@@ -51,11 +59,23 @@ class matchUp : UIViewController {
     
     
     
-    func correct(colour : String) {
+    func correct() {
         //segue to correct screeen (present over the top of page)
         //send the colour also to affect display
+        performSegue(withIdentifier: "correctSegue", sender: nil) //programatically segue
         nextQuestion()
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //sens the account instance to the main menu page
+        if segue.identifier == "correctSegue" {
+            let correctView = segue.destination as! correctMatch
+            correctView.colour = questions[questionIndex]
+        }
+        
+    }
+
+    
     
     
     
@@ -63,41 +83,104 @@ class matchUp : UIViewController {
         //if incorrect, do nothing (or play an error sound)
         //if correct, display image larger with "well done", and reload view with next answers etc
         if(questions[questionIndex] == "Green"){
-            correct(colour: "Green")
+            correct()
+        } else {
+            let utterance = AVSpeechUtterance(string: "Try again")
+                utterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
+                utterance.rate = utteranceRate
+            
+                let synthesizer = AVSpeechSynthesizer()
+                synthesizer.speak(utterance)
+            
         }
+        
     }
+    
+    
     
     @IBAction func orange(_ sender: Any) {
         if(questions[questionIndex] == "Orange"){
-            correct(colour: "Orange")
-        }    }
+            correct()
+        } else {
+            let utterance = AVSpeechUtterance(string: "Try again")
+                utterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
+                utterance.rate = utteranceRate
+            
+                let synthesizer = AVSpeechSynthesizer()
+                synthesizer.speak(utterance)
+            
+        }
+        
+    }
     
     @IBAction func red(_ sender: Any) {
         if(questions[questionIndex] == "Red"){
-            correct(colour: "Red")
+            correct()
+        } else {
+            let utterance = AVSpeechUtterance(string: "Try again")
+                utterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
+                utterance.rate = utteranceRate
+            
+                let synthesizer = AVSpeechSynthesizer()
+                synthesizer.speak(utterance)
+            
         }
-        
     }
+    
     
     @IBAction func yellow(_ sender: Any) {
         if(questions[questionIndex] == "Yellow"){
-            correct(colour: "Yellow")
+            correct()
+        } else {
+            let utterance = AVSpeechUtterance(string: "Try again")
+                utterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
+                utterance.rate = utteranceRate
+            
+                let synthesizer = AVSpeechSynthesizer()
+                synthesizer.speak(utterance)
+            
         }
-        
     }
+    
     
     @IBAction func purple(_ sender: Any) {
         if(questions[questionIndex] == "Purple"){
-            correct(colour: "Purple")
+            correct()
+        } else {
+            let utterance = AVSpeechUtterance(string: "Try again")
+                utterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
+                utterance.rate = utteranceRate
+            
+                let synthesizer = AVSpeechSynthesizer()
+                synthesizer.speak(utterance)
+            
         }
         
     }
     
+    
     @IBAction func blue(_ sender: Any) {
         if(questions[questionIndex] == "Blue"){
-            correct(colour: "Blue")
+            correct()
+        } else {
+            let utterance = AVSpeechUtterance(string: "Try again")
+                utterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
+                utterance.rate = utteranceRate
+            
+                let synthesizer = AVSpeechSynthesizer()
+                synthesizer.speak(utterance)
+            
         }
-        
     }
+    
+    
+    
+    
+
+    
+
+    
+    
+
     
 }
