@@ -541,6 +541,7 @@
                         <outlet property="label1" destination="ERc-cF-4PJ" id="FbP-Gu-jm5"/>
                         <outlet property="label2" destination="6cu-um-ag2" id="pS1-kh-SMj"/>
                         <outlet property="label3" destination="Spv-Ez-NMF" id="Rbh-J9-hdB"/>
+                        <segue destination="2Us-ff-Izf" kind="presentation" identifier="selectionSegue" id="T77-E2-N7E"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DHs-ZY-51b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -758,12 +759,12 @@
             </objects>
             <point key="canvasLocation" x="1685" y="-1073"/>
         </scene>
-        <!--View Controller-->
+        <!--Sorting Selection-->
         <scene sceneID="Keo-VP-4r8">
             <objects>
-                <viewController id="2Us-ff-Izf" sceneMemberID="viewController">
+                <viewController id="2Us-ff-Izf" customClass="sortingSelection" customModule="ELLApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gI1-t0-LUg">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="712" height="728"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="oDn-4m-aE8"/>
