@@ -16,7 +16,11 @@ class matchUp : UIViewController {
     
     var questionIndex = 0
     var questions  = ["Red", "Yellow", "Blue", "Purple", "Orange", "Green"].shuffled() //randomizes this order
-    var utteranceRate : Float = 0.1
+    var utteranceRate : Float = 0.5
+    
+    @IBOutlet weak var slowerLabel: UILabel!
+    @IBOutlet weak var fasterLabel: UILabel!
+    
     
     @IBAction func unwindToMatchUp(segue: UIStoryboardSegue) {} //so the gesture on the correct page will return it to this page
     
@@ -75,7 +79,32 @@ class matchUp : UIViewController {
         
     }
 
+    @IBAction func slower(_ sender: Any) {
+        //decrease utterance rate
+        //set the faster text to not be faded
+        //if slow limit is reached, set slower label to grey
+        fasterLabel.textColor = .black
+        print(utteranceRate)
+        if(utteranceRate > 0.2) {
+            utteranceRate-=0.15
+        } else if(utteranceRate <= 0.2) {
+            slowerLabel.textColor = .lightGray
+        }
+        
+    }
     
+    @IBAction func faster(_ sender: Any) {
+        slowerLabel.textColor = .black
+        print(utteranceRate)
+        if(utteranceRate < 0.65) {
+            utteranceRate+=0.15
+        } else if(utteranceRate >= 0.65) {
+            fasterLabel.textColor = .lightGray
+        }
+        //increase utterance rate
+        //set the slower text to not be faded
+        //if fast limit is reached, set fast label to grey
+    }
     
     
     

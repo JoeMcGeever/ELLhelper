@@ -25,7 +25,7 @@ class correctMatch : UIViewController {
         
         let utterance = AVSpeechUtterance(string: "Well done!")
             utterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
-            utterance.rate = 0.1
+            utterance.rate = 0.5
         
             let synthesizer = AVSpeechSynthesizer()
             synthesizer.speak(utterance)
