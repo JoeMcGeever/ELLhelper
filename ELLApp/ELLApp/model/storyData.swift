@@ -12,6 +12,8 @@ import UIKit
 
 class story {
     
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
     struct StoryStruct { //the structure of stories
         var title : String
         var imageFile : String
