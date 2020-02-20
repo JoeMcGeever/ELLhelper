@@ -10,7 +10,7 @@ import UIKit
 
 class PageView: UIPageViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
     
-    var book = story.AccountStruct() //to be populated with relevant book from the title page (sent through the segue)
+    var book = story.StoryStruct() //to be populated with relevant book from the title page (sent through the segue)
     
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {

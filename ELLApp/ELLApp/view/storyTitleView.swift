@@ -30,7 +30,7 @@ class StoryTitle: UIViewController {
     
     
     //CHANGED BOOK TO THIS TEST FOR TEST PURPOSES
-    let book = story.AccountStruct(title: "Test", description: "This is a test book", completed: false, text: ["Page 1", "Page 2", "Page 3"])
+    var book = story.StoryStruct(title: "Test", description: "This is a test book", completed: false, text: ["Page 1", "Page 2", "Page 3"])
     
     
 

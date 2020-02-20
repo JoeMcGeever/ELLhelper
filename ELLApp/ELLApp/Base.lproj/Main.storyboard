@@ -321,6 +321,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Root View Controller" id="gA4-YY-8Ha"/>
+                    <connections>
+                        <segue destination="dux-vj-uQc" kind="presentation" identifier="segueToStory" modalPresentationStyle="fullScreen" id="isb-iT-h8H"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CqL-AJ-Lbt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -728,4 +731,7 @@
         <image name="play.circle" catalog="system" width="64" height="60"/>
         <image name="square.and.arrow.up" catalog="system" width="56" height="64"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="isb-iT-h8H"/>
+    </inferredMetricsTieBreakers>
 </document>

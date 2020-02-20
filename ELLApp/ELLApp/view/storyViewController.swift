@@ -12,6 +12,7 @@ class storyViewController: UITableViewController {
     
     let storyData = story()
     var arrayOfStories : [story.StoryStruct] = []
+    var selectedStory = story.StoryStruct()
         
 
     override func viewDidLoad() {
@@ -31,7 +32,7 @@ class storyViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 0 //do not want to segregate yet - maybe if we wish to implement a difficulty setting
+        return 1 //do not want to segregate yet - maybe if we wish to implement a difficulty setting
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -43,12 +44,32 @@ class storyViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "storyCell", for: indexPath)
         let story = arrayOfStories[indexPath.row] //current cell is current story
         // Configure the cell...
+        var completedStatus = "Not yet completed"
+        if(story.completed){
+            completedStatus = "Completed!"
+        }
         cell.textLabel?.text = story.title
-        cell.descriptionTextLabel.text = story.description
+        cell.detailTextLabel?.text = story.description + " - " + completedStatus
+        cell.imageView?.image = UIImage(named : story.imageFile) //sets the title image here
 
         return cell
     }
-
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+        //perform a segue to the title page, sending the stories title along with it
+        selectedStory = arrayOfStories[indexPath.row] //set the selected story so can be sent in the prepare for segue function beneath
+        performSegue(withIdentifier: "segueToStory", sender: nil)
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //sens the account instance to the main menu page
+        if segue.identifier == "segueToStory" {
+            let storyView = segue.destination as! StoryTitle
+            storyView.book = selectedStory //send the selected story to the title page
+        }
+        
+    }
 
     /*
     // Override to support conditional editing of the table view.

@@ -22,7 +22,7 @@ class story {
         var text : [String] // all the pages of text
         //var image : [UIImage] //wait until we know more first
         init(title : String = "", //an init so blank versions can be instantiated
-            imageFile : String = "Red0",
+            imageFile : String = "",
              description : String = "",
              completed : Bool = false,
              text : [String] = []){
@@ -37,10 +37,11 @@ class story {
     
     func getStoryDetails() -> [StoryStruct]{
         //function should return an array of stories
-        let book = StoryStruct(title: "test", description: "this is for text purposes", completed: false, text: ["first page", "second page", "third page"])
-        let book2 = StoryStruct(title: "test2", description: "this is for text purposes2", completed: true, text: ["first page", "second page", "third page"])
+        let book = StoryStruct(title: "Blue", imageFile: "Blue", description: "this is for text purposes", completed: false, text: ["first page", "second page", "third page"])
+        let book2 = StoryStruct(title: "Red", imageFile: "Red", description: "this is for text purposes2", completed: true, text: ["first page", "second page", "third page"])
+        let book3 = StoryStruct(title: "Purple", imageFile: "Purple", description: "AHH", completed: true, text: ["first page", "second page", "third page"])
         
-        let books = [book, book2]
+        let books = [book, book2, book3]
         
         return books
     }
