@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7559017D23FEC16500E96230 /* storyFinishedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7559017C23FEC16500E96230 /* storyFinishedView.swift */; };
 		75775FB023FEB23A00BE60CA /* storyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75775FAF23FEB23A00BE60CA /* storyViewController.swift */; };
 		D808B17423FD546400AF8CDE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D808B17323FD546300AF8CDE /* Assets.xcassets */; };
 		D808B17623FD596000AF8CDE /* matchUpCorrectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D808B17523FD596000AF8CDE /* matchUpCorrectView.swift */; };
@@ -47,6 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7559017C23FEC16500E96230 /* storyFinishedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = storyFinishedView.swift; sourceTree = "<group>"; };
 		75775FAF23FEB23A00BE60CA /* storyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = storyViewController.swift; sourceTree = "<group>"; };
 		D808B17323FD546300AF8CDE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D808B17523FD596000AF8CDE /* matchUpCorrectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = matchUpCorrectView.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 				D860F69523FC65D300276588 /* matchUpView.swift */,
 				D808B17523FD596000AF8CDE /* matchUpCorrectView.swift */,
 				75775FAF23FEB23A00BE60CA /* storyViewController.swift */,
+				7559017C23FEC16500E96230 /* storyFinishedView.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -328,6 +331,7 @@
 				D8A0E80D23F1A9FB006D516A /* signUpView.swift in Sources */,
 				D8663B8323FAC2A3002754F7 /* PageView.swift in Sources */,
 				D8A0E81323F1A9FB006D516A /* ELLApp.xcdatamodeld in Sources */,
+				7559017D23FEC16500E96230 /* storyFinishedView.swift in Sources */,
 				D8A0E80923F1A9FB006D516A /* AppDelegate.swift in Sources */,
 				D8510D9D23F70A4B00ED387E /* accountsController.swift in Sources */,
 				D8A0E80B23F1A9FB006D516A /* SceneDelegate.swift in Sources */,

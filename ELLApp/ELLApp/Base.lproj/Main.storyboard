@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="X95-1W-Hvl">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="ipad9_7" orientation="landscape" layout="fullscreen" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
@@ -327,7 +327,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CqL-AJ-Lbt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2404" y="570"/>
+            <point key="canvasLocation" x="2857" y="552"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="M9t-Dk-VGZ">
@@ -375,6 +375,49 @@
             </objects>
             <point key="canvasLocation" x="2345" y="1618"/>
         </scene>
+        <!--Story Finished-->
+        <scene sceneID="8Gf-S5-Fhg">
+            <objects>
+                <viewController storyboardIdentifier="storyFinished" id="E59-6w-7hw" customClass="storyFinished" customModule="ELLApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="92N-6f-RaK">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="128" translatesAutoresizingMaskIntoConstraints="NO" id="Kcf-gL-BdN">
+                                <rect key="frame" x="468" y="276.5" width="88.5" height="215"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jqs-jM-Rma">
+                                        <rect key="frame" x="0.0" y="0.0" width="88.5" height="45"/>
+                                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="41"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="azD-96-ZbC">
+                                        <rect key="frame" x="17" y="173" width="54" height="42"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <state key="normal" title="Back"/>
+                                        <connections>
+                                            <segue destination="1cG-yC-Jck" kind="presentation" modalPresentationStyle="fullScreen" id="2jz-xM-L0b"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Kcf-gL-BdN" firstAttribute="centerY" secondItem="92N-6f-RaK" secondAttribute="centerY" id="BrZ-aG-YLf"/>
+                            <constraint firstItem="Kcf-gL-BdN" firstAttribute="centerX" secondItem="92N-6f-RaK" secondAttribute="centerX" id="q74-XQ-6nJ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="jy4-G7-RjM"/>
+                    </view>
+                    <connections>
+                        <outlet property="labelForText" destination="Jqs-jM-Rma" id="ReQ-xZ-IDC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="POu-nl-oiG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3149" y="1600"/>
+        </scene>
         <!--Main Menu-->
         <scene sceneID="LmS-TR-ysM">
             <objects>
@@ -390,7 +433,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="72" height="30"/>
                                         <state key="normal" title="Stories!"/>
                                         <connections>
-                                            <segue destination="dux-vj-uQc" kind="presentation" modalPresentationStyle="fullScreen" id="6kh-FS-Nt9"/>
+                                            <segue destination="X95-1W-Hvl" kind="presentation" modalPresentationStyle="fullScreen" id="b5n-8u-skR"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Ts-lV-7mM">
@@ -425,7 +468,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mco-Z3-Rdx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="MhJ-xg-w2k" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="979.68749999999989" y="-37.5"/>
+            <point key="canvasLocation" x="959" y="-112"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="nyY-1B-9AW">
@@ -732,6 +775,6 @@
         <image name="square.and.arrow.up" catalog="system" width="56" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="isb-iT-h8H"/>
+        <segue reference="ctd-hy-HzE"/>
     </inferredMetricsTieBreakers>
 </document>

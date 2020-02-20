@@ -29,8 +29,6 @@ class PageView: UIPageViewController, UIPageViewControllerDelegate, UIPageViewCo
             
             //maybe return segue
             
-            
-            
         }
         guard orderedViewControllers.count > previousIndex else {
             return nil
@@ -82,6 +80,9 @@ class PageView: UIPageViewController, UIPageViewControllerDelegate, UIPageViewCo
             storyPage.text = i
             pagesUI.append(storyPage)
         }
+        let finishedPage = self.newView(view: "storyFinished") as! storyFinished
+        finishedPage.text = book.title
+        pagesUI.append(finishedPage)
         
         return pagesUI
     }()

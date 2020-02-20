@@ -29,8 +29,8 @@ class StoryTitle: UIViewController {
     //let book = story.AccountStruct() //this should be populated with the relevant details from the table view prior to this view
     
     
-    //CHANGED BOOK TO THIS TEST FOR TEST PURPOSES
-    var book = story.StoryStruct(title: "Test", description: "This is a test book", completed: false, text: ["Page 1", "Page 2", "Page 3"])
+
+    var book = story.StoryStruct() //to be populated with correct details from the table view prior
     
     
 
