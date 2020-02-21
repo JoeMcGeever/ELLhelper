@@ -10,7 +10,7 @@ import UIKit
 
 class PageView: UIPageViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
     
-    var book = story.AccountStruct() //to be populated with relevant book from the title page (sent through the segue)
+    var book = story.StoryStruct() //to be populated with relevant book from the title page (sent through the segue)
     
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
@@ -28,8 +28,6 @@ class PageView: UIPageViewController, UIPageViewControllerDelegate, UIPageViewCo
             return nil //HERE IS WHAT HAPPENS WHEN YOU GET TO END OF BOOK - so swiping currently does nothing
             
             //maybe return segue
-            
-            
             
         }
         guard orderedViewControllers.count > previousIndex else {
@@ -82,6 +80,9 @@ class PageView: UIPageViewController, UIPageViewControllerDelegate, UIPageViewCo
             storyPage.text = i
             pagesUI.append(storyPage)
         }
+        let finishedPage = self.newView(view: "storyFinished") as! storyFinished
+        finishedPage.text = book.title
+        pagesUI.append(finishedPage)
         
         return pagesUI
     }()
