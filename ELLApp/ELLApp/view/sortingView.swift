@@ -57,7 +57,7 @@ class sorting : UIViewController {
                 tracker.append(categories[i]) //append as well in this array, the correspoding category
             }
         }
-        //below, the two arrays are shuffled in the same way, so I can track the category each image shoudl fall into
+        //below, the two arrays are shuffled in the same way, so I can track the category each image should fall into
         let shuffled_indices = tracker.indices.shuffled()
         tracker = shuffled_indices.map { tracker[$0] }
         imageChoices = shuffled_indices.map { imageChoices[$0] }
