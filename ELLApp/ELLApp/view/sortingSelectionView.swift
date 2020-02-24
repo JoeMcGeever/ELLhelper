@@ -10,7 +10,11 @@ import Foundation
 import UIKit
 
 class sortingSelection : UIViewController {
+
+    
+    var gameInstance : sortingVar.imageStruct? = nil
     var imageArray : [UIImage] = []
+    var selectedChoice : String = "" //which image the user has pressed in the previous view
     let questionMarkImage : UIImage = UIImage(named: "questionmark")!
     
     
@@ -26,6 +30,11 @@ class sortingSelection : UIViewController {
     
     
     override func viewDidLoad() {
+        
+        imageArray = gameInstance!.imageChoices
+        
+        
+        
         image1.image = imageArray[0]
         image2.image = imageArray[1]
         image3.image = imageArray[2]
@@ -43,6 +52,10 @@ class sortingSelection : UIViewController {
     
     @IBAction func press1(_ sender: Any) {
         //send 0
+        //update the array so that the removed image is now a questionmark and send it back also
+        //then in the prior segue, update the selectedChoice to be the image in array slot 0
+        imageArray[0] = UIImage(named: "questionmark")!
+        
     }
     
     @IBAction func press2(_ sender: Any) {

@@ -22,6 +22,8 @@ class sorting : UIViewController {
     
     
     
+    
+    
     @IBOutlet weak var label1: UILabel!
     @IBOutlet weak var cat1image1: UIImageView!
     @IBOutlet weak var cat1image2: UIImageView!
@@ -38,38 +40,84 @@ class sorting : UIViewController {
     @IBOutlet weak var cat3image1: UIImageView!
     @IBOutlet weak var cat3image2: UIImageView!
     @IBOutlet weak var cat3image3: UIImageView!
-
+    
     var categories = ["Blue", "Red", "Green"].shuffled() //In future, through the segue, the categories can be changed. As the only thing the category names should affect is the images displayed, hopefully it should be re-usable for many different games.
-    var imageChoices : [UIImage] = []
-    var tracker : [String] = [] //this will track the shuffling of imageChoices so I will know what category a selected image will belong to
+    
+
+    var gameInstance : sortingVar.imageStruct? = nil
+    
+    
+    var selectedChoice : String = "" // this is updated to be the corresponding variable name that needs to be updated -- use a switch case to differentiate which variable
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        gameInstance = sortingVar.imageStruct(categories: categories) //create instance for game
         label1.text = categories[0]
         label2.text = categories[1]
         label3.text = categories[2]
-        var stringify : String
         
-        for i in 0...2 {
-            for n in 0...2 {
-                stringify = String(n)
-                imageChoices.append(UIImage(named: categories[i] + stringify) ?? UIImage(named: "questionmark")!) //populates an array of the correct images - note, the original array maintains the string and the name of the file (can therefore be used to trace if answers are correct if we shuffle this array and display the images thusly)
-                tracker.append(categories[i]) //append as well in this array, the correspoding category
-            }
-        }
-        //below, the two arrays are shuffled in the same way, so I can track the category each image should fall into
-        let shuffled_indices = tracker.indices.shuffled()
-        tracker = shuffled_indices.map { tracker[$0] }
-        imageChoices = shuffled_indices.map { imageChoices[$0] }
+        
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //sens the account instance to the main menu page
-        if segue.identifier == "selectionSegue" {
+        if segue.identifier == "selectImage" {
             let selectionView = segue.destination as! sortingSelection
-            selectionView.imageArray = imageChoices
+            selectionView.gameInstance = gameInstance
         }
+    }
+    
+    func executeSegue(selectedChoice : String){
+        self.performSegue(withIdentifier: "selectImage", sender: self)
+    }
+    
+    @IBAction func cat1tap1(_ sender: Any) {
+        selectedChoice = "cat1image1"
+        executeSegue(selectedChoice: selectedChoice)
         
+    }
+
+    @IBAction func cat1tap2(_ sender: Any) {
+        selectedChoice = "cat1image2"
+        executeSegue(selectedChoice: selectedChoice)
+        
+    }
+    
+    @IBAction func cat1tap3(_ sender: Any) {
+        selectedChoice = "cat1image3"
+        executeSegue(selectedChoice: selectedChoice)
+        
+    }
+    
+    @IBAction func cat2tap1(_ sender: Any) {
+        selectedChoice = "cat2image1"
+        executeSegue(selectedChoice: selectedChoice)
+        
+    }
+    
+    @IBAction func cat2tap2(_ sender: Any) {
+        selectedChoice = "cat2image2"
+        executeSegue(selectedChoice: selectedChoice)
+    }
+    
+    @IBAction func cat2tap3(_ sender: Any) {
+        selectedChoice = "cat2image3"
+        executeSegue(selectedChoice: selectedChoice)
+    }
+    
+    @IBAction func cat3tap1(_ sender: Any) {
+        selectedChoice = "cat3image1"
+        executeSegue(selectedChoice: selectedChoice)
+    }
+    
+    @IBAction func cat3tap2(_ sender: Any) {
+        selectedChoice = "cat3image2"
+        executeSegue(selectedChoice: selectedChoice)
+    }
+    
+    @IBAction func cat3tap3(_ sender: Any) {
+        selectedChoice = "cat3image3"
+        executeSegue(selectedChoice: selectedChoice)
     }
     
 }
