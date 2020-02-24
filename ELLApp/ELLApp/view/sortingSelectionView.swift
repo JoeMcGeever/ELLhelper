@@ -15,7 +15,7 @@ class sortingSelection : UIViewController {
     var gameInstance : sortingVar.imageStruct? = nil
     var imageArray : [UIImage] = []
     var selectedChoice : String = "" //which image the user has pressed in the previous view
-    let questionMarkImage : UIImage = UIImage(named: "questionmark")!
+
     
     
     @IBOutlet weak var image1: UIImageView!
@@ -30,11 +30,7 @@ class sortingSelection : UIViewController {
     
     
     override func viewDidLoad() {
-        
         imageArray = gameInstance!.imageChoices
-        
-        
-        
         image1.image = imageArray[0]
         image2.image = imageArray[1]
         image3.image = imageArray[2]
@@ -48,46 +44,86 @@ class sortingSelection : UIViewController {
     
     func chosenImage(imageNumber : Int) {
         //replace the image with the
+        //update tracker??
+        let lastPageImagePos = gameInstance!.imagePosToUpdate
+        let imageToDisplay = imageArray[imageNumber]
+        
+        
+        
+        gameInstance?.imageDisplay[lastPageImagePos] = imageToDisplay//sets the image which will be visible in prior view controller
+        
+        gameInstance!.imageChoices[imageNumber] = UIImage(named: "questionmark")!
+
+        self.performSegue(withIdentifier: "unwindFromSelection", sender: self)
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //pass back the instance
+        if segue.identifier == "unwindFromSelection" {
+            let selectionView = segue.destination as! sorting
+            selectionView.gameInstance = gameInstance
+            
+        }
     }
     
     @IBAction func press1(_ sender: Any) {
         //send 0
         //update the array so that the removed image is now a questionmark and send it back also
         //then in the prior segue, update the selectedChoice to be the image in array slot 0
-        imageArray[0] = UIImage(named: "questionmark")!
+        
+        
+        chosenImage(imageNumber: 0)
         
     }
     
     @IBAction func press2(_ sender: Any) {
         
+        
+        chosenImage(imageNumber: 1)
+        
     }
     
     @IBAction func press3(_ sender: Any) {
+        
+        chosenImage(imageNumber: 2)
         
     }
     
     @IBAction func press4(_ sender: Any) {
         
+        
+        chosenImage(imageNumber: 3)
     }
     
     @IBAction func press5(_ sender: Any) {
         
+        
+        chosenImage(imageNumber: 4)
     }
     
     @IBAction func press6(_ sender: Any) {
         
+        
+        chosenImage(imageNumber: 5)
     }
     
     @IBAction func press7(_ sender: Any) {
         
+        
+        chosenImage(imageNumber: 6)
     }
     
     @IBAction func press8(_ sender: Any) {
         
+        
+        chosenImage(imageNumber: 7)
     }
     
     @IBAction func press9(_ sender: Any) {
         
+        
+       chosenImage(imageNumber: 8)
     }
     
 }
