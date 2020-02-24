@@ -10,16 +10,7 @@ import Foundation
 import UIKit
 
 class sorting : UIViewController {
-    //programatically choose the labels
-    //get 9 pictures, 3 conforming to each category
-    //when a user presses an image box, the segue should display the 9 images
-    //user then presses the image that he wants to populate the prior pressed box with
-    //this image should then be removed from the list of images and replaced (same pos) with a "?"
-    //continue until none are left
-    //note - pressing a picture which has already been placed will give the option to replace with another (A question mark option should always be available as a result)
-    //check button at the end will then highlight / tick and cross
-    //for every category -> have at least 3 images saved in the format; '[categoryNameHere]n' where n is a number
-    
+  
     
     
     
@@ -45,6 +36,34 @@ class sorting : UIViewController {
 
     var gameInstance : sortingVar.imageStruct? = nil
     
+    
+    @IBAction func reset(_ sender: Any) { //resets the game by changing the game instance to nill, reverting all images back to a question mark, enabling interaction and calling the viewDidLoad once more
+        gameInstance = nil
+        let baseImage = UIImage(named: "questionmark")
+        cat1image1.image = baseImage
+        cat1image1.isUserInteractionEnabled = true
+        cat1image2.image = baseImage
+        cat1image2.isUserInteractionEnabled = true
+        cat1image3.image = baseImage
+        cat1image3.isUserInteractionEnabled = true
+        cat2image1.image = baseImage
+        cat2image1.isUserInteractionEnabled = true
+        cat2image2.image = baseImage
+        cat2image2.isUserInteractionEnabled = true
+        cat2image3.image = baseImage
+        cat2image3.isUserInteractionEnabled = true
+        cat3image1.image = baseImage
+        cat3image1.isUserInteractionEnabled = true
+        cat3image2.image = baseImage
+        cat3image2.isUserInteractionEnabled = true
+        cat3image3.image = baseImage
+        cat3image3.isUserInteractionEnabled = true
+        viewDidLoad()
+    }
+    
+    @IBAction func check(_ sender: Any) {
+        //NEED TO IMPLEMENT
+    }
     
     
     override func viewDidLoad() {
@@ -95,29 +114,6 @@ class sorting : UIViewController {
         label1.text = categories[0]
         label2.text = categories[1]
         label3.text = categories[2]
-        
-//        switch gameInstance?.imagePosToUpdate { //depending if this view is being re-loaded
-//        case 0:
-//            cat1image1.image = gameInstance?.imageToUpdateTo
-//        case 3:
-//            cat1image2.image = gameInstance?.imageToUpdateTo
-//        case 6:
-//            cat1image3.image = gameInstance?.imageToUpdateTo
-//        case 1:
-//            cat2image1.image = gameInstance?.imageToUpdateTo
-//        case 4:
-//            cat2image2.image = gameInstance?.imageToUpdateTo
-//        case 7:
-//            cat2image3.image = gameInstance?.imageToUpdateTo
-//        case 2:
-//            cat3image1.image = gameInstance?.imageToUpdateTo
-//        case 5:
-//            cat3image2.image = gameInstance?.imageToUpdateTo
-//        case 8:
-//            cat3image3.image = gameInstance?.imageToUpdateTo
-//        default:
-//            break
-//        }
         
     }
     
