@@ -26,7 +26,7 @@ class User {
         let newUser = NSManagedObject(entity: entity!, insertInto: context)
         newUser.setValue(username, forKey: "username")
         newUser.setValue(language, forKey: "homeLanguage")
-        //sets the values in core data fpr the key
+        //sets the values in core data for the key
         do {
             try context.save()
             return true //true if success
