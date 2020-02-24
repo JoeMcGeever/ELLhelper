@@ -723,7 +723,7 @@
                                     <navigationItem title="Sorting" id="cvP-B1-QHU">
                                         <barButtonItem key="leftBarButtonItem" title="Back" id="Sdh-N3-UZ5">
                                             <connections>
-                                                <segue destination="hj1-qe-ocN" kind="unwind" unwindAction="unwindToMainMenuWithSegue:" id="DZg-Hf-r1h"/>
+                                                <segue destination="hj1-qe-ocN" kind="unwind" identifier="unwindToMain" unwindAction="unwindToMainMenuWithSegue:" id="DZg-Hf-r1h"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -753,6 +753,7 @@
                         <outlet property="label2" destination="6cu-um-ag2" id="pS1-kh-SMj"/>
                         <outlet property="label3" destination="Spv-Ez-NMF" id="Rbh-J9-hdB"/>
                         <segue destination="l1O-Ee-l8N" kind="presentation" identifier="selectImage" id="akq-p5-cDu"/>
+                        <segue destination="hj1-qe-ocN" kind="unwind" unwindAction="unwindToMainMenuWithSegue:" id="XBU-4h-nFr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DHs-ZY-51b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

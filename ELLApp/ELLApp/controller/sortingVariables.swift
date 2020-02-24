@@ -15,6 +15,8 @@ class sortingVar {
     //holds all the relevant data between each views (sorting view and sorting selection view)
     
     struct imageStruct {
+        var correct : Bool = true
+        var selectionCounter = 0
         var categories : [String]
         var imageChoices : [UIImage] = []
         var tracker : [String] = [] //this will track the shuffling of imageChoices so I will know what category a selected image will belong to
@@ -40,7 +42,7 @@ class sortingVar {
             let shuffled_indices = tracker.indices.shuffled()
             tracker = shuffled_indices.map { tracker[$0] }
             imageChoices = shuffled_indices.map { imageChoices[$0] }
-            
+
             for _ in 0...8{
                 imageDisplay.append(UIImage(named: "questionmark")!)
             }

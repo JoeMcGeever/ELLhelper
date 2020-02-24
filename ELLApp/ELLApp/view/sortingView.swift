@@ -8,11 +8,11 @@
 
 import Foundation
 import UIKit
+import AVFoundation
 
 class sorting : UIViewController {
   
-    
-    
+    var player: AVAudioPlayer? //play sound
     
     @IBOutlet weak var label1: UILabel!
     @IBOutlet weak var cat1image1: UIImageView!
@@ -62,8 +62,29 @@ class sorting : UIViewController {
     }
     
     @IBAction func check(_ sender: Any) {
-        //NEED TO IMPLEMENT
+        print(gameInstance?.selectionCounter as Any)
+        if(gameInstance!.correct == true && gameInstance!.selectionCounter >= 9){//if no pictures were placed in incorrect slot and all images are pressed, then won
+            let alert = UIAlertController(title: "Congratulations!", message: "Every answer is correct!!!", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+                
+                self.performSegue(withIdentifier: "unwindToMain", sender: self) //segue back now completed
+
+              }))
+            playSound(fileName: "levelComplete")
+            present(alert, animated: true, completion: nil)
+        } else {
+            let alert = UIAlertController(title: "Not quite", message: "Some of the answers are not correct.", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+                
+                print("Incorrect")
+            }))
+            playSound(fileName: "incorrect")
+            present(alert, animated: true, completion: nil)
+            
+        }
     }
+       
+    
     
     
     override func viewDidLoad() {
@@ -178,4 +199,21 @@ class sorting : UIViewController {
         executeSegue()
     }
     
+    func playSound(fileName : String) { //plays a success sound
+        guard let url = Bundle.main.url(forResource: fileName, withExtension: "mp3") else { return }
+
+        do {
+            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
+            try AVAudioSession.sharedInstance().setActive(true)
+
+            player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
+
+            guard let player = player else { return }
+
+            player.play()
+
+        } catch let error {
+            print(error.localizedDescription)
+        }
+    }
 }

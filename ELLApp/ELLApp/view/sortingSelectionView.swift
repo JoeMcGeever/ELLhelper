@@ -48,6 +48,25 @@ class sortingSelection : UIViewController {
         let lastPageImagePos = gameInstance!.imagePosToUpdate
         let imageToDisplay = imageArray[imageNumber]
         
+        gameInstance?.selectionCounter += 1 //increment selection counter
+        
+        //below code is to understand which category the selected image by the user is under
+        var currentCat = ""
+        if(lastPageImagePos == 0 || lastPageImagePos == 3 || lastPageImagePos == 6){
+            currentCat = (gameInstance?.categories[0])!
+        } else if(lastPageImagePos == 1 || lastPageImagePos == 4 || lastPageImagePos == 7){
+            currentCat = (gameInstance?.categories[1])!
+        } else {
+            currentCat = (gameInstance?.categories[2])!
+        }
+        //if the current category doesnt match the image spec (the tracker corresponds to the category of the image displayed)
+        if(currentCat != gameInstance?.tracker[imageNumber] && imageToDisplay != UIImage(named: "questionmark")){
+
+            print("False")
+            gameInstance?.correct = false
+        }
+        
+        
         
         
         gameInstance?.imageDisplay[lastPageImagePos] = imageToDisplay//sets the image which will be visible in prior view controller
