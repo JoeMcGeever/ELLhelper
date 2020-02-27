@@ -17,6 +17,7 @@ class matchUp : UIViewController {
     var questionIndex = 0
     var questions  = ["Red", "Yellow", "Blue", "Purple", "Orange", "Green"].shuffled() //randomizes this order
     var utteranceRate : Float = 0.5
+    var completed = false
     
     @IBOutlet weak var slowerLabel: UILabel!
     @IBOutlet weak var fasterLabel: UILabel!
@@ -26,6 +27,9 @@ class matchUp : UIViewController {
     
     @IBAction func playButton(_ sender: Any) {
         //here it should play the relevant sound
+        if(completed){
+            performSegue(withIdentifier: "unwindToMainMenu", sender: nil)
+        } else {
         let currentWord = questions[questionIndex]
         let utterance = AVSpeechUtterance(string: currentWord)
             utterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
@@ -33,33 +37,22 @@ class matchUp : UIViewController {
         
             let synthesizer = AVSpeechSynthesizer()
             synthesizer.speak(utterance)
-        
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
+
     
-    func nextQuestion() {
-    questionIndex += 1
-        if questionIndex >= questions.count { //if there are no more questions
-            performSegue(withIdentifier: "unwindToMainMenu", sender: nil) //programatically segue which should work once set up with the rest of the program
-            
-            
-            
-            print("ALL done")
-            
-            
+    
+    @IBAction func fullScreenTouch(_ sender: Any) {
+        if(completed){
+            performSegue(withIdentifier: "unwindToMainMenu", sender: nil)
         }
     }
     
-    
-    
-    
-    
-    
-        
     
     
     
@@ -67,14 +60,22 @@ class matchUp : UIViewController {
         //segue to correct screeen (present over the top of page)
         //send the colour also to affect display
         performSegue(withIdentifier: "correctSegue", sender: nil) //programatically segue
-        nextQuestion()
+        
+        
+        
+        questionIndex += 1
     }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //sens the account instance to the main menu page
         if segue.identifier == "correctSegue" {
             let correctView = segue.destination as! correctMatch
             correctView.colour = questions[questionIndex]
+            if(questionIndex==questions.count - 1){
+                completed = true
+                correctView.completed = true
+            }
         }
         
     }
@@ -111,7 +112,9 @@ class matchUp : UIViewController {
     @IBAction func green(_ sender: Any) {
         //if incorrect, do nothing (or play an error sound)
         //if correct, display image larger with "well done", and reload view with next answers etc
-        if(questions[questionIndex] == "Green"){
+        if(completed){
+            performSegue(withIdentifier: "unwindToMainMenu", sender: nil)
+        } else if(questions[questionIndex] == "Green"){
             correct()
         } else {
             let utterance = AVSpeechUtterance(string: "Try again")
@@ -128,7 +131,9 @@ class matchUp : UIViewController {
     
     
     @IBAction func orange(_ sender: Any) {
-        if(questions[questionIndex] == "Orange"){
+        if(completed){
+            performSegue(withIdentifier: "unwindToMainMenu", sender: nil)
+        } else if(questions[questionIndex] == "Orange"){
             correct()
         } else {
             let utterance = AVSpeechUtterance(string: "Try again")
@@ -143,7 +148,9 @@ class matchUp : UIViewController {
     }
     
     @IBAction func red(_ sender: Any) {
-        if(questions[questionIndex] == "Red"){
+        if(completed){
+            performSegue(withIdentifier: "unwindToMainMenu", sender: nil)
+        } else if(questions[questionIndex] == "Red"){
             correct()
         } else {
             let utterance = AVSpeechUtterance(string: "Try again")
@@ -158,7 +165,9 @@ class matchUp : UIViewController {
     
     
     @IBAction func yellow(_ sender: Any) {
-        if(questions[questionIndex] == "Yellow"){
+        if(completed){
+            performSegue(withIdentifier: "unwindToMainMenu", sender: nil)
+        } else if(questions[questionIndex] == "Yellow"){
             correct()
         } else {
             let utterance = AVSpeechUtterance(string: "Try again")
@@ -173,7 +182,9 @@ class matchUp : UIViewController {
     
     
     @IBAction func purple(_ sender: Any) {
-        if(questions[questionIndex] == "Purple"){
+        if(completed){
+            performSegue(withIdentifier: "unwindToMainMenu", sender: nil)
+        } else if(questions[questionIndex] == "Purple"){
             correct()
         } else {
             let utterance = AVSpeechUtterance(string: "Try again")
@@ -189,7 +200,9 @@ class matchUp : UIViewController {
     
     
     @IBAction func blue(_ sender: Any) {
-        if(questions[questionIndex] == "Blue"){
+        if(completed){
+            performSegue(withIdentifier: "unwindToMainMenu", sender: nil)
+        } else if(questions[questionIndex] == "Blue"){
             correct()
         } else {
             let utterance = AVSpeechUtterance(string: "Try again")

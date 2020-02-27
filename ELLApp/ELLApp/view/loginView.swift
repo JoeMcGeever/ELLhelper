@@ -32,6 +32,9 @@ class login: UIViewController {
     
     @IBAction func unwindToLogin(segue: UIStoryboardSegue) {} //for the sign up page to programatically segue back to
     
+    @IBAction func newAccount(_ sender: Any) {
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
