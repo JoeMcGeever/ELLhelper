@@ -1,5 +1,5 @@
 //
-//  drawNoun.swift
+//  drawNounCanvas.swift
 //  ELLApp
 //
 //  Created by Joseph McGeever on 27/02/2020.
@@ -9,7 +9,22 @@
 import Foundation
 import UIKit
 
-class Canvas : UIView {
+
+class Canvas : UIView { //fileprivate ensures exteral classes cannot access these components
+    
+    fileprivate var lines : [[CGPoint]] = [] //2D CGPoint array
+    
+    func undo(){
+        //remove the last entry to the array of lines
+        _ = lines.popLast() //remove the last line from the array
+        //used _ as we do not use the _ value
+        setNeedsDisplay() //redraw the canvas with the lines array, now that the previous line has been popped off
+    }
+    
+    func clear() {
+        lines.removeAll() // remove all of the array
+        setNeedsDisplay()
+    }
     
     override func draw(_ rect : CGRect) {
         //custom drawing
@@ -43,10 +58,6 @@ class Canvas : UIView {
     
     }
     
-    //var line : [CGPoint] = [] //array of CGPoint objects --> this will construct an empty array of CGPoints
-    
-    var lines : [[CGPoint]] = [] //2D CGPoint array
-    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         lines.append([CGPoint]()) // add a brand new line to the lines array
     }
@@ -74,18 +85,4 @@ class Canvas : UIView {
     }
     
     
-}
-
-class DrawNoun : UIViewController {
-    
-    let canvas = Canvas()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        view.addSubview(canvas)
-        canvas.backgroundColor = .white //set canvas to white instead of black
-        canvas.frame = view.frame//make smaller to account for instructions at the top
-        
-    }
 }
