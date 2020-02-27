@@ -198,9 +198,10 @@ class DrawNoun : UIViewController {
         	
         print(noun)
         
-        
 
-        nounLabel.text = noun
+        nounLabel!.text! = noun
+        
+        
 
         canvas.backgroundColor = .white //set canvas to white instead of black
         
