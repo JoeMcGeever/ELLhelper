@@ -13,6 +13,11 @@ import UIKit
 
 class DrawNoun : UIViewController {
     
+    let noun : String = "Noun" //this is to be overwitten by prior view
+    
+    @IBOutlet weak var nounLabel: UILabel! //the displayed noun appears at the top of the screen
+    
+    
     let canvas = Canvas()
     
     let undoButton : UIButton = { //programatically add the undo button
@@ -97,12 +102,43 @@ class DrawNoun : UIViewController {
     }()
     
     @objc fileprivate func confirm(){
+        
+        
+        
+        
+        
+        //ask if sure and ready,
+        //play the success sound
+        //save to core data with the key being the noun name
+        //in word bank, when user wishes to understand what a word means
+        //they press it, and see the image they drew
+        //as described in SRS book
+        
+        
+        
+        
+        
+        
         let usersImage = canvas.asImage()//saves the canvas view as an image using its extension which converts it into an UIimage
         
         
+        //save var 'noun' and var 'usersImage' in core data
+               
         
         
-        //now compare save this image to the noun
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -145,6 +181,8 @@ class DrawNoun : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        nounLabel.text = noun //set the label to be the sent noun from prior view controller
 
         canvas.backgroundColor = .white //set canvas to white instead of black
         
