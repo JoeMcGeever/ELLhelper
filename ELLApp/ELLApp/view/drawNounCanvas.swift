@@ -96,3 +96,12 @@ class Canvas : UIView { //fileprivate ensures exteral classes cannot access thes
     
     
 }
+extension UIView { //extension to convert the work into an UIImage
+    
+    func asImage() -> UIImage {
+        let renderer = UIGraphicsImageRenderer(bounds: bounds)
+        return renderer.image { rendererContext in
+            layer.render(in: rendererContext.cgContext)
+        }
+    }
+}

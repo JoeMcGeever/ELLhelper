@@ -88,6 +88,27 @@ class DrawNoun : UIViewController {
         canvas.setStrokeWidth(width: slider.value)
     }
     
+    let confirmButton : UIButton = { //programatically add the undo button
+        let button = UIButton(type: .system)
+        button.setTitle("confirm", for: .normal)
+        button.titleLabel?.font = .boldSystemFont(ofSize: 20)
+        button.addTarget(self, action: #selector(confirm), for: .touchUpInside) //programmatically add an action outlet for users pressing undo button, (do the code in objective c function "undo")
+        return button
+    }()
+    
+    @objc fileprivate func confirm(){
+        let usersImage = canvas.asImage()//saves the canvas view as an image using its extension which converts it into an UIimage
+        
+        
+        
+        
+        //now compare save this image to the noun
+        
+        
+        
+        
+    }
+    
     
     override func loadView() {
         self.view = canvas //set the view controller view to be the canvas directly
@@ -103,7 +124,8 @@ class DrawNoun : UIViewController {
             undoButton,
             clearButton,
             coloursStackView,
-            slider
+            slider,
+            confirmButton
             ])
         
         stackView.spacing = 12 //work on spacing between stack view elements
