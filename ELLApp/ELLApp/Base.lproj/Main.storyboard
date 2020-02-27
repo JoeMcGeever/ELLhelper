@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dZl-Li-3sQ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="ipad9_7" orientation="landscape" layout="fullscreen" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
@@ -7,6 +7,47 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Word Bank View-->
+        <scene sceneID="7a1-KX-vbH">
+            <objects>
+                <viewController id="IjH-82-ux2" customClass="WordBankView" customModule="ELLApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cPc-rZ-zdb">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="56" translatesAutoresizingMaskIntoConstraints="NO" id="Ukv-0F-cyU">
+                                <rect key="frame" x="243" y="20" width="538" height="728"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Word Bank" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b3t-Jq-X2Y">
+                                        <rect key="frame" x="189.5" y="0.0" width="159" height="41"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uR7-vx-wlI">
+                                        <rect key="frame" x="0.0" y="97" width="538" height="631"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    </tableView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="uR7-vx-wlI" firstAttribute="leading" secondItem="Ukv-0F-cyU" secondAttribute="leadingMargin" id="8G9-if-E4q"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Ukv-0F-cyU" firstAttribute="top" secondItem="sRQ-8w-4RJ" secondAttribute="top" constant="20" id="Xsu-Xw-1Na"/>
+                            <constraint firstItem="Ukv-0F-cyU" firstAttribute="leading" secondItem="sRQ-8w-4RJ" secondAttribute="leading" constant="243" id="egz-su-xNq"/>
+                            <constraint firstItem="Ukv-0F-cyU" firstAttribute="centerX" secondItem="cPc-rZ-zdb" secondAttribute="centerX" id="pLH-jL-QOh"/>
+                            <constraint firstItem="Ukv-0F-cyU" firstAttribute="centerY" secondItem="cPc-rZ-zdb" secondAttribute="centerY" id="pSb-tH-UUg"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="sRQ-8w-4RJ"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Z1-8v-jtd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="902" y="-1116"/>
+        </scene>
         <!--Login-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -463,31 +504,35 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="54" translatesAutoresizingMaskIntoConstraints="NO" id="ZVw-bR-JSf">
-                                <rect key="frame" x="475" y="243" width="74" height="282"/>
+                                <rect key="frame" x="472.5" y="201" width="79" height="366"/>
                                 <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jAM-u3-d6n">
+                                        <rect key="frame" x="0.0" y="0.0" width="79" height="30"/>
+                                        <state key="normal" title="Word Bank!"/>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N0i-OR-pUi">
-                                        <rect key="frame" x="0.0" y="0.0" width="74" height="30"/>
+                                        <rect key="frame" x="0.0" y="84" width="79" height="30"/>
                                         <state key="normal" title="Stories!"/>
                                         <connections>
                                             <segue destination="X95-1W-Hvl" kind="presentation" modalPresentationStyle="fullScreen" id="b5n-8u-skR"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uHz-QO-4td">
-                                        <rect key="frame" x="0.0" y="84" width="74" height="30"/>
-                                        <state key="normal" title="Sort Game"/>
+                                        <rect key="frame" x="0.0" y="168" width="79" height="30"/>
+                                        <state key="normal" title="Sort Game!"/>
                                         <connections>
                                             <segue destination="meY-Am-vT0" kind="presentation" modalPresentationStyle="fullScreen" id="MaK-Lb-2S1"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Ts-lV-7mM">
-                                        <rect key="frame" x="0.0" y="168" width="74" height="30"/>
+                                        <rect key="frame" x="0.0" y="252" width="79" height="30"/>
                                         <state key="normal" title="Match Up!"/>
                                         <connections>
                                             <segue destination="no4-sG-rna" kind="presentation" modalPresentationStyle="fullScreen" id="1Jd-j5-Yul"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Km-eR-n4p">
-                                        <rect key="frame" x="0.0" y="252" width="74" height="30"/>
+                                        <rect key="frame" x="0.0" y="336" width="79" height="30"/>
                                         <state key="normal" title="Log out"/>
                                         <connections>
                                             <action selector="logout:" destination="3Z7-kW-DCV" eventType="touchUpInside" id="yKP-KA-5ND"/>
@@ -541,7 +586,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o7J-wu-W8a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1774" y="-3773"/>
+            <point key="canvasLocation" x="152" y="-1116"/>
         </scene>
         <!--Sorting-->
         <scene sceneID="kSe-dF-qya">

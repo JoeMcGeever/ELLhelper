@@ -12,7 +12,8 @@
 		75A450792407D79E00D89422 /* drawNounView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A450782407D79E00D89422 /* drawNounView.swift */; };
 		75A4507B2407E20500D89422 /* drawNounCanvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A4507A2407E20500D89422 /* drawNounCanvas.swift */; };
 		75A4507D2407F0F800D89422 /* lineModelForDraw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A4507C2407F0F800D89422 /* lineModelForDraw.swift */; };
-		75A4507F2407FA1E00D89422 /* nounUserImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A4507E2407FA1E00D89422 /* nounUserImage.swift */; };
+		75A4507F2407FA1E00D89422 /* wordBank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A4507E2407FA1E00D89422 /* wordBank.swift */; };
+		75A45081240806E200D89422 /* wordBankView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A45080240806E200D89422 /* wordBankView.swift */; };
 		D8033E5723FFF03200F92E58 /* sortingSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8033E5623FFF03200F92E58 /* sortingSelectionView.swift */; };
 		D8033E5923FFF03C00F92E58 /* sortingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8033E5823FFF03C00F92E58 /* sortingView.swift */; };
 		D8033E5B23FFF25E00F92E58 /* signUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8033E5A23FFF25E00F92E58 /* signUpView.swift */; };
@@ -62,7 +63,8 @@
 		75A450782407D79E00D89422 /* drawNounView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = drawNounView.swift; sourceTree = "<group>"; };
 		75A4507A2407E20500D89422 /* drawNounCanvas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = drawNounCanvas.swift; sourceTree = "<group>"; };
 		75A4507C2407F0F800D89422 /* lineModelForDraw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lineModelForDraw.swift; sourceTree = "<group>"; };
-		75A4507E2407FA1E00D89422 /* nounUserImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nounUserImage.swift; sourceTree = "<group>"; };
+		75A4507E2407FA1E00D89422 /* wordBank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wordBank.swift; sourceTree = "<group>"; };
+		75A45080240806E200D89422 /* wordBankView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wordBankView.swift; sourceTree = "<group>"; };
 		D8033E5623FFF03200F92E58 /* sortingSelectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = sortingSelectionView.swift; sourceTree = "<group>"; };
 		D8033E5823FFF03C00F92E58 /* sortingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = sortingView.swift; sourceTree = "<group>"; };
 		D8033E5A23FFF25E00F92E58 /* signUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signUpView.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 				D8033E5A23FFF25E00F92E58 /* signUpView.swift */,
 				75A450782407D79E00D89422 /* drawNounView.swift */,
 				75A4507A2407E20500D89422 /* drawNounCanvas.swift */,
+				75A45080240806E200D89422 /* wordBankView.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -156,7 +159,7 @@
 				D8510D9A23F704C700ED387E /* userData.swift */,
 				D8663B8423FACDB1002754F7 /* storyData.swift */,
 				75A4507C2407F0F800D89422 /* lineModelForDraw.swift */,
-				75A4507E2407FA1E00D89422 /* nounUserImage.swift */,
+				75A4507E2407FA1E00D89422 /* wordBank.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -360,7 +363,8 @@
 				D8033E5923FFF03C00F92E58 /* sortingView.swift in Sources */,
 				D8510D9B23F704C700ED387E /* userData.swift in Sources */,
 				75A450792407D79E00D89422 /* drawNounView.swift in Sources */,
-				75A4507F2407FA1E00D89422 /* nounUserImage.swift in Sources */,
+				75A45081240806E200D89422 /* wordBankView.swift in Sources */,
+				75A4507F2407FA1E00D89422 /* wordBank.swift in Sources */,
 				D8510DA023F7312C00ED387E /* mainMenuView.swift in Sources */,
 				D8663B8323FAC2A3002754F7 /* PageView.swift in Sources */,
 				D8A0E81323F1A9FB006D516A /* ELLApp.xcdatamodeld in Sources */,
