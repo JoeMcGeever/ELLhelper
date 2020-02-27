@@ -7,7 +7,7 @@
 //
 
 
-//https://www.hackingwithswift.com/example-code/media/how-to-highlight-text-to-speech-words-being-read-using-avspeechsynthesizer -->if I do not implement human speaking over the top
+
 
 import UIKit
 

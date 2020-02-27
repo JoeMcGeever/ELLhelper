@@ -13,7 +13,21 @@ import UIKit
 
 class DrawNoun : UIViewController {
     
-    let noun : String = "Noun" //this is to be overwitten by prior view
+    let wordCoreData = WordBank()
+    
+    @IBAction func nounLabelTapped(_ sender: Any) {
+        //when tapped, the noun changes to the translation so the user can see what the word is in their language:
+        if(nounLabel.text == noun){
+            nounLabel.text = translation
+        } else {
+            nounLabel.text = noun
+        }
+    }
+    
+    
+    var noun : String = ""
+    var translation : String = ""
+    //this is to be overwitten by prior view
     
     @IBOutlet weak var nounLabel: UILabel! //the displayed noun appears at the top of the screen
     
@@ -117,14 +131,13 @@ class DrawNoun : UIViewController {
         
         
         
+    
         
-        
-        let usersImage = canvas.asImage()//saves the canvas view as an image using its extension which converts it into an UIimage
-        
-        
-        //save var 'noun' and var 'usersImage' in core data
+        let image = canvas.asImage() //saves the canvas view as an image using its extension which converts it into an UIimage
+
                
-        
+        wordCoreData.saveImageToWord(word: noun, image: image)
+        //save this to core data
         
         
         
@@ -182,7 +195,12 @@ class DrawNoun : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        nounLabel.text = noun //set the label to be the sent noun from prior view controller
+        	
+        print(noun)
+        
+        
+
+        nounLabel.text = noun
 
         canvas.backgroundColor = .white //set canvas to white instead of black
         

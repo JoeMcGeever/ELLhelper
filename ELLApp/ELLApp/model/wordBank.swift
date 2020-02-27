@@ -16,7 +16,10 @@ import UIKit
 
 //as a standard for this actually; when a new word is added to the word bank, the translation should also be added (but not visible in the tableview of words (only display if absolutely necessary)) ->
 
-class WordBank {
+//its also worth noting, that these need to be in a relationship to the sign in thar created them
+
+class WordBank  {
+    
     
     struct Word { //the structure of accounts, more can be added to accounts now, like progress trackers
         var EnglishWord : String //adds when a new word is initiated
@@ -24,7 +27,7 @@ class WordBank {
         var drawnImage : UIImage //is set as of when the user draws the image for the word
         init(EnglishWord : String) {
             self.EnglishWord = EnglishWord
-            self.TranslatedWord = ""
+            self.TranslatedWord = "No translation found"
             self.drawnImage = UIImage(named: "questionmark")! //initialise as a "?" image
         }
     }
@@ -32,13 +35,13 @@ class WordBank {
     func saveNewWordToCoreData(word : String) {
         
     }
-    func saveImageToWord(word : String){
-        
+    func saveImageToWord(word : String, image : UIImage){
+        //recieves the updated
     }
     
     func getListOfWords() -> [Word] {
         
-        return[Word(EnglishWord: "test")]
+        return[Word(EnglishWord: "test"), Word(EnglishWord: "test2"), Word(EnglishWord: "test3")]
     }
     
     
