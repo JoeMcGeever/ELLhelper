@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		7559017D23FEC16500E96230 /* storyFinishedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7559017C23FEC16500E96230 /* storyFinishedView.swift */; };
 		75775FB023FEB23A00BE60CA /* storyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75775FAF23FEB23A00BE60CA /* storyViewController.swift */; };
+		75A450792407D79E00D89422 /* drawNounView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A450782407D79E00D89422 /* drawNounView.swift */; };
+		75A4507B2407E20500D89422 /* drawNounCanvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A4507A2407E20500D89422 /* drawNounCanvas.swift */; };
+		75A4507D2407F0F800D89422 /* lineModelForDraw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A4507C2407F0F800D89422 /* lineModelForDraw.swift */; };
+		75A4507F2407FA1E00D89422 /* nounUserImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A4507E2407FA1E00D89422 /* nounUserImage.swift */; };
 		D8033E5723FFF03200F92E58 /* sortingSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8033E5623FFF03200F92E58 /* sortingSelectionView.swift */; };
 		D8033E5923FFF03C00F92E58 /* sortingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8033E5823FFF03C00F92E58 /* sortingView.swift */; };
 		D8033E5B23FFF25E00F92E58 /* signUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8033E5A23FFF25E00F92E58 /* signUpView.swift */; };
@@ -55,6 +59,10 @@
 /* Begin PBXFileReference section */
 		7559017C23FEC16500E96230 /* storyFinishedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = storyFinishedView.swift; sourceTree = "<group>"; };
 		75775FAF23FEB23A00BE60CA /* storyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = storyViewController.swift; sourceTree = "<group>"; };
+		75A450782407D79E00D89422 /* drawNounView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = drawNounView.swift; sourceTree = "<group>"; };
+		75A4507A2407E20500D89422 /* drawNounCanvas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = drawNounCanvas.swift; sourceTree = "<group>"; };
+		75A4507C2407F0F800D89422 /* lineModelForDraw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lineModelForDraw.swift; sourceTree = "<group>"; };
+		75A4507E2407FA1E00D89422 /* nounUserImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nounUserImage.swift; sourceTree = "<group>"; };
 		D8033E5623FFF03200F92E58 /* sortingSelectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = sortingSelectionView.swift; sourceTree = "<group>"; };
 		D8033E5823FFF03C00F92E58 /* sortingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = sortingView.swift; sourceTree = "<group>"; };
 		D8033E5A23FFF25E00F92E58 /* signUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signUpView.swift; sourceTree = "<group>"; };
@@ -126,6 +134,8 @@
 				75775FAF23FEB23A00BE60CA /* storyViewController.swift */,
 				7559017C23FEC16500E96230 /* storyFinishedView.swift */,
 				D8033E5A23FFF25E00F92E58 /* signUpView.swift */,
+				75A450782407D79E00D89422 /* drawNounView.swift */,
+				75A4507A2407E20500D89422 /* drawNounCanvas.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -145,6 +155,8 @@
 			children = (
 				D8510D9A23F704C700ED387E /* userData.swift */,
 				D8663B8423FACDB1002754F7 /* storyData.swift */,
+				75A4507C2407F0F800D89422 /* lineModelForDraw.swift */,
+				75A4507E2407FA1E00D89422 /* nounUserImage.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -347,6 +359,8 @@
 				D87532D323F5632400844434 /* loginView.swift in Sources */,
 				D8033E5923FFF03C00F92E58 /* sortingView.swift in Sources */,
 				D8510D9B23F704C700ED387E /* userData.swift in Sources */,
+				75A450792407D79E00D89422 /* drawNounView.swift in Sources */,
+				75A4507F2407FA1E00D89422 /* nounUserImage.swift in Sources */,
 				D8510DA023F7312C00ED387E /* mainMenuView.swift in Sources */,
 				D8663B8323FAC2A3002754F7 /* PageView.swift in Sources */,
 				D8A0E81323F1A9FB006D516A /* ELLApp.xcdatamodeld in Sources */,
@@ -354,8 +368,10 @@
 				D8A0E80923F1A9FB006D516A /* AppDelegate.swift in Sources */,
 				D8510D9D23F70A4B00ED387E /* accountsController.swift in Sources */,
 				D8A0E80B23F1A9FB006D516A /* SceneDelegate.swift in Sources */,
+				75A4507D2407F0F800D89422 /* lineModelForDraw.swift in Sources */,
 				75775FB023FEB23A00BE60CA /* storyViewController.swift in Sources */,
 				D8033E5723FFF03200F92E58 /* sortingSelectionView.swift in Sources */,
+				75A4507B2407E20500D89422 /* drawNounCanvas.swift in Sources */,
 				D8663B8523FACDB1002754F7 /* storyData.swift in Sources */,
 				D808B17623FD596000AF8CDE /* matchUpCorrectView.swift in Sources */,
 				D8663B8E23FAF338002754F7 /* storyPageView.swift in Sources */,
