@@ -14,6 +14,8 @@ class WordBankView : UIViewController, UITableViewDataSource ,UITableViewDelegat
     let words = WordBank()
     var selectedWord = WordBank.Word(EnglishWord: "")
     
+     var accountInstance = User.AccountStruct(username: "", homeLanguage: "") //this gets populated with an account instance from the menu page
+    
     var arrayOfWords : [WordBank.Word] = []
        
        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -61,6 +63,7 @@ class WordBankView : UIViewController, UITableViewDataSource ,UITableViewDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(accountInstance)
         newWordTextField.text = ""
         arrayOfWords = words.getListOfWords()
     }

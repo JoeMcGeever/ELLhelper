@@ -579,7 +579,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="79" height="30"/>
                                         <state key="normal" title="Word Bank!"/>
                                         <connections>
-                                            <segue destination="IjH-82-ux2" kind="presentation" modalPresentationStyle="fullScreen" id="teH-f0-dwE"/>
+                                            <segue destination="IjH-82-ux2" kind="presentation" identifier="wordBankSegue" modalPresentationStyle="fullScreen" id="teH-f0-dwE"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N0i-OR-pUi">

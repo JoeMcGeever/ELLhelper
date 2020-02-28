@@ -20,7 +20,6 @@ import UIKit
 
 class WordBank  {
     
-    
     struct Word { //the structure of accounts, more can be added to accounts now, like progress trackers
         var EnglishWord : String //adds when a new word is initiated
         var TranslatedWord : String //using some form of API to translate the word into the target language - hopefully on the spot. If the translation cannot be found, initialise and keep as blank

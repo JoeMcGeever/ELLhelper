@@ -47,12 +47,13 @@ class User {
             for data in result as! [NSManagedObject] {
                 name = (data.value(forKey: "username") as! String)
                 lang = (data.value(forKey: "homeLanguage") as! String)
+                let userInstance = AccountStruct(username: name, homeLanguage: lang)
+                return userInstance
           }
         } catch {
             print("Failed")
         }
-        let userInstance = AccountStruct(username: name, homeLanguage: lang)
-        return userInstance
+        return AccountStruct(username: name, homeLanguage: lang)
     }
     
     
