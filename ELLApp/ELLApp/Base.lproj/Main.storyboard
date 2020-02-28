@@ -626,35 +626,11 @@
                     <view key="view" contentMode="scaleToFill" id="rf3-cR-mlq">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Noun" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QmW-C6-QbX">
-                                <rect key="frame" x="465.5" y="20" width="93" height="48"/>
-                                <gestureRecognizers/>
-                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="fG3-CE-5Pe" appends="YES" id="Gfm-DS-bMB"/>
-                                </connections>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="QmW-C6-QbX" firstAttribute="top" secondItem="CqN-E2-RZw" secondAttribute="top" constant="20" id="KBo-5R-Ktq"/>
-                            <constraint firstItem="QmW-C6-QbX" firstAttribute="centerX" secondItem="rf3-cR-mlq" secondAttribute="centerX" id="su9-Am-khl"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="CqN-E2-RZw"/>
                     </view>
-                    <connections>
-                        <outlet property="nounLabel" destination="QmW-C6-QbX" id="q7l-gF-evl"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o7J-wu-W8a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="fG3-CE-5Pe">
-                    <connections>
-                        <action selector="nounLabelTapped:" destination="dZl-Li-3sQ" id="0CZ-Vm-qxS"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-2" y="-1116"/>
         </scene>

@@ -86,11 +86,13 @@ class WordBankView : UIViewController, UITableViewDataSource ,UITableViewDelegat
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //sens the account instance to the main menu page
+        let noun = selectedWord.EnglishWord
+        let translation = selectedWord.TranslatedWord
         
         if segue.identifier == "segueToDrawNoun" {
             let drawNounView = segue.destination as! DrawNoun
-            drawNounView.noun = selectedWord.EnglishWord //sends the noun and translation
-            drawNounView.translation = selectedWord.TranslatedWord
+            drawNounView.noun = noun //sends the noun and translation
+            drawNounView.translation = translation
         }
         
     }
