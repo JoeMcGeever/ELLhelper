@@ -52,6 +52,29 @@ class DrawNoun : UIViewController {
         canvas.clear()
     }
     
+    let backButton : UIButton = { //programatically add the clear button
+        let button = UIButton(type: .system)
+        button.setTitle("Back", for: .normal)
+        button.titleLabel?.font = .boldSystemFont(ofSize: 20)
+        button.addTarget(self, action: #selector(back), for: .touchUpInside)
+        return button
+    }()
+    
+    @objc fileprivate func back(){
+        //ask if sure, then segue backL
+        let alert = UIAlertController(title: "Are you sure?", message: "All work will be lost", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+            
+            self.performSegue(withIdentifier: "unwindSegueToWordBank", sender: self)
+          }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+            print("User cancels")
+        }))
+        present(alert, animated: true, completion: nil)
+        
+    }
+    
+    
     let yellowButton : UIButton = {
         let button = UIButton(type: .system)
         button.backgroundColor = .yellow
@@ -168,6 +191,7 @@ class DrawNoun : UIViewController {
             coloursStackView,
             label,
             slider,
+            backButton,
             confirmButton
             ])
         

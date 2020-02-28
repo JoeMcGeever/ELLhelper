@@ -84,6 +84,9 @@ class WordBankView : UIViewController, UITableViewDataSource ,UITableViewDelegat
     }
     
     
+
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //sens the account instance to the main menu page
         let noun = selectedWord.EnglishWord
