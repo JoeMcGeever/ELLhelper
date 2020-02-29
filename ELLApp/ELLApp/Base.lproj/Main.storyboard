@@ -479,12 +479,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sample text to display how large the text can be here. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jhy-Ti-DYV">
-                                <rect key="frame" x="192" y="367.5" width="640" height="33.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="85t-ER-W8b">
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="60"/>
                                 <constraints>
@@ -500,6 +494,16 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sample text to display how large the text can be here. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jhy-Ti-DYV">
+                                <rect key="frame" x="214" y="209" width="596" height="350"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="596" id="Y0h-0p-cRp"/>
+                                    <constraint firstAttribute="height" constant="350" id="xeS-VE-c6x"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -1558,7 +1562,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="MaK-Lb-2S1"/>
-        <segue reference="63f-1M-BBz"/>
+        <segue reference="aMW-7V-P0Z"/>
         <segue reference="ZEQ-hR-o27"/>
     </inferredMetricsTieBreakers>
 </document>
