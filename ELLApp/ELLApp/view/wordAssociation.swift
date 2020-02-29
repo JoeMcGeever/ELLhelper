@@ -58,14 +58,14 @@ class WordAssociation : UIViewController {
             
             
             
-            playSound(fileName: "levelComplete") //change to game start sound
+            playSound(fileName: "startTimer") 
             
             score += 1
             
         } else {
             score += 1
             scoreLabel.text = String(score)
-            playSound(fileName: "levelComplete") //change to game one point bleep sound
+            playSound(fileName: "ding")
             
         }
     }
