@@ -445,7 +445,7 @@
                             <outlet property="delegate" destination="1cG-yC-Jck" id="NZr-Vv-1hM"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Title" id="vWf-Gp-GxN"/>
+                    <navigationItem key="navigationItem" title="Stories" id="vWf-Gp-GxN"/>
                     <connections>
                         <segue destination="dux-vj-uQc" kind="presentation" identifier="segueToStory" modalPresentationStyle="fullScreen" id="isb-iT-h8H"/>
                     </connections>
@@ -479,9 +479,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jhy-Ti-DYV">
-                                <rect key="frame" x="476.5" y="366" width="71" height="36"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sample text to display how large the text can be here. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jhy-Ti-DYV">
+                                <rect key="frame" x="192" y="367.5" width="640" height="33.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -491,7 +491,7 @@
                                     <constraint firstAttribute="height" constant="60" id="UEQ-cy-ATZ"/>
                                 </constraints>
                                 <items>
-                                    <navigationItem title="Title" id="cnk-MY-XZE">
+                                    <navigationItem title="Stories" id="cnk-MY-XZE">
                                         <barButtonItem key="leftBarButtonItem" title="Back" id="pVZ-Xa-X95">
                                             <connections>
                                                 <segue destination="D81-fi-dKf" kind="unwind" unwindAction="unwindToMainMenuWithSegue:" id="a5I-Mk-i9S"/>
@@ -519,7 +519,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="91n-73-hso" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="D81-fi-dKf" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2345" y="1618"/>
+            <point key="canvasLocation" x="2344.921875" y="1617.96875"/>
         </scene>
         <!--Story Finished-->
         <scene sceneID="8Gf-S5-Fhg">
@@ -1559,6 +1559,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="MaK-Lb-2S1"/>
         <segue reference="63f-1M-BBz"/>
-        <segue reference="teH-f0-dwE"/>
+        <segue reference="ZEQ-hR-o27"/>
     </inferredMetricsTieBreakers>
 </document>
