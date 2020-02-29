@@ -13,9 +13,14 @@ import UIKit
 
 class DrawNoun : UIViewController {
     
-    let noun : String = "Noun" //this is to be overwitten by prior view
+    let wordCoreData = WordBank()
     
-    @IBOutlet weak var nounLabel: UILabel! //the displayed noun appears at the top of the screen
+    let label = UILabel() //label for displaying the noun
+    
+    var noun : String? = nil
+    var translation : String? = nil
+    //this is to be overwitten by prior view
+    
     
     
     let canvas = Canvas()
@@ -46,6 +51,29 @@ class DrawNoun : UIViewController {
         //call the clear function in canvas class
         canvas.clear()
     }
+    
+    let backButton : UIButton = { //programatically add the clear button
+        let button = UIButton(type: .system)
+        button.setTitle("Back", for: .normal)
+        button.titleLabel?.font = .boldSystemFont(ofSize: 20)
+        button.addTarget(self, action: #selector(back), for: .touchUpInside)
+        return button
+    }()
+    
+    @objc fileprivate func back(){
+        //ask if sure, then segue backL
+        let alert = UIAlertController(title: "Are you sure?", message: "All work will be lost", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+            
+            self.performSegue(withIdentifier: "unwindSegueToWordBank", sender: self)
+          }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+            print("User cancels")
+        }))
+        present(alert, animated: true, completion: nil)
+        
+    }
+    
     
     let yellowButton : UIButton = {
         let button = UIButton(type: .system)
@@ -117,14 +145,13 @@ class DrawNoun : UIViewController {
         
         
         
+    
         
-        
-        let usersImage = canvas.asImage()//saves the canvas view as an image using its extension which converts it into an UIimage
-        
-        
-        //save var 'noun' and var 'usersImage' in core data
+        let image = canvas.asImage() //saves the canvas view as an image using its extension which converts it into an UIimage
+
                
-        
+        wordCoreData.saveImageToWord(word: noun!, image: image)
+        //save this to core data
         
         
         
@@ -152,6 +179,8 @@ class DrawNoun : UIViewController {
     
     fileprivate func setupStackView() { //sets up the stack view layout
         
+        setUpLabel()
+        
         let coloursStackView = UIStackView(arrangedSubviews:
         [yellowButton, redButton, greenButton, blueButton])
         coloursStackView.distribution = .fillEqually//programmatically ensure the distribution between the elements in the stack view are equal
@@ -160,7 +189,9 @@ class DrawNoun : UIViewController {
             undoButton,
             clearButton,
             coloursStackView,
+            label,
             slider,
+            backButton,
             confirmButton
             ])
         
@@ -177,17 +208,50 @@ class DrawNoun : UIViewController {
         stackView.trailingAnchor.constraint(equalTo:
             view.trailingAnchor, constant: -8).isActive = true //pushes the right side of the stack view -9 (as slider wast working)
         
+        //label stack view here
+        
     }
+    
+    
+    func setUpLabel() {
+
+        label.text = noun
+        label.numberOfLines = 0
+        label.tag = 1
+        label.font = UIFont(name:"HelveticaNeue-Bold", size: 15.0)
+
+        label.backgroundColor = .cyan
+        
+        label.textAlignment = .center
+        
+        
+        // enable user interaction on the label
+        label.isUserInteractionEnabled = true
+
+
+        // create the gesture recognizer
+        let labelTapGesture = UITapGestureRecognizer(target:self,action:#selector(self.doSomethingOnTap))
+        
+        label.addGestureRecognizer(labelTapGesture)
+        
+    }
+
+    @objc func doSomethingOnTap() {
+        if label.text == noun{
+            label.text = translation
+        } else {
+            label.text = noun
+        }
+        
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        nounLabel.text = noun //set the label to be the sent noun from prior view controller
-
+       
         canvas.backgroundColor = .white //set canvas to white instead of black
         
         setupStackView() //call the function to set up the stack view
-    
         
         
     }

@@ -3,12 +3,21 @@
     <entity name="Accounts" representedClassName="Accounts" syncable="YES" codeGenerationType="class">
         <attribute name="homeLanguage" optional="YES" attributeType="String"/>
         <attribute name="username" optional="YES" attributeType="String"/>
+        <relationship name="hasWords" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WordBankCore" inverseName="isOwned" inverseEntity="WordBankCore"/>
     </entity>
     <entity name="Story1" representedClassName="Story1" syncable="YES" codeGenerationType="class">
+        <attribute name="image" optional="YES" attributeType="Binary"/>
         <attribute name="text" optional="YES" attributeType="String"/>
     </entity>
+    <entity name="WordBankCore" representedClassName="WordBankCore" syncable="YES" codeGenerationType="class">
+        <attribute name="englishWord" optional="YES" attributeType="String"/>
+        <attribute name="image" optional="YES" attributeType="Binary"/>
+        <attribute name="translation" optional="YES" attributeType="String"/>
+        <relationship name="isOwned" maxCount="1" deletionRule="Nullify" destinationEntity="Accounts" inverseName="hasWords" inverseEntity="Accounts"/>
+    </entity>
     <elements>
-        <element name="Accounts" positionX="-63" positionY="-18" width="128" height="73"/>
-        <element name="Story1" positionX="-63" positionY="0" width="128" height="58"/>
+        <element name="Accounts" positionX="-63" positionY="-18" width="128" height="88"/>
+        <element name="Story1" positionX="-63" positionY="0" width="128" height="73"/>
+        <element name="WordBankCore" positionX="-63" positionY="0" width="128" height="103"/>
     </elements>
 </model>

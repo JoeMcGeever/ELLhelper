@@ -7,7 +7,7 @@
 //
 
 
-//https://www.hackingwithswift.com/example-code/media/how-to-highlight-text-to-speech-words-being-read-using-avspeechsynthesizer -->if I do not implement human speaking over the top
+
 
 import UIKit
 
@@ -47,12 +47,8 @@ class storyViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "storyCell", for: indexPath)
         let story = arrayOfStories[indexPath.row] //current cell is current story
         // Configure the cell...
-        var completedStatus = "Not yet completed"
-        if(story.completed){
-            completedStatus = "Completed!"
-        }
         cell.textLabel?.text = story.title
-        cell.detailTextLabel?.text = story.description + " - " + completedStatus
+        cell.detailTextLabel?.text = story.description
         cell.imageView?.image = UIImage(named : story.imageFile) //sets the title image here
 
         return cell

@@ -10,18 +10,26 @@ import Foundation
 
 class mainMenu : UIViewController {
     
-    var accountInstance = Account() //this gets populated with an account instance from the login page
+    var accountInstance = User.AccountStruct(username: "", homeLanguage: "") //this gets populated with an account instance from the login page
     
     @IBAction func unwindToMainMenu(segue: UIStoryboardSegue) {} 
     
     
     @IBAction func logout(_ sender: Any) {
         //accountInstance.whoIsLoggedIn()
-        accountInstance.logout() //maybe delete the obj instead and segue back to login
         self.performSegue(withIdentifier: "logOutSegue", sender: self)
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //sens the account instance to the main menu page
+        if segue.identifier == "wordBankSegue" {
+            let wordBank = segue.destination as! WordBankView
+            wordBank.accountInstance = accountInstance
+            
+        }
+        
+    }
     
 }
 
