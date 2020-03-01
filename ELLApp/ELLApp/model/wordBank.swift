@@ -19,9 +19,7 @@ import UIKit
 //its also worth noting, that these need to be in a relationship to the sign in thar created them
 
 class WordBank  {
-    
     var translatedWord = "No translation found"
-         
     
     struct Word { //the structure of accounts, more can be added to accounts now, like progress trackers
         var EnglishWord : String //adds when a new word is initiated
@@ -36,20 +34,6 @@ class WordBank  {
     
     func saveNewWordToCoreData(word : String, targetLanguage : String) {
         
-        translatedWord = getTranslation(word: word, targetLanguage: targetLanguage)
-        
-     
-        
-        
-        print("Save now:")
-        print(word)
-        print("Along with:")
-        print(translatedWord)
-
-        }
-    
-    private func getTranslation(word : String, targetLanguage : String) -> String{
-           
         
         TranslationManager.shared.textToTranslate = word //set the word to translate
         TranslationManager.shared.targetLanguageCode = targetLanguage //and its target language
@@ -59,18 +43,27 @@ class WordBank  {
         
                     DispatchQueue.main.async { [unowned self] in
                     print(translation)
-                        var translatedWord = translation
-                }
+                         self.translatedWord = translation
+
+                         print("Save now:")
+                         print(word)
+                         print("Along with:")
+                         print(translation)
+                        
+                        //SAVE TO CORE DATA HERE!
+                        
+                        
+                        
+                    }
         
                 } else {
                     print("Error")
                 }
                 })
-        
-        return translatedWord
-        
-        
-    }
+            
+        print("Async however")
+
+        }
     
     
     func saveImageToWord(word : String, image : UIImage){
