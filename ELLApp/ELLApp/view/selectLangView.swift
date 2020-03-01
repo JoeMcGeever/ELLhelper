@@ -62,8 +62,6 @@ class LanguagesView : UITableViewController {
         
         let cell = tableView.cellForRow(at: indexPath)
         
-        print(cell?.textLabel)
-        print(cell?.detailTextLabel)
         selectedLanguage = cell?.detailTextLabel?.text ?? ""
         
         self.performSegue(withIdentifier: "unwindToSignUp", sender: self)
