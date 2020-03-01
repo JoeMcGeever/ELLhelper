@@ -16,6 +16,10 @@ class TranslationManager: NSObject {
     private let apiKey = "AIzaSyDI_mVKWuLP5ml6RkkplWne1iDRr_KC2GA" //my google translate API
  
 
+    var textToTranslate: String?
+     
+    var targetLanguageCode: String?
+
     struct TranslationLanguage {
         var code: String? //example: "en"
         var name: String? //example: "English"
@@ -104,6 +108,41 @@ class TranslationManager: NSObject {
 
         }
      
+    }
+    
+    func translate(completion: @escaping (_ translations: String?) -> Void) {
+        //translates text to target language
+        guard let textToTranslate = textToTranslate, let targetLanguage = targetLanguageCode else { completion(nil); return }
+        //need to put in URL: api key, text to translate, in param called q, target language. format of returned text: html or text
+        var urlParams = [String: String]()
+           urlParams["key"] = apiKey
+           urlParams["q"] = textToTranslate
+           urlParams["target"] = targetLanguage
+           urlParams["format"] = "text"
+        
+           makeRequest(usingTranslationAPI: .translate, urlParams: urlParams) { (results) in
+                  guard let results = results else { completion(nil); return }
+  
+                    if let data = results["data"] as? [String: Any], let translations = data["translations"] as? [[String: Any]] {
+                        var allTranslations = [String]()
+                        for translation in translations {
+                        if let translatedText = translation["translatedText"] as? String {
+                            allTranslations.append(translatedText)
+                            }
+                        }
+             
+                        if allTranslations.count > 0 {
+                            completion(allTranslations[0])
+                        } else {
+                            completion(nil)
+                        }
+             
+             
+                    } else {
+                        completion(nil)
+                }
+                }
+        
     }
     
 }

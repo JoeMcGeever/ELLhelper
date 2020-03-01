@@ -20,6 +20,9 @@ import UIKit
 
 class WordBank  {
     
+    var translatedWord = "No translation found"
+         
+    
     struct Word { //the structure of accounts, more can be added to accounts now, like progress trackers
         var EnglishWord : String //adds when a new word is initiated
         var TranslatedWord : String //using some form of API to translate the word into the target language - hopefully on the spot. If the translation cannot be found, initialise and keep as blank
@@ -31,9 +34,45 @@ class WordBank  {
         }
     }
     
-    func saveNewWordToCoreData(word : String) {
+    func saveNewWordToCoreData(word : String, targetLanguage : String) {
+        
+        translatedWord = getTranslation(word: word, targetLanguage: targetLanguage)
+        
+     
+        
+        
+        print("Save now:")
+        print(word)
+        print("Along with:")
+        print(translatedWord)
 
+        }
+    
+    private func getTranslation(word : String, targetLanguage : String) -> String{
+           
+        
+        TranslationManager.shared.textToTranslate = word //set the word to translate
+        TranslationManager.shared.targetLanguageCode = targetLanguage //and its target language
+        TranslationManager.shared.translate(completion: { (translation) in
+
+                if let translation = translation {
+        
+                    DispatchQueue.main.async { [unowned self] in
+                    print(translation)
+                        var translatedWord = translation
+                }
+        
+                } else {
+                    print("Error")
+                }
+                })
+        
+        return translatedWord
+        
+        
     }
+    
+    
     func saveImageToWord(word : String, image : UIImage){
         //recieves the updated
     }
