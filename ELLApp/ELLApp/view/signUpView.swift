@@ -11,12 +11,27 @@ class signUp: UIViewController {
 
     let accountController = User()
     
+    var userLanguage : String = ""
+    
+    @IBAction func unwindToSignUp(segue: UIStoryboardSegue) {}
+    
+    
     @IBOutlet weak var usernameText: UITextField!
-    @IBOutlet weak var languageText: UITextField!
+    @IBOutlet weak var languageText: UILabel!
+    
+    @IBAction func languageSelect(_ sender: Any) {
+        self.performSegue(withIdentifier: "showLangSegue", sender: self)
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        languageText.text = userLanguage
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
     }
     
     @IBAction func confirm(_ sender: Any) {
