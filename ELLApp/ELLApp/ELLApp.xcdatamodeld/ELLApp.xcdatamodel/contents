@@ -10,7 +10,7 @@
     </entity>
     <entity name="WordBankCore" representedClassName=".WordBankCore" syncable="YES" codeGenerationType="class">
         <attribute name="englishWord" optional="YES" attributeType="String"/>
-        <attribute name="image" optional="YES" attributeType="Binary"/>
+        <attribute name="image" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
         <attribute name="translation" optional="YES" attributeType="String"/>
         <attribute name="user" optional="YES" attributeType="String"/>
     </entity>
