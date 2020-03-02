@@ -56,12 +56,11 @@ class WordBankView : UIViewController, UITableViewDataSource ,UITableViewDelegat
     
     override func viewDidAppear(_ animated: Bool) {
         viewDidLoad()
-        self.tableView.reloadData()
     }
     
     
        
-       @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var newWordTextField: UITextField!
     
@@ -69,6 +68,7 @@ class WordBankView : UIViewController, UITableViewDataSource ,UITableViewDelegat
         super.viewDidLoad()
         newWordTextField.text = ""
         arrayOfWords = words.getListOfWords(user: accountInstance.username)
+        tableView.reloadData()
     }
 
     @IBAction func confirmPressed(_ sender: Any) {
@@ -104,6 +104,7 @@ class WordBankView : UIViewController, UITableViewDataSource ,UITableViewDelegat
             let drawNounView = segue.destination as! DrawNoun
             drawNounView.noun = noun //sends the noun and translation
             drawNounView.translation = translation
+            drawNounView.accountInstance = accountInstance
         }
         
     }

@@ -28,7 +28,7 @@ class WordBank : NSManagedObject {
         var EnglishWord : String //adds when a new word is initiated
         var TranslatedWord : String //using some form of API to translate the word into the target language - hopefully on the spot. If the translation cannot be found, initialise and keep as blank
         var drawnImage : UIImage //is set as of when the user draws the image for the word
-        init(EnglishWord : String, translatedWord : String, drawnImage : UIImage) {
+        init(EnglishWord : String, translatedWord : String) {
             self.EnglishWord = EnglishWord
             self.TranslatedWord = translatedWord
             self.drawnImage = UIImage(named: "questionmark")! //initialise as a "?" image

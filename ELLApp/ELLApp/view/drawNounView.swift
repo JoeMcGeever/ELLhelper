@@ -21,6 +21,8 @@ class DrawNoun : UIViewController {
     var translation : String? = nil
     //this is to be overwitten by prior view
     
+    var accountInstance = User.AccountStruct(username: "", homeLanguage: "") //this gets populated with an account instance from the prior page
+    
     
     
     let canvas = Canvas()
@@ -255,4 +257,14 @@ class DrawNoun : UIViewController {
         
         
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    
+     
+     if segue.identifier == "unwindSegueToWordBank" {
+         
+         let wordBankView = segue.destination as! WordBankView
+         wordBankView.accountInstance = accountInstance
+     }
+     }
 }
