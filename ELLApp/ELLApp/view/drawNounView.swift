@@ -21,6 +21,8 @@ class DrawNoun : UIViewController {
     var translation : String? = nil
     //this is to be overwitten by prior view
     
+    var accountInstance = User.AccountStruct(username: "", homeLanguage: "") //this gets populated with an account instance from the prior page
+    
     
     
     let canvas = Canvas()
@@ -130,46 +132,22 @@ class DrawNoun : UIViewController {
     }()
     
     @objc fileprivate func confirm(){
-        
-        
-        
-        
-        
-        //ask if sure and ready,
-        //play the success sound
-        //save to core data with the key being the noun name
-        //in word bank, when user wishes to understand what a word means
-        //they press it, and see the image they drew
-        //as described in SRS book
-        
-        
-        
-        
-    
-        
-        let image = canvas.asImage() //saves the canvas view as an image using its extension which converts it into an UIimage
 
-               
-        wordCoreData.saveImageToWord(word: noun!, image: image)
-        //save this to core data
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+        let alert = UIAlertController(title: "Are you sure?", message: "The image will be saved", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+            
+            let image = self.canvas.asImage() //saves the canvas view as an image using its extension which converts it into an UIimage
+
+                   
+            self.wordCoreData.saveImageToWord(user: self.accountInstance.username, word: self.noun!, image: image) //save this to core data
+            
+            self.performSegue(withIdentifier: "unwindSegueToWordBank", sender: self)
+          }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+            print("User cancels")
+        }))
+        present(alert, animated: true, completion: nil)
+         
     }
     
     
@@ -255,4 +233,14 @@ class DrawNoun : UIViewController {
         
         
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    
+     
+     if segue.identifier == "unwindSegueToWordBank" {
+         
+         let wordBankView = segue.destination as! WordBankView
+         wordBankView.accountInstance = accountInstance
+     }
+     }
 }

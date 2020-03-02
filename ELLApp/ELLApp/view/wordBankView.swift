@@ -11,8 +11,9 @@ import UIKit
 
 class WordBankView : UIViewController, UITableViewDataSource ,UITableViewDelegate {
     
-    let words = WordBank()
-    var selectedWord = WordBank.Word(EnglishWord: "")
+    var words = WordBank()
+    var selectedWord = WordBank.Word(EnglishWord: "", translatedWord: "", drawnImage: UIImage(named: "questionmark")!)
+    var selectedWordIndex = 0
     
      var accountInstance = User.AccountStruct(username: "", homeLanguage: "") //this gets populated with an account instance from the menu page
     
@@ -28,17 +29,20 @@ class WordBankView : UIViewController, UITableViewDataSource ,UITableViewDelegat
            
         cell.textLabel?.text = word.EnglishWord
            return cell
+        
        }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         //perform a segue to the title page, sending the stories title along with it
         selectedWord = arrayOfWords[indexPath.row]
-        
+        selectedWordIndex = indexPath.row
     
         
         if(selectedWord.drawnImage != UIImage(named: "questionmark")){
-            //segue to show the image (send the word with the segue so the translation can be seen if still unable to remember
             
+            //segue to show the image (send the word with the segue so the translation can be seen if still unable to remember
+
+            performSegue(withIdentifier: "displayUserImage", sender: nil)
             
             
         } else {
@@ -49,23 +53,33 @@ class WordBankView : UIViewController, UITableViewDataSource ,UITableViewDelegat
             
         }
         
-        
-        
-        
-        
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) { //enable swipe to delete
+     if editingStyle == .delete {
+        selectedWord = arrayOfWords[indexPath.row]
+        self.words.deleteWord(user: accountInstance.username, word: selectedWord.EnglishWord)
+        viewDidLoad()
+     }
+    }
+    
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        viewDidLoad()
     }
     
     
        
-       @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var newWordTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(accountInstance)
         newWordTextField.text = ""
-        arrayOfWords = words.getListOfWords()
+        arrayOfWords = words.getListOfWords(user: accountInstance.username)
+        tableView.reloadData()
     }
 
     @IBAction func confirmPressed(_ sender: Any) {
@@ -81,7 +95,7 @@ class WordBankView : UIViewController, UITableViewDataSource ,UITableViewDelegat
     
     func addWord(){
         guard let newWord = newWordTextField.text else { return  }
-        words.saveNewWordToCoreData(word: newWord)
+        words.saveNewWordToCoreData(user : accountInstance.username, word: newWord, targetLanguage: accountInstance.homeLanguage)
         viewDidLoad()
         
     }
@@ -91,14 +105,24 @@ class WordBankView : UIViewController, UITableViewDataSource ,UITableViewDelegat
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //sens the account instance to the main menu page
-        let noun = selectedWord.EnglishWord
-        let translation = selectedWord.TranslatedWord
+       
         
         if segue.identifier == "segueToDrawNoun" {
+            
+            let noun = selectedWord.EnglishWord
+            let translation = arrayOfWords[selectedWordIndex].TranslatedWord
+            
             let drawNounView = segue.destination as! DrawNoun
             drawNounView.noun = noun //sends the noun and translation
             drawNounView.translation = translation
+            drawNounView.accountInstance = accountInstance
+        }
+        
+        if segue.identifier == "displayUserImage" {
+            
+            let userImageView = segue.destination as! UserImageView
+            userImageView.accountInstance = accountInstance
+            userImageView.selectedWord = selectedWord
         }
         
     }

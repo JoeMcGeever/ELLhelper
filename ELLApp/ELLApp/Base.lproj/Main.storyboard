@@ -110,6 +110,7 @@
                         <outlet property="newWordTextField" destination="bqu-Rm-TDS" id="zXC-4a-31U"/>
                         <outlet property="tableView" destination="uR7-vx-wlI" id="DbT-Zs-vkz"/>
                         <segue destination="dZl-Li-3sQ" kind="presentation" identifier="segueToDrawNoun" modalPresentationStyle="fullScreen" id="zQc-HA-FTP"/>
+                        <segue destination="pu4-Q4-JGh" kind="presentation" identifier="displayUserImage" modalPresentationStyle="fullScreen" id="aVw-XW-8lg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Z1-8v-jtd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1601,6 +1602,79 @@
             </objects>
             <point key="canvasLocation" x="2520.703125" y="-113.28125"/>
         </scene>
+        <!--User Image View-->
+        <scene sceneID="KGz-1D-YuT">
+            <objects>
+                <viewController id="pu4-Q4-JGh" customClass="UserImageView" customModule="ELLApp" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yfW-bP-9EM">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="W2Q-Uu-ckD">
+                                <rect key="frame" x="0.0" y="16" width="1024" height="736"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sLP-RM-Jdx">
+                                        <rect key="frame" x="0.0" y="0.0" width="1024" height="685"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="1024" id="03f-fz-1nv"/>
+                                            <constraint firstAttribute="height" constant="685" id="E5l-q3-E0M"/>
+                                        </constraints>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="194" translatesAutoresizingMaskIntoConstraints="NO" id="jNO-6f-2YQ">
+                                        <rect key="frame" x="257.5" y="706" width="509" height="30"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v4k-U4-asq">
+                                                <rect key="frame" x="0.0" y="0.0" width="34" height="30"/>
+                                                <state key="normal" title="Back"/>
+                                                <connections>
+                                                    <action selector="backButton:" destination="pu4-Q4-JGh" eventType="touchUpInside" id="4RX-Ef-wRq"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YWF-dW-SF1">
+                                                <rect key="frame" x="228" y="0.0" width="42" height="30"/>
+                                                <gestureRecognizers/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="p8M-Zr-bgq" appends="YES" id="goz-v2-JDh"/>
+                                                </connections>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Nb-bR-8cU">
+                                                <rect key="frame" x="464" y="0.0" width="45" height="30"/>
+                                                <state key="normal" title="Delete"/>
+                                                <connections>
+                                                    <action selector="deleteButton:" destination="pu4-Q4-JGh" eventType="touchUpInside" id="5gQ-ew-zRZ"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="W2Q-Uu-ckD" firstAttribute="centerX" secondItem="yfW-bP-9EM" secondAttribute="centerX" id="5HB-7D-9bF"/>
+                            <constraint firstItem="W2Q-Uu-ckD" firstAttribute="centerY" secondItem="yfW-bP-9EM" secondAttribute="centerY" id="bsf-IL-LdT"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Tg2-nn-lvE"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="agz-Kp-cGa"/>
+                    <connections>
+                        <outlet property="nounLabel" destination="YWF-dW-SF1" id="Ohu-ip-y63"/>
+                        <outlet property="userImage" destination="sLP-RM-Jdx" id="foP-tJ-mgi"/>
+                        <segue destination="IjH-82-ux2" kind="presentation" identifier="unwindSegueToWordBank" modalPresentationStyle="fullScreen" id="Asg-1m-v0c"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JTU-cZ-yAZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="p8M-Zr-bgq">
+                    <connections>
+                        <action selector="labelTapped:" destination="pu4-Q4-JGh" id="oRx-X2-rfN"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="901.75781249999989" y="-1907.03125"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Blue" width="600" height="568"/>
@@ -1621,6 +1695,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="MaK-Lb-2S1"/>
         <segue reference="aMW-7V-P0Z"/>
-        <segue reference="ZEQ-hR-o27"/>
+        <segue reference="Asg-1m-v0c"/>
     </inferredMetricsTieBreakers>
 </document>

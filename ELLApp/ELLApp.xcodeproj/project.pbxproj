@@ -20,6 +20,7 @@
 		D8033E5F24000ED900F92E58 /* levelComplete.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D8033E5E24000ED900F92E58 /* levelComplete.mp3 */; };
 		D808B17423FD546400AF8CDE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D808B17323FD546300AF8CDE /* Assets.xcassets */; };
 		D808B17623FD596000AF8CDE /* matchUpCorrectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D808B17523FD596000AF8CDE /* matchUpCorrectView.swift */; };
+		D817B824240D684700AB8B84 /* displayUserImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D817B823240D684700AB8B84 /* displayUserImageView.swift */; };
 		D82810A0240A77AB005DF63A /* wordAssociation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D828109F240A77AB005DF63A /* wordAssociation.swift */; };
 		D8510D9B23F704C700ED387E /* userData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8510D9A23F704C700ED387E /* userData.swift */; };
 		D8510DA023F7312C00ED387E /* mainMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8510D9F23F7312C00ED387E /* mainMenuView.swift */; };
@@ -76,6 +77,7 @@
 		D8033E5E24000ED900F92E58 /* levelComplete.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = levelComplete.mp3; sourceTree = "<group>"; };
 		D808B17323FD546300AF8CDE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D808B17523FD596000AF8CDE /* matchUpCorrectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = matchUpCorrectView.swift; sourceTree = "<group>"; };
+		D817B823240D684700AB8B84 /* displayUserImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = displayUserImageView.swift; sourceTree = "<group>"; };
 		D828109F240A77AB005DF63A /* wordAssociation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wordAssociation.swift; sourceTree = "<group>"; };
 		D8510D9A23F704C700ED387E /* userData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userData.swift; sourceTree = "<group>"; };
 		D8510D9F23F7312C00ED387E /* mainMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainMenuView.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 				75A45080240806E200D89422 /* wordBankView.swift */,
 				D828109F240A77AB005DF63A /* wordAssociation.swift */,
 				D8C9F3BD240C386A00BC2009 /* selectLangView.swift */,
+				D817B823240D684700AB8B84 /* displayUserImageView.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -380,6 +383,7 @@
 				D87532D323F5632400844434 /* loginView.swift in Sources */,
 				D8033E5923FFF03C00F92E58 /* sortingView.swift in Sources */,
 				D8510D9B23F704C700ED387E /* userData.swift in Sources */,
+				D817B824240D684700AB8B84 /* displayUserImageView.swift in Sources */,
 				75A450792407D79E00D89422 /* drawNounView.swift in Sources */,
 				75A45081240806E200D89422 /* wordBankView.swift in Sources */,
 				75A4507F2407FA1E00D89422 /* wordBank.swift in Sources */,
