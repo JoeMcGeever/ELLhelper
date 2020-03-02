@@ -55,6 +55,16 @@ class WordBankView : UIViewController, UITableViewDataSource ,UITableViewDelegat
         
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) { //enable swipe to delete
+     if editingStyle == .delete {
+        selectedWord = arrayOfWords[indexPath.row]
+        self.words.deleteWord(user: accountInstance.username, word: selectedWord.EnglishWord)
+        viewDidLoad()
+     }
+    }
+    
+    
+    
     override func viewDidAppear(_ animated: Bool) {
         viewDidLoad()
     }
