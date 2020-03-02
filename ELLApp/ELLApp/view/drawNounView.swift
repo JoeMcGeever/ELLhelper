@@ -139,7 +139,7 @@ class DrawNoun : UIViewController {
             let image = self.canvas.asImage() //saves the canvas view as an image using its extension which converts it into an UIimage
 
                    
-            self.wordCoreData.saveImageToWord(word: self.noun!, image: image) //save this to core data
+            self.wordCoreData.saveImageToWord(user: self.accountInstance.username, word: self.noun!, image: image) //save this to core data
             
             self.performSegue(withIdentifier: "unwindSegueToWordBank", sender: self)
           }))

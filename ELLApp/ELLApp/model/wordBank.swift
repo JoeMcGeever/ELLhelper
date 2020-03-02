@@ -28,10 +28,10 @@ class WordBank : NSManagedObject {
         var EnglishWord : String //adds when a new word is initiated
         var TranslatedWord : String //using some form of API to translate the word into the target language - hopefully on the spot. If the translation cannot be found, initialise and keep as blank
         var drawnImage : UIImage //is set as of when the user draws the image for the word
-        init(EnglishWord : String, translatedWord : String) {
+        init(EnglishWord : String, translatedWord : String, drawnImage : UIImage) {
             self.EnglishWord = EnglishWord
             self.TranslatedWord = translatedWord
-            self.drawnImage = UIImage(named: "questionmark")! //initialise as a "?" image
+            self.drawnImage = drawnImage //UIImage(named: "questionmark")!
         }
     }
     
@@ -79,7 +79,7 @@ class WordBank : NSManagedObject {
         }
     
     
-    func saveImageToWord(word : String, image : UIImage){
+    func saveImageToWord(user: String, word : String, image : UIImage){
         //recieves the updated
         
         let imageData: NSData = image.pngData()! as NSData
@@ -87,7 +87,7 @@ class WordBank : NSManagedObject {
         let context = appDelegate.persistentContainer.viewContext
         
         let fetchRequest:NSFetchRequest<NSFetchRequestResult> = NSFetchRequest.init(entityName: "WordBankCore")
-        fetchRequest.predicate = NSPredicate(format: "englishWord = %@", word)
+        fetchRequest.predicate = NSPredicate(format: "englishWord = %@ AND user = %@", word, user)
         do {
                 let test = try context.fetch(fetchRequest)
                 print(test)
@@ -105,6 +105,48 @@ class WordBank : NSManagedObject {
 
     }
     
+    func deleteWordImage(user : String, word : String){
+        
+        let context = appDelegate.persistentContainer.viewContext
+        
+        let fetchRequest:NSFetchRequest<NSFetchRequestResult> = NSFetchRequest.init(entityName: "WordBankCore")
+        fetchRequest.predicate = NSPredicate(format: "englishWord = %@ AND user = %@", word, user)
+        do {
+                let test = try context.fetch(fetchRequest)
+                let itemUpdate = test[0] as! NSManagedObject
+                itemUpdate.setValue(nil, forKey: "image")
+                    do {
+                        try context.save()
+                        print("Saved")
+                    } catch {
+                    throw(error)
+                    }
+        } catch {
+                print("error")
+        }
+        
+    }
+    
+    func deleteWord(user: String, word : String) {
+        //refer to persistant container
+        let context = appDelegate.persistentContainer.viewContext
+               //create the context
+                           
+        let fetchRequest:NSFetchRequest<NSFetchRequestResult> = NSFetchRequest.init(entityName: "WordBankCore")
+        fetchRequest.predicate = NSPredicate(format: "user = %@ AND englishWord = %@", user, word)
+               
+        let objects = try! context.fetch(fetchRequest)
+        for obj in objects {
+            context.delete(obj as! NSManagedObject)
+        }
+               
+        do {
+            try context.save() // <- remember to put this :)
+        } catch {
+            print("Failed")
+        }
+        print("Deleted")
+    }
     
     
     func getListOfWords(user : String) -> [Word] {
@@ -123,7 +165,9 @@ class WordBank : NSManagedObject {
         var instanceUser : String
         var engWord : String
         var translation : String
+        var image : NSData?
         var currentInstance : NSManagedObject
+        var imageUI : UIImage? = UIImage(named: "questionmark")!
         
         
         for i in 0...objects.count - 1 {
@@ -134,15 +178,23 @@ class WordBank : NSManagedObject {
             
             engWord = currentInstance.value(forKey : "englishWord") as! String
             translation = currentInstance.value(forKey : "translation") as! String
+
+            
+            image  = currentInstance.value(forKey: "image") as? NSData ?? nil
+            if image == nil{ //if user has no image already
+
+                imageUI = UIImage(named: "questionmark") // or UIImage(named: "questionmark")! if not exist
+            } else {
+                imageUI = UIImage(data: image! as Data)
+            }
+            
             
             if(instanceUser == user){
-                listOfUserWords.append(Word(EnglishWord: engWord, translatedWord: translation))
+                listOfUserWords.append(Word(EnglishWord: engWord, translatedWord: translation, drawnImage: imageUI ?? UIImage(named: "questionmark")!))
+                
             }
         }
-        
-        
-
-        
+    
         return listOfUserWords
     }
     

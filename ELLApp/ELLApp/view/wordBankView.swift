@@ -12,7 +12,7 @@ import UIKit
 class WordBankView : UIViewController, UITableViewDataSource ,UITableViewDelegate {
     
     var words = WordBank()
-    var selectedWord = WordBank.Word(EnglishWord: "", translatedWord: "")
+    var selectedWord = WordBank.Word(EnglishWord: "", translatedWord: "", drawnImage: UIImage(named: "questionmark")!)
     var selectedWordIndex = 0
     
      var accountInstance = User.AccountStruct(username: "", homeLanguage: "") //this gets populated with an account instance from the menu page
@@ -41,7 +41,8 @@ class WordBankView : UIViewController, UITableViewDataSource ,UITableViewDelegat
         if(selectedWord.drawnImage != UIImage(named: "questionmark")){
             
             //segue to show the image (send the word with the segue so the translation can be seen if still unable to remember
-            
+
+            performSegue(withIdentifier: "displayUserImage", sender: nil)
             
             
         } else {
@@ -105,6 +106,13 @@ class WordBankView : UIViewController, UITableViewDataSource ,UITableViewDelegat
             drawNounView.noun = noun //sends the noun and translation
             drawNounView.translation = translation
             drawNounView.accountInstance = accountInstance
+        }
+        
+        if segue.identifier == "displayUserImage" {
+            
+            let userImageView = segue.destination as! UserImageView
+            userImageView.accountInstance = accountInstance
+            userImageView.selectedWord = selectedWord
         }
         
     }
