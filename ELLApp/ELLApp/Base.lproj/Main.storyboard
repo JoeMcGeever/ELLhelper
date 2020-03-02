@@ -1619,6 +1619,7 @@
         <image name="square.and.arrow.up" catalog="system" width="56" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="zQc-HA-FTP"/>
         <segue reference="MaK-Lb-2S1"/>
         <segue reference="aMW-7V-P0Z"/>
         <segue reference="ZEQ-hR-o27"/>

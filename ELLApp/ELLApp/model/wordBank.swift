@@ -16,23 +16,26 @@ import UIKit
 
 //as a standard for this actually; when a new word is added to the word bank, the translation should also be added (but not visible in the tableview of words (only display if absolutely necessary)) ->
 
-//its also worth noting, that these need to be in a relationship to the sign in thar created them
 
-class WordBank  {
-    var translatedWord = "No translation found"
+class WordBank : NSManagedObject {
+    
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    //refer to persistant container
+    
+    
     
     struct Word { //the structure of accounts, more can be added to accounts now, like progress trackers
         var EnglishWord : String //adds when a new word is initiated
         var TranslatedWord : String //using some form of API to translate the word into the target language - hopefully on the spot. If the translation cannot be found, initialise and keep as blank
         var drawnImage : UIImage //is set as of when the user draws the image for the word
-        init(EnglishWord : String) {
+        init(EnglishWord : String, translatedWord : String, drawnImage : UIImage) {
             self.EnglishWord = EnglishWord
-            self.TranslatedWord = "No translation found"
+            self.TranslatedWord = translatedWord
             self.drawnImage = UIImage(named: "questionmark")! //initialise as a "?" image
         }
     }
     
-    func saveNewWordToCoreData(word : String, targetLanguage : String) {
+    func saveNewWordToCoreData(user : String, word : String, targetLanguage : String) {
         
         
         TranslationManager.shared.textToTranslate = word //set the word to translate
@@ -43,19 +46,29 @@ class WordBank  {
         
                     DispatchQueue.main.async { [unowned self] in
                     print(translation)
-                         self.translatedWord = translation
 
                          print("Save now:")
                          print(word)
                          print("Along with:")
                          print(translation)
                         
-                        //SAVE TO CORE DATA HERE!
+                        let context = self.appDelegate.persistentContainer.viewContext
+                        let entity = NSEntityDescription.entity(forEntityName: "WordBankCore", in: context)
+                        let newUser = NSManagedObject(entity: entity!, insertInto: context)
+                        newUser.setValue(user, forKey: "user")
+                        newUser.setValue(translation, forKey: "translation")
+                        newUser.setValue(word, forKey: "englishWord")
                         
+                       // haven't saved image
                         
+                        do {
+                           try context.save()
+                            print("Success")
+                          } catch {
+                           print("Failed saving")
+                        }
                         
                     }
-        
                 } else {
                     print("Error")
                 }
@@ -70,9 +83,43 @@ class WordBank  {
         //recieves the updated
     }
     
-    func getListOfWords() -> [Word] {
+    func getListOfWords(user : String) -> [Word] {
         
-        return[Word(EnglishWord: "test"), Word(EnglishWord: "test2"), Word(EnglishWord: "test3")]
+        var listOfUserWords : [Word] = []
+        
+        let context = appDelegate.persistentContainer.viewContext
+              
+             
+        let fetchRequest:NSFetchRequest<NSFetchRequestResult> = NSFetchRequest.init(entityName: "WordBankCore")
+        //fetchRequest.returnsObjectsAsFaults = false //This disables faulting
+              
+        let objects = try! context.fetch(fetchRequest) as! [NSManagedObject]
+        
+        var instanceUser : String
+        var engWord : String
+        var translation : String
+        var currentInstance : NSManagedObject
+        
+        
+        for i in 0...objects.count - 1 {
+
+            currentInstance = objects[i]
+            
+            instanceUser = currentInstance.value(forKey: "user") as! String
+            
+            engWord = currentInstance.value(forKey : "englishWord") as! String
+            translation = currentInstance.value(forKey : "translation") as! String
+            
+            if(instanceUser == user){
+                listOfUserWords.append(Word(EnglishWord: engWord, translatedWord: translation))
+            }
+        }
+        
+        
+        
+        
+        
+        return listOfUserWords
     }
     
     
