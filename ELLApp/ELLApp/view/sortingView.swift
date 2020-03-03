@@ -31,7 +31,10 @@ class sorting : UIViewController {
     @IBOutlet weak var cat3image2: UIImageView!
     @IBOutlet weak var cat3image3: UIImageView!
     
-    var categories = ["Blue", "Red", "Green"] //In future, through the segue, the categories can be changed. As the only thing the category names should affect is the images displayed, hopefully it should be re-usable for many different games.
+    var categories : [String] = [] //through the segue, the categories can be changed. As the only thing the category names should affect is the images displayed
+    
+    
+    
     
 
     var gameInstance : sortingVar.imageStruct? = nil

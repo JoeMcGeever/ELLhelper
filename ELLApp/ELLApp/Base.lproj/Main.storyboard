@@ -656,7 +656,7 @@
                                         <rect key="frame" x="0.0" y="168" width="124" height="30"/>
                                         <state key="normal" title="Sort Game!"/>
                                         <connections>
-                                            <segue destination="meY-Am-vT0" kind="presentation" modalPresentationStyle="fullScreen" id="MaK-Lb-2S1"/>
+                                            <segue destination="Zlo-y6-tsY" kind="presentation" modalPresentationStyle="fullScreen" id="E32-hS-aK8"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Ts-lV-7mM">
@@ -717,6 +717,46 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o7J-wu-W8a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2" y="-1116"/>
+        </scene>
+        <!--Sorting View Controller-->
+        <scene sceneID="wzQ-9R-ZCm">
+            <objects>
+                <tableViewController id="Zlo-y6-tsY" customClass="SortingViewController" customModule="ELLApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="nB7-CS-lkp">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="sortCell" textLabel="TVs-Kb-MWK" style="IBUITableViewCellStyleDefault" id="Ig7-CD-pmR">
+                                <rect key="frame" x="0.0" y="28" width="1024" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ig7-CD-pmR" id="pKq-aK-oVd">
+                                    <rect key="frame" x="0.0" y="0.0" width="1024" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TVs-Kb-MWK">
+                                            <rect key="frame" x="20" y="0.0" width="984" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Zlo-y6-tsY" id="Ejt-ay-IcK"/>
+                            <outlet property="delegate" destination="Zlo-y6-tsY" id="sJQ-7d-5hX"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <segue destination="meY-Am-vT0" kind="presentation" identifier="segueToSorting" modalPresentationStyle="fullScreen" id="rxt-He-Ffy"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JR4-hY-zv6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1652" y="-2467"/>
         </scene>
         <!--Sorting-->
         <scene sceneID="kSe-dF-qya">
@@ -1693,8 +1733,8 @@
         <image name="square.and.arrow.up" catalog="system" width="56" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="MaK-Lb-2S1"/>
+        <segue reference="rxt-He-Ffy"/>
         <segue reference="aMW-7V-P0Z"/>
-        <segue reference="Asg-1m-v0c"/>
+        <segue reference="teH-f0-dwE"/>
     </inferredMetricsTieBreakers>
 </document>
