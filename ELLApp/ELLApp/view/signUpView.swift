@@ -5,19 +5,33 @@
 //  Created by Joseph McGeever on 10/02/2020.
 //  Copyright © 2020 Joseph McGeever. All rights reserved.
 //
-
 import UIKit
 
 class signUp: UIViewController {
 
-    let accountController = Account()
+    let accountController = User()
+    
+    var userLanguage : String = ""
+    
+    @IBAction func unwindToSignUp(segue: UIStoryboardSegue) {}
+    
     
     @IBOutlet weak var usernameText: UITextField!
-    @IBOutlet weak var languageText: UITextField!
+    @IBOutlet weak var languageText: UILabel!
+    
+    @IBAction func languageSelect(_ sender: Any) {
+        self.performSegue(withIdentifier: "showLangSegue", sender: self)
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        languageText.text = userLanguage
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
     }
     
     @IBAction func confirm(_ sender: Any) {
@@ -26,8 +40,7 @@ class signUp: UIViewController {
         if(username == "" || language == ""){
             display(success: false) // displays the fail message
         } else {
-            accountController.signUp(username: username, lang: language)
-            display(success: true) // displays the success message
+            display(success: accountController.addNewUser(username: username, language: language)) // displays the success message or fail message
             //which then segues back to screen programaticaly
         }
     }
@@ -43,7 +56,7 @@ class signUp: UIViewController {
             present(alert, animated: true, completion: nil)
             
         } else {
-            let alert = UIAlertController(title: "Missing details", message: "Please fill in all of the details", preferredStyle: UIAlertController.Style.alert)
+            let alert = UIAlertController(title: "Failed to save", message: "Please fill in all of the details and retry", preferredStyle: UIAlertController.Style.alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: { (action: UIAlertAction!) in
             print("User cancels")
             }))
@@ -54,4 +67,3 @@ class signUp: UIViewController {
 
 
 }
-

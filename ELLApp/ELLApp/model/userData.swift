@@ -26,7 +26,7 @@ class User {
         let newUser = NSManagedObject(entity: entity!, insertInto: context)
         newUser.setValue(username, forKey: "username")
         newUser.setValue(language, forKey: "homeLanguage")
-        //sets the values in core data fpr the key
+        //sets the values in core data for the key
         do {
             try context.save()
             return true //true if success
@@ -47,12 +47,13 @@ class User {
             for data in result as! [NSManagedObject] {
                 name = (data.value(forKey: "username") as! String)
                 lang = (data.value(forKey: "homeLanguage") as! String)
+                let userInstance = AccountStruct(username: name, homeLanguage: lang)
+                return userInstance
           }
         } catch {
             print("Failed")
         }
-        let userInstance = AccountStruct(username: name, homeLanguage: lang)
-        return userInstance
+        return AccountStruct(username: name, homeLanguage: lang)
     }
     
     
