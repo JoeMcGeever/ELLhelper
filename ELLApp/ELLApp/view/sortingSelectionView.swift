@@ -16,6 +16,7 @@ class sortingSelection : UIViewController {
     var imageArray : [UIImage] = []
     var selectedChoice : String = "" //which image the user has pressed in the previous view
 
+    var categories : [String] = []
     
     
     @IBOutlet weak var image1: UIImageView!
@@ -82,6 +83,7 @@ class sortingSelection : UIViewController {
         if segue.identifier == "unwindFromSelection" {
             let selectionView = segue.destination as! sorting
             selectionView.gameInstance = gameInstance
+            selectionView.categories = categories
             
         }
     }

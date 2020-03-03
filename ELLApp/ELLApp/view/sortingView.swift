@@ -14,6 +14,7 @@ class sorting : UIViewController {
   
     var player: AVAudioPlayer? //play sound
     
+    
     @IBOutlet weak var label1: UILabel!
     @IBOutlet weak var cat1image1: UIImageView!
     @IBOutlet weak var cat1image2: UIImageView!
@@ -145,6 +146,7 @@ class sorting : UIViewController {
         if segue.identifier == "selectImage" {
             let selectionView = segue.destination as! sortingSelection
             selectionView.gameInstance = gameInstance
+            selectionView.categories = categories
             
         }
     }
