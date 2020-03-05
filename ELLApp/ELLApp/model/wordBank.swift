@@ -37,46 +37,47 @@ class WordBank : NSManagedObject {
     
     func saveNewWordToCoreData(user : String, word : String, targetLanguage : String) {
         
+        let context = self.appDelegate.persistentContainer.viewContext
+        let entity = NSEntityDescription.entity(forEntityName: "WordBankCore", in: context)
+        let newWord = NSManagedObject(entity: entity!, insertInto: context)
+        
         
         TranslationManager.shared.textToTranslate = word //set the word to translate
         TranslationManager.shared.targetLanguageCode = targetLanguage //and its target language
         TranslationManager.shared.translate(completion: { (translation) in
 
-                if let translation = translation {
-        
+              if let translation = translation {
                     DispatchQueue.main.async { [unowned self] in
-                    print(translation)
-
-                         print("Save now:")
-                         print(word)
-                         print("Along with:")
-                         print(translation)
-                        
-                        let context = self.appDelegate.persistentContainer.viewContext
-                        let entity = NSEntityDescription.entity(forEntityName: "WordBankCore", in: context)
-                        let newUser = NSManagedObject(entity: entity!, insertInto: context)
-                        newUser.setValue(user, forKey: "user")
-                        newUser.setValue(translation, forKey: "translation")
-                        newUser.setValue(word, forKey: "englishWord")
+                    newWord.setValue(user, forKey: "user")
+                    newWord.setValue(translation, forKey: "translation")
+                    newWord.setValue(word, forKey: "englishWord")
                         
                        // haven't saved image
-                        
                         do {
                            try context.save()
-                            print("Success")
+                            //success
                           } catch {
                            print("Failed saving")
                         }
                         
                     }
                 } else {
-                    print("Error")
+                     DispatchQueue.main.async { [unowned self] in
+                     newWord.setValue(user, forKey: "user")
+                     newWord.setValue("No translation found", forKey: "translation")
+                     newWord.setValue(word, forKey: "englishWord")
+                                        
+                    do {
+                        try context.save()
+                        //success
+                    } catch {
+                        print("Failed saving")
+                    }
                 }
-                })
-            
-        print("Async however")
-
-        }
+            }
+                
+        })
+    }
     
     
     func saveImageToWord(user: String, word : String, image : UIImage){
@@ -174,10 +175,11 @@ class WordBank : NSManagedObject {
 
             currentInstance = objects[i]
             
-            instanceUser = currentInstance.value(forKey: "user") as! String
+            instanceUser = currentInstance.value(forKey: "user") as? String ?? ""
             
-            engWord = currentInstance.value(forKey : "englishWord") as! String
-            translation = currentInstance.value(forKey : "translation") as! String
+            
+            engWord = currentInstance.value(forKey : "englishWord") as? String ?? ""
+            translation = currentInstance.value(forKey : "translation") as? String ?? ""
 
             
             image  = currentInstance.value(forKey: "image") as? NSData ?? nil
