@@ -202,6 +202,89 @@ class WordBank : NSManagedObject {
     
     
     
+    func getTenPairs(user : String) -> Array<Question>?{
+        
+        //this will be easier with a layer
+        //an advantage of core data is the ability to get all from it with little impact to performance due to a mechanism called "faulting"
+        //get all into array
+        //shuffle array
+        //take first 10
+        
+        var questions =  [Question]()
+        
+//        let context = appDelegate.persistentContainer.viewContext
+//
+//
+//        let fetchRequest:NSFetchRequest<NSFetchRequestResult> = NSFetchRequest.init(entityName: "Words")
+//        //fetchRequest.returnsObjectsAsFaults = false //THIS DISABLES FAULTING
+//
+//        var objects = try! context.fetch(fetchRequest) as! [NSManagedObject]
+        
+        let allWordObjects = getListOfWords(user: user)
+        
+        var objects : [Word] = []
+        var question = ""
+        var answer : Answer
+        var wrongAnswer1: Answer
+        var wrongAnswer2: Answer
+        var wrongAnswer3: Answer
+        
+        //print(objects[0])
+        //print(objects[0].value(forKey: "origin") ?? "No value")
+    
+        
+        for i in 0...allWordObjects.count - 1{ //all words in the word bank must either have an associated image or a translation
+            if(allWordObjects[i].TranslatedWord == "No translation found" && allWordObjects[i].drawnImage == UIImage(named: "questionmark")){
+                objects.append(allWordObjects[i])
+            }
+        }
+        
+        let numberOfPairs = objects.count
+        
+        if(numberOfPairs < 10) {
+            return nil //NOTE AN EMPTY ARRAY WILL BE RETURNED
+            //IF NOT AT LEAST 10 ENTRIES
+        }
+        
+        objects = objects.shuffled() //re-orders array
+        var random1 : Int
+        var random2: Int
+        var random3: Int
+        
+        for i in 0...9 {
+            random1 = i
+            random2 = i
+            random3 = i
+            while(random1 == i || random2 == i || random3 == i || random1 == random2 || random1 == random3 || random2 == random3){
+                random1 = Int.random(in: 0...numberOfPairs - 1)
+                random2 = Int.random(in: 0...numberOfPairs - 1)
+                random3 = Int.random(in: 0...numberOfPairs - 1)
+            }
+            wrongAnswer1 = Answer(text: objects[random1].EnglishWord, correct : false)
+             wrongAnswer2 = Answer(text: objects[random2].EnglishWord, correct : false)
+             wrongAnswer3 = Answer(text: objects[random3].EnglishWord, correct : false)
+            
+            if(objects[i].TranslatedWord == "No translation found"){
+                question = ""
+            } else {
+                question = objects[i].TranslatedWord
+            }
+            
+            
+            answer = Answer(text: objects[i].EnglishWord, correct : true)
+            
+            questions.append(Question(text: question, drawnImage: objects[random1].drawnImage, answers: [answer, wrongAnswer1, wrongAnswer2, wrongAnswer3]))
+            
+
+        }
+
+        print(questions)
+        
+        return questions
+    }
+    
+    
+    
 }
 
     

@@ -15,7 +15,7 @@ class WordBankView : UIViewController, UITableViewDataSource ,UITableViewDelegat
     var selectedWord = WordBank.Word(EnglishWord: "", translatedWord: "", drawnImage: UIImage(named: "questionmark")!)
     var selectedWordIndex = 0
     
-     var accountInstance = User.AccountStruct(username: "", homeLanguage: "") //this gets populated with an account instance from the menu page
+    var accountInstance = User.AccountStruct(username: "", homeLanguage: "") //this gets populated with an account instance from the menu page
     
     var arrayOfWords : [WordBank.Word] = []
        
