@@ -10,7 +10,7 @@ import UIKit
 class QuestionViewController: UIViewController {
     
 
-    var accountInstance = User.AccountStruct(username: "Joseph", homeLanguage: "")
+    var accountInstance = User.AccountStruct(username: "", homeLanguage: "")
     
     let wordsCoreData = WordBank()
     
@@ -29,6 +29,7 @@ class QuestionViewController: UIViewController {
         nextQuestion()
     }
     @IBOutlet weak var nextQuestionButton: UIButton!
+    @IBOutlet weak var drawnImage: UIImageView!
     
     
     var randomNumbers = [0,1,2,3] //holds an array of numbers 0-3
@@ -41,24 +42,34 @@ class QuestionViewController: UIViewController {
     var questionIndex = 0
     var correctAnswers = 0
     
-    override func viewDidLoad() {
+    func displayGameError(){
+        let alert = UIAlertController(title: "Cannot play", message: "You need at least 10 words with translations or images to play", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Ok!", style: .default) { (action) in self.performSegue(withIdentifier: "ResultsSegue", sender : action)}
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
         super.viewDidLoad()
         questions = wordsCoreData.getTenPairs(user: accountInstance.username) ?? [Question(text: "", drawnImage: UIImage(named: "questionmark")!, answers: [Answer(text: "", correct: false)])] //populate the questions array
+        
         if(questions[0].text == ""){
             //if the user does not have 10 words, then show error
-            let alert = UIAlertController(title: "Cannot play", message: "You need at least 10 word pairs to play", preferredStyle: .alert)
-            let action = UIAlertAction(title: "Ok!", style: .default) { (action) in self.performSegue(withIdentifier: "ResultsSegue", sender : action)}
-            alert.addAction(action)
-            present(alert, animated: true, completion: nil)
-            
+            displayGameError()
             
         }else {
             //otherwise, begin the game
+            
             updateUI()
         }
         //get the 10 pairs of words
         //get 10 questions + 4 answers, one correct
-        
+  
+    }
+    
+    override func viewDidLoad() {
+
     }
     
     func updateUI() {
@@ -71,7 +82,13 @@ class QuestionViewController: UIViewController {
         let currentAnswers = currentQuestion.answers //and answers
         let totalProgress = Float(questionIndex+1) / Float(questions.count) //and the quesiton number / 10
         
-        questionLabel.text = currentQuestion.text //display the question
+        
+        if(currentQuestion.text == ""){
+            questionLabel.text = "What is this?"
+        } else {
+            questionLabel.text = currentQuestion.text //display the question
+        }
+        drawnImage.image = currentQuestion.drawnImage //displays the image
         progressBar.setProgress(totalProgress, animated: true) //update the progress bar
         
         updateSingleStack(using : currentAnswers) //update tte stack of answers by sending the current answers
@@ -92,7 +109,9 @@ class QuestionViewController: UIViewController {
         button4.setTitle(answers[d].text, for: .normal)
         //above sets the text for the buttons
         
+        
     }
+    
     @IBAction func singleAnswerButtonPressed(_ sender: UIButton) {
         var correctAnsPos = 0
         for i in 0...3{ //gets the position of which answer is correct to be displayeed if incorrect answer is selected
@@ -156,6 +175,7 @@ class QuestionViewController: UIViewController {
         if segue.identifier == "ResultsSegue" {
             let resultsViewController = segue.destination as! ResultsViewController
             resultsViewController.correctAnswers = correctAnswers
+            resultsViewController.accountInstance = accountInstance
         }
     }
     

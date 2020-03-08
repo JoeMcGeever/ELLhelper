@@ -46,7 +46,11 @@ class WordBank : NSManagedObject {
         TranslationManager.shared.targetLanguageCode = targetLanguage //and its target language
         TranslationManager.shared.translate(completion: { (translation) in
 
-              if let translation = translation {
+              if var translation = translation {
+                if(translation == ""){
+                    translation = "No translation found"
+                    
+                }
                     DispatchQueue.main.async { [unowned self] in
                     newWord.setValue(user, forKey: "user")
                     newWord.setValue(translation, forKey: "translation")
@@ -234,12 +238,13 @@ class WordBank : NSManagedObject {
     
         
         for i in 0...allWordObjects.count - 1{ //all words in the word bank must either have an associated image or a translation
-            if(allWordObjects[i].TranslatedWord == "No translation found" && allWordObjects[i].drawnImage == UIImage(named: "questionmark")){
+            if(allWordObjects[i].TranslatedWord != "No translation found" || allWordObjects[i].drawnImage != UIImage(named: "questionmark")){
                 objects.append(allWordObjects[i])
             }
         }
         
         let numberOfPairs = objects.count
+        
         
         if(numberOfPairs < 10) {
             return nil //NOTE AN EMPTY ARRAY WILL BE RETURNED
@@ -273,12 +278,10 @@ class WordBank : NSManagedObject {
             
             answer = Answer(text: objects[i].EnglishWord, correct : true)
             
-            questions.append(Question(text: question, drawnImage: objects[random1].drawnImage, answers: [answer, wrongAnswer1, wrongAnswer2, wrongAnswer3]))
+            questions.append(Question(text: question, drawnImage: objects[i].drawnImage, answers: [answer, wrongAnswer1, wrongAnswer2, wrongAnswer3]))
             
 
         }
-
-        print(questions)
         
         return questions
     }
