@@ -555,7 +555,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LuH-O8-138" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="60.937499999999993" y="2751.5625"/>
+            <point key="canvasLocation" x="10" y="3633"/>
         </scene>
         <!--Story Title-->
         <scene sceneID="b58-RV-kfm">
@@ -675,10 +675,10 @@
                                                 <rect key="frame" x="20" y="10" width="227" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Back"/>
+                                                <connections>
+                                                    <action selector="backPressed:" destination="R10-hD-YQc" eventType="touchUpInside" id="od0-2J-Gcm"/>
+                                                </connections>
                                             </button>
-                                            <connections>
-                                                <segue destination="bxD-6o-Xmp" kind="unwind" unwindAction="unwindToMainMenuWithSegue:" id="VZx-WK-XP9"/>
-                                            </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
@@ -711,10 +711,10 @@
                     <navigationItem key="navigationItem" title="Title" id="OhY-UO-iKm"/>
                     <connections>
                         <outlet property="scoreLabel" destination="2mS-jL-O6X" id="9vs-Nl-iXl"/>
+                        <segue destination="qKg-9B-Psf" kind="presentation" identifier="backToTitle" modalPresentationStyle="fullScreen" id="NX1-O0-x7O"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ROm-96-BOb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="bxD-6o-Xmp" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="919.92187499999989" y="2751.5625"/>
         </scene>
@@ -2068,7 +2068,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="0tz-pS-SRW"/>
-        <segue reference="63f-1M-BBz"/>
+        <segue reference="aMW-7V-P0Z"/>
         <segue reference="teH-f0-dwE"/>
     </inferredMetricsTieBreakers>
 </document>
