@@ -6,6 +6,7 @@
 //  Copyright © 2019 Joseph McGeever. All rights reserved.
 //
 import UIKit
+import AVFoundation
 
 class QuestionViewController: UIViewController {
     
@@ -13,6 +14,7 @@ class QuestionViewController: UIViewController {
     var accountInstance = User.AccountStruct(username: "", homeLanguage: "")
     
     let wordsCoreData = WordBank()
+    var player: AVAudioPlayer?
     
     var questions : Array<Question> = [] //holds the array of 10 questions and answers
     @IBOutlet weak var singleStackView: UIStackView!
@@ -125,33 +127,41 @@ class QuestionViewController: UIViewController {
             if(questions[questionIndex].answers[a].correct == true) { //if the item selected is has the property "true" for correct answer
                 correctAnswers += 1 //increment score
                 oneQResult.text = "Correct!" // display correct
+                playSound(fileName: "ding")
             } else {
                 oneQResult.text = "Incorrect. The correct answer is: \(questions[questionIndex].answers[correctAnsPos].text)" //othereise display correct answer
+                playSound(fileName: "incorrect")
             }
         case button2:
             if(questions[questionIndex].answers[b].correct == true) {
                 correctAnswers += 1
                 oneQResult.text = "Correct!"
+                playSound(fileName: "ding")
 
             } else {
                 oneQResult.text = "Incorrect. The correct answer is: \(questions[questionIndex].answers[correctAnsPos].text)"
+                playSound(fileName: "incorrect")
                 
             }
         case button3:
             if(questions[questionIndex].answers[c].correct == true) {
                 correctAnswers += 1
                 oneQResult.text = "Correct!"
+                playSound(fileName: "ding")
                 
             } else {
                 oneQResult.text = "Incorrect. The correct answer is: \(questions[questionIndex].answers[correctAnsPos].text)"
+                playSound(fileName: "incorrect")
                 
             }
         case button4:
             if(questions[questionIndex].answers[d].correct == true) {
                 correctAnswers += 1
                 oneQResult.text = "Correct!"
+                playSound(fileName: "ding")
             } else {
                 oneQResult.text = "Incorrect. The correct answer is: \(questions[questionIndex].answers[correctAnsPos].text)"
+                playSound(fileName: "incorrect")
                 
             }
         default:
@@ -168,6 +178,24 @@ class QuestionViewController: UIViewController {
             updateUI()
         } else {
             performSegue(withIdentifier: "ResultsSegue", sender: nil) //otherwise, programatic segue to results page
+        }
+    }
+    
+    func playSound(fileName : String) { //plays a success sound
+        guard let url = Bundle.main.url(forResource: fileName, withExtension: "mp3") else { return }
+
+        do {
+            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
+            try AVAudioSession.sharedInstance().setActive(true)
+
+            player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
+
+            guard let player = player else { return }
+
+            player.play()
+
+        } catch let error {
+            print(error.localizedDescription)
         }
     }
     
