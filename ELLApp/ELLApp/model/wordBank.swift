@@ -307,21 +307,6 @@ class WordBank : NSManagedObject {
         return UIImage(cgImage: croppedCGImage!)
     }
     
-//    func cropImage(image: UIImage) -> UIImage {
-//        print(image.size)
-//        print(image.scale)
-//        let height = CGFloat(image.size.height - 800)
-//        let rect = CGRect(x: 0, y: height - 150, width: image.size.width - 150, height: height)
-//        return crop(image: image, toRect: rect)
-//    }
-//
-//    func crop(image:UIImage, toRect rect:CGRect) -> UIImage{
-//        let imageRef:CGImage = image.cgImage!.cropping(to: rect)!
-//        let croppedImage:UIImage = UIImage(cgImage:imageRef)
-//        print(croppedImage.size)
-//        print(croppedImage.scale)
-//        return croppedImage
-//    }
-    
+   
     
 }

@@ -10,7 +10,6 @@ import Foundation
 
 class mainMenu : UIViewController {
     
-    var accountInstance = User.AccountStruct(username: "", homeLanguage: "") //this gets populated with an account instance from the login page
     
     @IBAction func unwindToMainMenu(segue: UIStoryboardSegue) {} 
     
@@ -23,15 +22,7 @@ class mainMenu : UIViewController {
         
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        //sens the account instance to the main menu page
-//        if segue.identifier == "wordBankSegue" {
-//            let wordBank = segue.destination as! WordBankView
-//            wordBank.accountInstance = accountInstance
-//
-//        }
-//
-//    }
+
     
 }
 

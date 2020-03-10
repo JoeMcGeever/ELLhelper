@@ -13,7 +13,9 @@ class UserImageView : UIViewController {
     
     let wordBankInstance = WordBank()
     
-    var accountInstance = User.AccountStruct(username: "", homeLanguage: "")
+    let defaults = UserDefaults.standard
+    var user : String = ""
+    
     var selectedWord = WordBank.Word(EnglishWord: "", translatedWord: "", drawnImage: UIImage(named: "questionmark")!)
     
     @IBOutlet weak var nounLabel: UILabel!
@@ -29,7 +31,7 @@ class UserImageView : UIViewController {
         refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
             
             //delete image here
-            self.wordBankInstance.deleteWordImage(user: self.accountInstance.username, word: self.selectedWord.EnglishWord) //delete word function
+            self.wordBankInstance.deleteWordImage(user: self.user, word: self.selectedWord.EnglishWord) //delete word function
             
             
             self.performSegue(withIdentifier: "unwindSegueToWordBank", sender: nil)
@@ -51,6 +53,7 @@ class UserImageView : UIViewController {
     }
     
     override func viewDidLoad() {
+        user = defaults.string(forKey: defaultsKeys.username)!
         nounLabel.text = selectedWord.EnglishWord
         userImage.image = selectedWord.drawnImage
     }
@@ -61,7 +64,6 @@ class UserImageView : UIViewController {
         if segue.identifier == "unwindSegueToWordBank" {
             
             let userImageView = segue.destination as! WordBankView
-            userImageView.accountInstance = accountInstance
             userImageView.selectedWord = selectedWord
         }
         

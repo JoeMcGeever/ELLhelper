@@ -11,7 +11,8 @@ import AVFoundation
 class QuestionViewController: UIViewController {
     
 
-    var accountInstance = User.AccountStruct(username: "", homeLanguage: "")
+    let defaults = UserDefaults.standard
+    var user : String = ""
     
     let wordsCoreData = WordBank()
     var player: AVAudioPlayer?
@@ -54,7 +55,7 @@ class QuestionViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         
         super.viewDidLoad()
-        questions = wordsCoreData.getTenPairs(user: accountInstance.username) ?? [Question(text: "", drawnImage: UIImage(named: "questionmark")!, answers: [Answer(text: "", correct: false)])] //populate the questions array
+        questions = wordsCoreData.getTenPairs(user: user) ?? [Question(text: "", drawnImage: UIImage(named: "questionmark")!, answers: [Answer(text: "", correct: false)])] //populate the questions array
         
         if(questions[0].text == ""){
             //if the user does not have 10 words, then show error
@@ -71,7 +72,7 @@ class QuestionViewController: UIViewController {
     }
     
     override func viewDidLoad() {
-
+        user = defaults.string(forKey: defaultsKeys.username)!
     }
     
     func updateUI() {
@@ -211,7 +212,6 @@ class QuestionViewController: UIViewController {
         if segue.identifier == "ResultsSegue" {
             let resultsViewController = segue.destination as! ResultsViewController
             resultsViewController.correctAnswers = correctAnswers
-            resultsViewController.accountInstance = accountInstance
         }
     }
     
