@@ -21,7 +21,7 @@ class WordBank : NSManagedObject {
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     //refer to persistant container
-    
+    let accountDetails = User()
     
     
     struct Word { //the structure of accounts, more can be added to accounts now, like progress trackers
@@ -34,8 +34,11 @@ class WordBank : NSManagedObject {
             self.drawnImage = drawnImage //UIImage(named: "questionmark")!
         }
     }
+
     
-    func saveNewWordToCoreData(user : String, word : String, targetLanguage : String) {
+    func saveNewWordToCoreData(user : String, word : String) {
+        
+        let targetLanguage = accountDetails.getTargetLang()
         
         let context = self.appDelegate.persistentContainer.viewContext
         let entity = NSEntityDescription.entity(forEntityName: "WordBankCore", in: context)
