@@ -14,6 +14,8 @@ import AVFoundation
 
 class  StoryPageView : UIViewController {
     
+    let defaults = UserDefaults.standard
+    
     @IBOutlet weak var textField: UITextField!
     var text : String = ""
     @IBOutlet weak var labelForText: UILabel!
@@ -35,6 +37,8 @@ class  StoryPageView : UIViewController {
         }
         print("Want to save: " + word) //need to send account details - or word bank a singleton class -> which may be better
         textField.text = nil
+        let user = defaults.string(forKey: defaultsKeys.username)!
+        wordBank.saveNewWordToCoreData(user: user, word: word)
     }
     
     @IBAction func audioTapped(_ sender: Any) {

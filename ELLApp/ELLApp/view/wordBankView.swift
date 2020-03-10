@@ -101,7 +101,7 @@ class WordBankView : UIViewController, UITableViewDataSource ,UITableViewDelegat
     
     func addWord(){
         guard let newWord = newWordTextField.text else { return  }
-        words.saveNewWordToCoreData(user : accountInstance.username, word: newWord, targetLanguage: accountInstance.homeLanguage)
+        words.saveNewWordToCoreData(user : accountInstance.username, word: newWord)
         viewDidLoad()
         
     }
