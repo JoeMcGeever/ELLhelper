@@ -294,27 +294,31 @@ class WordBank : NSManagedObject {
     
      
     
-    // a function to crop an image to remove the bottom part (which displays drawing options)
-//     func cropImage(image: UIImage) -> UIImage {
-//        let rect = CGRect(x: 0, y: 0, width: 1536, height: 2048) //    1536 x 2048 pixels
-//
-//        let cgImage = image.cgImage! // better to write "guard"
-//
-//        let croppedCGImage = cgImage.cropping(to: rect)
-//        return UIImage(cgImage: croppedCGImage!)
+     // a function to crop an image to remove the bottom part (which displays drawing options)
+     func cropImage(image: UIImage) -> UIImage {
+        let rect = CGRect(x: 0, y: 100, width: 1536, height: 1948) //    1536 x 2048 pixels
+
+        let cgImage = image.cgImage! // better to write "guard"
+
+        let croppedCGImage = cgImage.cropping(to: rect)
+        return UIImage(cgImage: croppedCGImage!)
+    }
+    
+//    func cropImage(image: UIImage) -> UIImage {
+//        print(image.size)
+//        print(image.scale)
+//        let height = CGFloat(image.size.height - 800)
+//        let rect = CGRect(x: 0, y: height - 150, width: image.size.width - 150, height: height)
+//        return crop(image: image, toRect: rect)
 //    }
-    
-    func cropImage(image: UIImage) -> UIImage {
-        let height = CGFloat(image.size.height - 800)
-        let rect = CGRect(x: 0, y: height - 100, width: image.size.width, height: height)
-        return crop(image: image, toRect: rect)
-    }
-    
-    func crop(image:UIImage, toRect rect:CGRect) -> UIImage{
-        let imageRef:CGImage = image.cgImage!.cropping(to: rect)!
-        let croppedImage:UIImage = UIImage(cgImage:imageRef)
-        return croppedImage
-    }
+//
+//    func crop(image:UIImage, toRect rect:CGRect) -> UIImage{
+//        let imageRef:CGImage = image.cgImage!.cropping(to: rect)!
+//        let croppedImage:UIImage = UIImage(cgImage:imageRef)
+//        print(croppedImage.size)
+//        print(croppedImage.scale)
+//        return croppedImage
+//    }
     
     
 }

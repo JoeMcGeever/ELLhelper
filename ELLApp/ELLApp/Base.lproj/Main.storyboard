@@ -850,24 +850,61 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="3sB-oY-EHs">
+                                <rect key="frame" x="359.5" y="102" width="305" height="34"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PiR-6b-gba">
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="150" id="hLa-iF-ETu"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W9L-v1-w6x">
+                                        <rect key="frame" x="180" y="0.0" width="125" height="34"/>
+                                        <state key="normal" title="Add to word bank!"/>
+                                        <connections>
+                                            <action selector="addToWordBank:" destination="glD-Su-dFD" eventType="touchUpInside" id="huU-x2-oah"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VW3-1g-0MK">
+                                <rect key="frame" x="392" y="589" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Xck-Ay-M9r" appends="YES" id="CQo-gg-38T"/>
+                                </connections>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="Jhy-Ti-DYV" firstAttribute="centerY" secondItem="A08-Pk-aqH" secondAttribute="centerY" id="2an-Tn-MH1"/>
+                            <constraint firstItem="3sB-oY-EHs" firstAttribute="top" secondItem="85t-ER-W8b" secondAttribute="bottom" constant="42" id="DYe-1n-Ezt"/>
                             <constraint firstItem="Jhy-Ti-DYV" firstAttribute="centerX" secondItem="A08-Pk-aqH" secondAttribute="centerX" id="Ubt-AZ-yIC"/>
                             <constraint firstItem="85t-ER-W8b" firstAttribute="leading" secondItem="zFu-Fu-MeK" secondAttribute="leading" id="UhN-YK-xEO"/>
                             <constraint firstItem="85t-ER-W8b" firstAttribute="centerX" secondItem="Jhy-Ti-DYV" secondAttribute="centerX" id="VQZ-ec-zA9"/>
+                            <constraint firstItem="3sB-oY-EHs" firstAttribute="centerX" secondItem="A08-Pk-aqH" secondAttribute="centerX" id="aX6-2P-KL2"/>
                             <constraint firstItem="85t-ER-W8b" firstAttribute="top" secondItem="zFu-Fu-MeK" secondAttribute="top" id="iR4-kd-wBQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zFu-Fu-MeK"/>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="w2f-gr-lzm"/>
                     <connections>
+                        <outlet property="audioImage" destination="VW3-1g-0MK" id="TFj-YQ-Eli"/>
                         <outlet property="labelForText" destination="Jhy-Ti-DYV" id="Np6-Bz-uGK"/>
+                        <outlet property="textField" destination="PiR-6b-gba" id="pXT-ah-ut9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="91n-73-hso" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="D81-fi-dKf" userLabel="Exit" sceneMemberID="exit"/>
+                <tapGestureRecognizer id="Xck-Ay-M9r">
+                    <connections>
+                        <action selector="audioTapped:" destination="glD-Su-dFD" id="ooB-Kc-AOz"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2344.921875" y="1617.96875"/>
         </scene>
