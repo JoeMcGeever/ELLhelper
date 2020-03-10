@@ -14,6 +14,7 @@ class login: UIViewController {
     let accountController = User()
     var accountInstance = User.AccountStruct(username: "", homeLanguage: "")
     
+    
     @IBAction func confirmButton(_ sender: Any) {
         let username = usernameText.text ?? ""
         accountInstance = accountController.login(username:

@@ -299,7 +299,7 @@ class WordBank : NSManagedObject {
     
      // a function to crop an image to remove the bottom part (which displays drawing options)
      func cropImage(image: UIImage) -> UIImage {
-        let rect = CGRect(x: 0, y: 100, width: 1536, height: 1948) //    1536 x 2048 pixels
+        let rect = CGRect(x: 0, y: 100, width: 2048, height: 1536-400) //    1536 x 2048 pixels
 
         let cgImage = image.cgImage! // better to write "guard"
 
