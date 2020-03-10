@@ -100,12 +100,19 @@ class WordBankView : UIViewController, UITableViewDataSource ,UITableViewDelegat
         
     }
     
+    @IBAction func quizButton(_ sender: Any) {
+        performSegue(withIdentifier: "segueToBankQuiz", sender: nil)
+    }
     
 
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
        
+        if segue.identifier == "segueToBankQuiz" {
+            let quizView = segue.destination as! wordBankQuizTitle
+            quizView.accountInstance = accountInstance
+        }
         
         if segue.identifier == "segueToDrawNoun" {
             

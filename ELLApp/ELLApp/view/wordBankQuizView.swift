@@ -77,6 +77,10 @@ class QuestionViewController: UIViewController {
     func updateUI() {
         oneQResult.text = ""
         nextQuestionButton.isUserInteractionEnabled = false //disable the 'next' button
+        button1.isUserInteractionEnabled = true
+        button2.isUserInteractionEnabled = true
+        button3.isUserInteractionEnabled = true
+        button4.isUserInteractionEnabled = true
         nextQuestionButton.setTitleColor(.lightGray, for: .normal) //so user must answer the question
         
         navigationItem.title = "Question \(questionIndex+1)" //display the question number
@@ -167,6 +171,10 @@ class QuestionViewController: UIViewController {
         default:
             break
         }
+        button1.isUserInteractionEnabled = false
+        button2.isUserInteractionEnabled = false
+        button3.isUserInteractionEnabled = false
+        button4.isUserInteractionEnabled = false
         nextQuestionButton.isUserInteractionEnabled = true  //allow users to select next question button
         nextQuestionButton.setTitleColor(.none, for: .normal)
         

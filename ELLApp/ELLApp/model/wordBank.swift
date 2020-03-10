@@ -192,6 +192,8 @@ class WordBank : NSManagedObject {
                 imageUI = UIImage(named: "questionmark") // or UIImage(named: "questionmark")! if not exist
             } else {
                 imageUI = UIImage(data: image! as Data)
+
+                
             }
             
             
@@ -278,6 +280,10 @@ class WordBank : NSManagedObject {
             
             answer = Answer(text: objects[i].EnglishWord, correct : true)
             
+            if objects[i].drawnImage != UIImage(named: "questionmark")!{
+                objects[i].drawnImage = cropImage(image: objects[i].drawnImage) //crop it so it removes bottom part
+            }
+            
             questions.append(Question(text: question, drawnImage: objects[i].drawnImage, answers: [answer, wrongAnswer1, wrongAnswer2, wrongAnswer3]))
             
 
@@ -286,9 +292,29 @@ class WordBank : NSManagedObject {
         return questions
     }
     
+     
+    
+    // a function to crop an image to remove the bottom part (which displays drawing options)
+//     func cropImage(image: UIImage) -> UIImage {
+//        let rect = CGRect(x: 0, y: 0, width: 1536, height: 2048) //    1536 x 2048 pixels
+//
+//        let cgImage = image.cgImage! // better to write "guard"
+//
+//        let croppedCGImage = cgImage.cropping(to: rect)
+//        return UIImage(cgImage: croppedCGImage!)
+//    }
+    
+    func cropImage(image: UIImage) -> UIImage {
+        let height = CGFloat(image.size.height - 800)
+        let rect = CGRect(x: 0, y: height - 100, width: image.size.width, height: height)
+        return crop(image: image, toRect: rect)
+    }
+    
+    func crop(image:UIImage, toRect rect:CGRect) -> UIImage{
+        let imageRef:CGImage = image.cgImage!.cropping(to: rect)!
+        let croppedImage:UIImage = UIImage(cgImage:imageRef)
+        return croppedImage
+    }
     
     
 }
-
-    
-   

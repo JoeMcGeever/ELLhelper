@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qKg-9B-Psf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="ipad9_7" orientation="landscape" layout="fullscreen" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
@@ -95,14 +95,24 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gOz-dg-VAZ">
+                                <rect key="frame" x="887" y="360.5" width="58" height="47"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                                <state key="normal" title="Quiz"/>
+                                <connections>
+                                    <action selector="quizButton:" destination="IjH-82-ux2" eventType="touchUpInside" id="YVa-ib-ynE"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="gOz-dg-VAZ" firstAttribute="centerY" secondItem="cPc-rZ-zdb" secondAttribute="centerY" id="37S-gS-c3C"/>
                             <constraint firstItem="Pij-hC-Hb0" firstAttribute="leading" secondItem="sRQ-8w-4RJ" secondAttribute="leading" constant="20" id="3eL-3H-3Lj"/>
                             <constraint firstItem="Pij-hC-Hb0" firstAttribute="centerY" secondItem="cPc-rZ-zdb" secondAttribute="centerY" id="Muu-CU-x6N"/>
                             <constraint firstItem="sRQ-8w-4RJ" firstAttribute="bottom" secondItem="Ukv-0F-cyU" secondAttribute="bottom" id="VPP-5l-LBr"/>
                             <constraint firstItem="Ukv-0F-cyU" firstAttribute="leading" secondItem="Pij-hC-Hb0" secondAttribute="trailing" constant="20" id="eL9-yV-Cho"/>
                             <constraint firstItem="Ukv-0F-cyU" firstAttribute="leading" secondItem="sRQ-8w-4RJ" secondAttribute="leading" constant="243" id="egz-su-xNq"/>
+                            <constraint firstItem="sRQ-8w-4RJ" firstAttribute="trailing" secondItem="gOz-dg-VAZ" secondAttribute="trailing" constant="79" id="mxH-px-Mj9"/>
                             <constraint firstItem="Ukv-0F-cyU" firstAttribute="top" secondItem="sRQ-8w-4RJ" secondAttribute="top" constant="100" id="nsB-Q7-qwx"/>
                             <constraint firstItem="Ukv-0F-cyU" firstAttribute="centerX" secondItem="cPc-rZ-zdb" secondAttribute="centerX" id="pLH-jL-QOh"/>
                         </constraints>
@@ -114,12 +124,13 @@
                         <outlet property="tableView" destination="uR7-vx-wlI" id="DbT-Zs-vkz"/>
                         <segue destination="dZl-Li-3sQ" kind="presentation" identifier="segueToDrawNoun" modalPresentationStyle="fullScreen" id="zQc-HA-FTP"/>
                         <segue destination="pu4-Q4-JGh" kind="presentation" identifier="displayUserImage" modalPresentationStyle="fullScreen" id="aVw-XW-8lg"/>
+                        <segue destination="qKg-9B-Psf" kind="presentation" identifier="segueToBankQuiz" modalPresentationStyle="fullScreen" id="M6a-qB-fKH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Z1-8v-jtd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="ROu-kn-ck1" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="902" y="-1116"/>
+            <point key="canvasLocation" x="161" y="-1097"/>
         </scene>
         <!--Login-->
         <scene sceneID="tne-QT-ifu">
@@ -368,7 +379,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="36" translatesAutoresizingMaskIntoConstraints="NO" id="Zhp-Nk-1s6">
-                                <rect key="frame" x="400" y="321.5" width="224.5" height="125.5"/>
+                                <rect key="frame" x="400" y="281.5" width="224.5" height="205.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Word Bank Quiz" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xfc-N1-PKX">
                                         <rect key="frame" x="0.0" y="0.0" width="224.5" height="38.5"/>
@@ -382,6 +393,14 @@
                                         <state key="normal" title="Let's go!"/>
                                         <connections>
                                             <action selector="start:" destination="qKg-9B-Psf" eventType="touchUpInside" id="aLn-Pd-8fH"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ByW-en-WHH">
+                                        <rect key="frame" x="84" y="161.5" width="56" height="44"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                        <state key="normal" title="Back"/>
+                                        <connections>
+                                            <action selector="backButton:" destination="qKg-9B-Psf" eventType="touchUpInside" id="7Za-jk-BgA"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -430,11 +449,12 @@
                     </view>
                     <connections>
                         <segue destination="vLh-y9-zPV" kind="presentation" identifier="startGame" modalPresentationStyle="fullScreen" id="kQ3-5q-P2Q"/>
+                        <segue destination="IjH-82-ux2" kind="presentation" identifier="segueBackToWordBank" modalPresentationStyle="fullScreen" id="yhU-a0-cO4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bgQ-iB-ECm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1472" y="2752"/>
+            <point key="canvasLocation" x="35.7421875" y="-2016.40625"/>
         </scene>
         <!--Questions-->
         <scene sceneID="W3v-bZ-EaG">
@@ -555,7 +575,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LuH-O8-138" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="10" y="3633"/>
+            <point key="canvasLocation" x="-1779" y="-2570"/>
         </scene>
         <!--Story Title-->
         <scene sceneID="b58-RV-kfm">
@@ -716,7 +736,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ROm-96-BOb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="919.92187499999989" y="2751.5625"/>
+            <point key="canvasLocation" x="-1676" y="-1567"/>
         </scene>
         <!--Page View-->
         <scene sceneID="2WO-Cw-M16">
@@ -983,7 +1003,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o7J-wu-W8a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2" y="-1116"/>
+            <point key="canvasLocation" x="-714" y="-1056"/>
         </scene>
         <!--Sorting View Controller-->
         <scene sceneID="wzQ-9R-ZCm">
@@ -2068,7 +2088,8 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="0tz-pS-SRW"/>
-        <segue reference="aMW-7V-P0Z"/>
-        <segue reference="teH-f0-dwE"/>
+        <segue reference="63f-1M-BBz"/>
+        <segue reference="M6a-qB-fKH"/>
+        <segue reference="yhU-a0-cO4"/>
     </inferredMetricsTieBreakers>
 </document>
