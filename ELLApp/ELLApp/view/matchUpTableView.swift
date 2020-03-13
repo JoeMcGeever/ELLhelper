@@ -13,8 +13,8 @@ import UIKit
 
 class MatchUpTableView: UITableViewController {
     
-    let arrayOfCategories = [["Red", "Yellow", "Blue", "Purple", "Orange", "Green"], ["Tiger", "Horse", "Monkey", "Dog", "Butterfly", "Bird"]]
-    let arrayOfCatNames = ["Colour", "Animal"]
+    let arrayOfCategories = [["Red", "Yellow", "Blue", "Purple", "Orange", "Green"], ["Tiger", "Horse", "Monkey", "Dog", "Butterfly", "Bird"], ["Sunny", "Raining", "Cloudy", "Fog", "Storm", "Snowing"]]
+    let arrayOfCatNames = ["Colour", "Animal", "Weather"]
     var selectedCategory = ["","",""]
         
 

@@ -645,6 +645,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.67969655610000002" green="0.96848052740000001" blue="0.91146217510000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
+                            <constraint firstItem="SwH-Eh-YCS" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ezy-1B-1YQ" secondAttribute="trailing" constant="8" symbolic="YES" id="0Cg-SW-4hL"/>
                             <constraint firstItem="jAl-bC-5XC" firstAttribute="top" secondItem="E4q-pJ-Ugy" secondAttribute="top" id="22z-TM-4me"/>
                             <constraint firstItem="SwH-Eh-YCS" firstAttribute="baseline" secondItem="ezy-1B-1YQ" secondAttribute="baseline" id="7r2-Hi-dET"/>
                             <constraint firstItem="E4q-pJ-Ugy" firstAttribute="bottom" secondItem="HUS-IL-eTt" secondAttribute="bottom" constant="20" id="8GV-YF-VFA"/>
@@ -1883,13 +1884,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="112" translatesAutoresizingMaskIntoConstraints="NO" id="zis-ei-Iuu">
-                                <rect key="frame" x="236" y="94" width="240" height="540"/>
+                                <rect key="frame" x="236" y="81.5" width="240" height="565.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3rY-WT-MuW">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="51.5"/>
                                         <attributedString key="attributedText">
                                             <fragment content="Well done!">
                                                 <attributes>
+                                                    <color key="NSColor" red="0.98652839137849468" green="1" blue="0.95530206350020175" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <font key="NSFont" metaFont="system" size="43"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
@@ -1904,16 +1906,16 @@
                                             <constraint firstAttribute="width" constant="240" id="gwd-EC-01a"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SET TO BE SENT COLOUR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pBo-36-1px">
-                                        <rect key="frame" x="0.0" y="403.5" width="240" height="24.5"/>
-                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pBo-36-1px">
+                                        <rect key="frame" x="0.0" y="403.5" width="240" height="50"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="27"/>
+                                        <color key="textColor" red="1" green="0.69073103199999997" blue="0.17165970320000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6HB-l4-cTo">
-                                        <rect key="frame" x="0.0" y="540" width="240" height="0.0"/>
+                                        <rect key="frame" x="0.0" y="565.5" width="240" height="0.0"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" red="1" green="0.69073103199999997" blue="0.17165970320000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -2146,7 +2148,6 @@
         <image name="square.and.arrow.up" catalog="system" width="56" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="M6a-qB-fKH"/>
         <segue reference="0tz-pS-SRW"/>
         <segue reference="MEE-cE-mkR"/>
         <segue reference="qE6-Wp-jf8"/>
