@@ -1936,22 +1936,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="70" translatesAutoresizingMaskIntoConstraints="NO" id="fVk-RR-ShF">
-                                <rect key="frame" x="337" y="83.5" width="350" height="601"/>
+                                <rect key="frame" x="337" y="73.5" width="350" height="621"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="60" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="omJ-Lh-Sjh">
-                                        <rect key="frame" x="164.5" y="0.0" width="21" height="0.0"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="60" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vqs-UC-Giz">
+                                        <rect key="frame" x="164.5" y="0.0" width="21" height="20.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20.5" id="eFI-4l-cql"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WORD TO ASSOCIATE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AE1-He-iDL">
-                                        <rect key="frame" x="88.5" y="70" width="173" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="WORD TO ASSOCIATE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AE1-He-iDL">
+                                        <rect key="frame" x="88.5" y="90.5" width="173" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="correctWordButton" translatesAutoresizingMaskIntoConstraints="NO" id="XXa-zo-KmY">
-                                        <rect key="frame" x="0.0" y="160.5" width="350" height="350"/>
+                                        <rect key="frame" x="0.0" y="181" width="350" height="350"/>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="350" id="CBX-l6-fNc"/>
@@ -1962,16 +1965,16 @@
                                         </connections>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="28" translatesAutoresizingMaskIntoConstraints="NO" id="IwA-3N-8SW">
-                                        <rect key="frame" x="131" y="580.5" width="88" height="20.5"/>
+                                        <rect key="frame" x="131" y="601" width="88" height="20"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WgE-Ro-J7y">
-                                                <rect key="frame" x="0.0" y="0.0" width="49.5" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="49.5" height="20"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="auU-fO-uUO">
-                                                <rect key="frame" x="77.5" y="0.0" width="10.5" height="20.5"/>
+                                                <rect key="frame" x="77.5" y="0.0" width="10.5" height="20"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -2008,17 +2011,17 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="OfU-np-asB" firstAttribute="top" secondItem="TpP-sd-602" secondAttribute="top" id="5DK-Vi-j5R"/>
-                            <constraint firstItem="OfU-np-asB" firstAttribute="centerX" secondItem="fVk-RR-ShF" secondAttribute="centerX" id="NfU-9V-ELa"/>
-                            <constraint firstItem="fVk-RR-ShF" firstAttribute="centerY" secondItem="TpP-sd-602" secondAttribute="centerY" id="ahY-5s-qKi"/>
+                            <constraint firstItem="fVk-RR-ShF" firstAttribute="centerY" secondItem="TpP-sd-602" secondAttribute="centerY" id="NJH-8u-IY3"/>
+                            <constraint firstItem="OfU-np-asB" firstAttribute="centerX" secondItem="fVk-RR-ShF" secondAttribute="centerX" id="fHv-AR-Rey"/>
                             <constraint firstItem="OfU-np-asB" firstAttribute="leading" secondItem="nue-vK-kfc" secondAttribute="leading" id="iat-Vg-asb"/>
-                            <constraint firstItem="fVk-RR-ShF" firstAttribute="top" secondItem="OfU-np-asB" secondAttribute="bottom" constant="23.5" id="p9L-US-teu"/>
-                            <constraint firstItem="fVk-RR-ShF" firstAttribute="centerX" secondItem="TpP-sd-602" secondAttribute="centerX" id="wpg-q4-rkz"/>
+                            <constraint firstItem="fVk-RR-ShF" firstAttribute="top" secondItem="OfU-np-asB" secondAttribute="bottom" constant="13.5" id="lTR-xg-Vcc"/>
+                            <constraint firstItem="fVk-RR-ShF" firstAttribute="centerX" secondItem="TpP-sd-602" secondAttribute="centerX" id="neL-8N-SPK"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="nue-vK-kfc"/>
                     </view>
                     <connections>
                         <outlet property="scoreLabel" destination="auU-fO-uUO" id="pos-fs-atV"/>
-                        <outlet property="timerLabel" destination="omJ-Lh-Sjh" id="Oco-k7-mBP"/>
+                        <outlet property="timerLabel" destination="vqs-UC-Giz" id="W8g-ux-CLw"/>
                         <outlet property="wordToAssociateLabel" destination="AE1-He-iDL" id="RfA-tk-zMK"/>
                         <segue destination="GFl-bS-v4n" kind="unwind" unwindAction="unwindToMainMenuWithSegue:" id="Ate-fD-OZZ"/>
                     </connections>
@@ -2031,7 +2034,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2483" y="-55"/>
+            <point key="canvasLocation" x="2482.6171875" y="-55.46875"/>
         </scene>
         <!--User Image View-->
         <scene sceneID="KGz-1D-YuT">
