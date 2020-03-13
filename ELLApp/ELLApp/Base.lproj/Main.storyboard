@@ -87,10 +87,10 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                                 <state key="normal" title="Back"/>
+                                                <connections>
+                                                    <segue destination="3Z7-kW-DCV" kind="presentation" modalPresentationStyle="fullScreen" id="MEE-cE-mkR"/>
+                                                </connections>
                                             </button>
-                                            <connections>
-                                                <segue destination="3Z7-kW-DCV" kind="presentation" modalPresentationStyle="fullScreen" id="a01-21-NaZ"/>
-                                            </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
@@ -2146,8 +2146,9 @@
         <image name="square.and.arrow.up" catalog="system" width="56" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="M6a-qB-fKH"/>
         <segue reference="0tz-pS-SRW"/>
-        <segue reference="aMW-7V-P0Z"/>
+        <segue reference="MEE-cE-mkR"/>
         <segue reference="qE6-Wp-jf8"/>
     </inferredMetricsTieBreakers>
 </document>
