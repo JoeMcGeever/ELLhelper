@@ -83,6 +83,7 @@ class WordBankView : UIViewController, UITableViewDataSource ,UITableViewDelegat
     @IBOutlet weak var newWordTextField: UITextField!
     
     override func viewDidLoad() {
+        self.view.addBackground(image: "Background2")
         user = defaults.string(forKey: defaultsKeys.username)!
         super.viewDidLoad()
         

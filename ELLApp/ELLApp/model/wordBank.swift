@@ -199,6 +199,10 @@ class WordBank : NSManagedObject {
                 
             }
             
+            if imageUI != UIImage(named: "questionmark")!{
+                imageUI = cropImage(image: imageUI ?? UIImage(named: "questionmark")!) //crop it so it removes bottom part
+            }
+            
             
             if(instanceUser == user){
                 listOfUserWords.append(Word(EnglishWord: engWord, translatedWord: translation, drawnImage: imageUI ?? UIImage(named: "questionmark")!))
@@ -283,9 +287,9 @@ class WordBank : NSManagedObject {
             
             answer = Answer(text: objects[i].EnglishWord, correct : true)
             
-            if objects[i].drawnImage != UIImage(named: "questionmark")!{
-                objects[i].drawnImage = cropImage(image: objects[i].drawnImage) //crop it so it removes bottom part
-            }
+//            if objects[i].drawnImage != UIImage(named: "questionmark")!{ = is already cropped now
+//                objects[i].drawnImage = cropImage(image: objects[i].drawnImage) //crop it so it removes bottom part
+//            }
             
             questions.append(Question(text: question, drawnImage: objects[i].drawnImage, answers: [answer, wrongAnswer1, wrongAnswer2, wrongAnswer3]))
             

@@ -92,6 +92,7 @@ class sorting : UIViewController {
     
     
     override func viewDidLoad() {
+        self.view.addBackground(image: "Background2")
         super.viewDidLoad()
 
         if(gameInstance == nil){ //if this is teh first time the view is loaded, we need to instantiate the structure
