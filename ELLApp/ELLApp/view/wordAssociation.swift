@@ -23,6 +23,7 @@ class WordAssociation : UIViewController {
     
     
     override func viewDidAppear(_ animated: Bool) {
+        
         super.viewDidAppear(animated)
          let alert = UIAlertController(title: "Word Association", message: "Enter a word", preferredStyle: .alert)
 
@@ -45,6 +46,7 @@ class WordAssociation : UIViewController {
     
     
     override func viewDidLoad() {
+        self.view.addBackground(image: "Background2")
         wordToAssociateLabel.text = wordToAssociate
     }
 

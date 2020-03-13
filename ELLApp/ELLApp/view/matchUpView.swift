@@ -49,6 +49,7 @@ class matchUp : UIViewController {
     }
     
     override func viewDidLoad() {
+        self.view.addBackground(image: "Background2")
         super.viewDidLoad()
         questions = unshuffledQuestions.shuffled()
         //make images the sent values

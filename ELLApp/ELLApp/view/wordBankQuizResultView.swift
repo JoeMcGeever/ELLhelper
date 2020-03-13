@@ -10,10 +10,11 @@ import UIKit
 
 class wordBankQuizTitle: UIViewController {
     
-    var accountInstance = User.AccountStruct(username: "", homeLanguage: "") //this gets populated with an account instance from the menu page
     
-    @IBAction func unwindToQuizIntroduction(segue: UIStoryboardSegue) { //to segue away fromt his page
-        
+
+    
+    override func viewDidAppear(_ animated: Bool) {
+
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,4 +22,5 @@ class wordBankQuizTitle: UIViewController {
     }
     
 
-}
+    
+  }

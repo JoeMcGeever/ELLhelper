@@ -23,6 +23,7 @@ class correctMatch : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.addBackground(image: "Background3")
         image.image = UIImage(named : colour)
         label.text = colour + "!"
         
