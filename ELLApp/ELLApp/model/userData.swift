@@ -10,6 +10,11 @@ import Foundation
 import CoreData
 import UIKit
 
+struct defaultsKeys {
+    static let username = ""
+}
+
+
 class User {
     
     struct AccountStruct { //the structure of accounts, more can be added to accounts now, like progress trackers
@@ -19,6 +24,23 @@ class User {
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
+    func getTargetLang() -> String{
+        let context = appDelegate.persistentContainer.viewContext
+               //create the context
+        
+        let defaults = UserDefaults.standard
+        let user = defaults.string(forKey: defaultsKeys.username)!
+        
+        let fetchRequest:NSFetchRequest<NSFetchRequestResult> = NSFetchRequest.init(entityName: "Accounts")
+        fetchRequest.predicate = NSPredicate(format: "username = %@", user)
+               
+        let objects = try! context.fetch(fetchRequest)
+        let lang = (objects[0] as AnyObject).value(forKey : "homeLanguage") as? String ?? ""
+        
+        
+        print(lang)
+        return lang
+    }
     
     func addNewUser(username: String, language: String) -> Bool{
         let context = appDelegate.persistentContainer.viewContext
@@ -48,6 +70,10 @@ class User {
                 name = (data.value(forKey: "username") as! String)
                 lang = (data.value(forKey: "homeLanguage") as! String)
                 let userInstance = AccountStruct(username: name, homeLanguage: lang)
+                let defaults = UserDefaults.standard
+                defaults.set(name, forKey: defaultsKeys.username)
+                
+                
                 return userInstance
           }
         } catch {

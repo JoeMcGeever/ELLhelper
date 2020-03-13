@@ -11,11 +11,13 @@ import UIKit
 
 class WordBankView : UIViewController, UITableViewDataSource ,UITableViewDelegate {
     
+    let defaults = UserDefaults.standard
     var words = WordBank()
     var selectedWord = WordBank.Word(EnglishWord: "", translatedWord: "", drawnImage: UIImage(named: "questionmark")!)
     var selectedWordIndex = 0
     
-     var accountInstance = User.AccountStruct(username: "", homeLanguage: "") //this gets populated with an account instance from the menu page
+    var user : String = ""
+    
     
     var arrayOfWords : [WordBank.Word] = []
        
@@ -58,7 +60,12 @@ class WordBankView : UIViewController, UITableViewDataSource ,UITableViewDelegat
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) { //enable swipe to delete
      if editingStyle == .delete {
         selectedWord = arrayOfWords[indexPath.row]
-        self.words.deleteWord(user: accountInstance.username, word: selectedWord.EnglishWord)
+        
+        
+        
+        
+        
+        self.words.deleteWord(user: user, word: selectedWord.EnglishWord)
         viewDidLoad()
      }
     }
@@ -76,9 +83,12 @@ class WordBankView : UIViewController, UITableViewDataSource ,UITableViewDelegat
     @IBOutlet weak var newWordTextField: UITextField!
     
     override func viewDidLoad() {
+        user = defaults.string(forKey: defaultsKeys.username)!
         super.viewDidLoad()
+        
+        
         newWordTextField.text = ""
-        arrayOfWords = words.getListOfWords(user: accountInstance.username)
+        arrayOfWords = words.getListOfWords(user: user)
         tableView.reloadData()
     }
 
@@ -95,17 +105,21 @@ class WordBankView : UIViewController, UITableViewDataSource ,UITableViewDelegat
     
     func addWord(){
         guard let newWord = newWordTextField.text else { return  }
-        words.saveNewWordToCoreData(user : accountInstance.username, word: newWord, targetLanguage: accountInstance.homeLanguage)
+        words.saveNewWordToCoreData(user : user, word: newWord)
         viewDidLoad()
         
     }
     
+    @IBAction func quizButton(_ sender: Any) {
+        performSegue(withIdentifier: "segueToBankQuiz", sender: nil)
+    }
     
 
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
        
+
         
         if segue.identifier == "segueToDrawNoun" {
             
@@ -115,13 +129,11 @@ class WordBankView : UIViewController, UITableViewDataSource ,UITableViewDelegat
             let drawNounView = segue.destination as! DrawNoun
             drawNounView.noun = noun //sends the noun and translation
             drawNounView.translation = translation
-            drawNounView.accountInstance = accountInstance
         }
         
         if segue.identifier == "displayUserImage" {
             
             let userImageView = segue.destination as! UserImageView
-            userImageView.accountInstance = accountInstance
             userImageView.selectedWord = selectedWord
         }
         

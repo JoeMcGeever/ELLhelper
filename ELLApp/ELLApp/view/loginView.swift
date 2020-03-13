@@ -14,6 +14,7 @@ class login: UIViewController {
     let accountController = User()
     var accountInstance = User.AccountStruct(username: "", homeLanguage: "")
     
+    
     @IBAction func confirmButton(_ sender: Any) {
         let username = usernameText.text ?? ""
         accountInstance = accountController.login(username:
@@ -27,9 +28,6 @@ class login: UIViewController {
             
             self.performSegue(withIdentifier: "loginSegue", sender: self)
                      
-            
-            
-            
             
         }
     }
@@ -45,14 +43,7 @@ class login: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //sens the account instance to the main menu page
-        if segue.identifier == "loginSegue" {
-            let mainMenu = segue.destination as! mainMenu
-            mainMenu.accountInstance = accountInstance
-        }
-        
-    }
+
     
     
 

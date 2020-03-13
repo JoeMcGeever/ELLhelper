@@ -21,8 +21,7 @@ class DrawNoun : UIViewController {
     var translation : String? = nil
     //this is to be overwitten by prior view
     
-    var accountInstance = User.AccountStruct(username: "", homeLanguage: "") //this gets populated with an account instance from the prior page
-    
+    let defaults = UserDefaults.standard
     
     
     let canvas = Canvas()
@@ -105,6 +104,27 @@ class DrawNoun : UIViewController {
         button.addTarget(self, action: #selector(colourChange), for: .touchUpInside)
         return button
     }()
+    let orangeButton : UIButton = {
+        let button = UIButton(type: .system)
+        button.backgroundColor = .orange
+        button.layer.borderWidth = 1
+        button.addTarget(self, action: #selector(colourChange), for: .touchUpInside)
+        return button
+    }()
+    let purpleButton : UIButton = {
+        let button = UIButton(type: .system)
+        button.backgroundColor = .purple
+        button.layer.borderWidth = 1
+        button.addTarget(self, action: #selector(colourChange), for: .touchUpInside)
+        return button
+    }()
+    let blackButton : UIButton = {
+        let button = UIButton(type: .system)
+        button.backgroundColor = .black
+        button.layer.borderWidth = 1
+        button.addTarget(self, action: #selector(colourChange), for: .touchUpInside)
+        return button
+    }()
     
     @objc fileprivate func colourChange(button: UIButton) {
         canvas.setStrokeColour(colour : button.backgroundColor  ?? .red)
@@ -125,7 +145,7 @@ class DrawNoun : UIViewController {
     
     let confirmButton : UIButton = { //programatically add the undo button
         let button = UIButton(type: .system)
-        button.setTitle("confirm", for: .normal)
+        button.setTitle("Confirm", for: .normal)
         button.titleLabel?.font = .boldSystemFont(ofSize: 20)
         button.addTarget(self, action: #selector(confirm), for: .touchUpInside) //programmatically add an action outlet for users pressing undo button, (do the code in objective c function "undo")
         return button
@@ -138,8 +158,10 @@ class DrawNoun : UIViewController {
             
             let image = self.canvas.asImage() //saves the canvas view as an image using its extension which converts it into an UIimage
 
+            
+            let user = self.defaults.string(forKey: defaultsKeys.username)!
                    
-            self.wordCoreData.saveImageToWord(user: self.accountInstance.username, word: self.noun!, image: image) //save this to core data
+            self.wordCoreData.saveImageToWord(user: user, word: self.noun!, image: image) //save this to core data
             
             self.performSegue(withIdentifier: "unwindSegueToWordBank", sender: self)
           }))
@@ -160,7 +182,7 @@ class DrawNoun : UIViewController {
         setUpLabel()
         
         let coloursStackView = UIStackView(arrangedSubviews:
-        [yellowButton, redButton, greenButton, blueButton])
+        [yellowButton, redButton, greenButton, blueButton, orangeButton, purpleButton, blackButton])
         coloursStackView.distribution = .fillEqually//programmatically ensure the distribution between the elements in the stack view are equal
         
         let stackView = UIStackView(arrangedSubviews : [ //programatically add the subviews into the stack view array (being the buttons created above)
@@ -233,14 +255,4 @@ class DrawNoun : UIViewController {
         
         
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    
-     
-     if segue.identifier == "unwindSegueToWordBank" {
-         
-         let wordBankView = segue.destination as! WordBankView
-         wordBankView.accountInstance = accountInstance
-     }
-     }
 }

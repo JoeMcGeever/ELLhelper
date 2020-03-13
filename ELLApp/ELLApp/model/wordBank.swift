@@ -21,7 +21,7 @@ class WordBank : NSManagedObject {
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     //refer to persistant container
-    
+    let accountDetails = User()
     
     
     struct Word { //the structure of accounts, more can be added to accounts now, like progress trackers
@@ -34,8 +34,11 @@ class WordBank : NSManagedObject {
             self.drawnImage = drawnImage //UIImage(named: "questionmark")!
         }
     }
+
     
-    func saveNewWordToCoreData(user : String, word : String, targetLanguage : String) {
+    func saveNewWordToCoreData(user : String, word : String) {
+        
+        let targetLanguage = accountDetails.getTargetLang()
         
         let context = self.appDelegate.persistentContainer.viewContext
         let entity = NSEntityDescription.entity(forEntityName: "WordBankCore", in: context)
@@ -46,7 +49,11 @@ class WordBank : NSManagedObject {
         TranslationManager.shared.targetLanguageCode = targetLanguage //and its target language
         TranslationManager.shared.translate(completion: { (translation) in
 
-              if let translation = translation {
+              if var translation = translation {
+                if(translation == ""){
+                    translation = "No translation found"
+                    
+                }
                     DispatchQueue.main.async { [unowned self] in
                     newWord.setValue(user, forKey: "user")
                     newWord.setValue(translation, forKey: "translation")
@@ -188,6 +195,8 @@ class WordBank : NSManagedObject {
                 imageUI = UIImage(named: "questionmark") // or UIImage(named: "questionmark")! if not exist
             } else {
                 imageUI = UIImage(data: image! as Data)
+
+                
             }
             
             
@@ -202,7 +211,102 @@ class WordBank : NSManagedObject {
     
     
     
-}
+    func getTenPairs(user : String) -> Array<Question>?{
+        
+        //this will be easier with a layer
+        //an advantage of core data is the ability to get all from it with little impact to performance due to a mechanism called "faulting"
+        //get all into array
+        //shuffle array
+        //take first 10
+        
+        var questions =  [Question]()
+        
+//        let context = appDelegate.persistentContainer.viewContext
+//
+//
+//        let fetchRequest:NSFetchRequest<NSFetchRequestResult> = NSFetchRequest.init(entityName: "Words")
+//        //fetchRequest.returnsObjectsAsFaults = false //THIS DISABLES FAULTING
+//
+//        var objects = try! context.fetch(fetchRequest) as! [NSManagedObject]
+        
+        let allWordObjects = getListOfWords(user: user)
+        
+        var objects : [Word] = []
+        var question = ""
+        var answer : Answer
+        var wrongAnswer1: Answer
+        var wrongAnswer2: Answer
+        var wrongAnswer3: Answer
+        
+        //print(objects[0])
+        //print(objects[0].value(forKey: "origin") ?? "No value")
+    
+        
+        for i in 0...allWordObjects.count - 1{ //all words in the word bank must either have an associated image or a translation
+            if(allWordObjects[i].TranslatedWord != "No translation found" || allWordObjects[i].drawnImage != UIImage(named: "questionmark")){
+                objects.append(allWordObjects[i])
+            }
+        }
+        
+        let numberOfPairs = objects.count
+        
+        
+        if(numberOfPairs < 10) {
+            return nil //NOTE AN EMPTY ARRAY WILL BE RETURNED
+            //IF NOT AT LEAST 10 ENTRIES
+        }
+        
+        objects = objects.shuffled() //re-orders array
+        var random1 : Int
+        var random2: Int
+        var random3: Int
+        
+        for i in 0...9 {
+            random1 = i
+            random2 = i
+            random3 = i
+            while(random1 == i || random2 == i || random3 == i || random1 == random2 || random1 == random3 || random2 == random3){
+                random1 = Int.random(in: 0...numberOfPairs - 1)
+                random2 = Int.random(in: 0...numberOfPairs - 1)
+                random3 = Int.random(in: 0...numberOfPairs - 1)
+            }
+            wrongAnswer1 = Answer(text: objects[random1].EnglishWord, correct : false)
+             wrongAnswer2 = Answer(text: objects[random2].EnglishWord, correct : false)
+             wrongAnswer3 = Answer(text: objects[random3].EnglishWord, correct : false)
+            
+            if(objects[i].TranslatedWord == "No translation found"){
+                question = ""
+            } else {
+                question = objects[i].TranslatedWord
+            }
+            
+            
+            answer = Answer(text: objects[i].EnglishWord, correct : true)
+            
+            if objects[i].drawnImage != UIImage(named: "questionmark")!{
+                objects[i].drawnImage = cropImage(image: objects[i].drawnImage) //crop it so it removes bottom part
+            }
+            
+            questions.append(Question(text: question, drawnImage: objects[i].drawnImage, answers: [answer, wrongAnswer1, wrongAnswer2, wrongAnswer3]))
+            
 
+        }
+        
+        return questions
+    }
+    
+     
+    
+     // a function to crop an image to remove the bottom part (which displays drawing options)
+     func cropImage(image: UIImage) -> UIImage {
+        let rect = CGRect(x: 0, y: 100, width: 2048, height: 1536-400) //    1536 x 2048 pixels
+
+        let cgImage = image.cgImage! // better to write "guard"
+
+        let croppedCGImage = cgImage.cropping(to: rect)
+        return UIImage(cgImage: croppedCGImage!)
+    }
     
    
+    
+}

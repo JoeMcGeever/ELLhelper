@@ -35,7 +35,7 @@ class WordAssociation : UIViewController {
                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (action) -> Void in
                    let textField = alert?.textFields![0]
                    self.wordToAssociate = textField?.text ?? ""
-                self.viewDidLoad()
+                   self.viewDidLoad()
                 
                }))
 
@@ -45,7 +45,6 @@ class WordAssociation : UIViewController {
     
     
     override func viewDidLoad() {
-        super.viewDidLoad()
         wordToAssociateLabel.text = wordToAssociate
     }
 
@@ -73,6 +72,7 @@ class WordAssociation : UIViewController {
     @objc func counter(){
         seconds -= 1
         timerLabel.text = String(seconds)
+       
         
         if(seconds == 0){
             timer.invalidate() //stop timer
